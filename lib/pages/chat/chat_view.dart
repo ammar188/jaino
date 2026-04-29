@@ -23,6 +23,7 @@ import 'package:fluffychat/widgets/unread_rooms_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 
+import '../../dsl/extensions/dsl_room_extension.dart';
 import '../../utils/stream_extension.dart';
 import 'chat_emoji_picker.dart';
 import 'chat_input_row.dart';
@@ -394,13 +395,15 @@ class ChatView extends StatelessWidget {
                                         ],
                                       )
                                     : Column(
-                                        mainAxisSize: .min,
-                                        children: [
-                                          ReplyDisplay(controller),
-                                          ChatInputRow(controller),
-                                          ChatEmojiPicker(controller),
-                                        ],
-                                      ),
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    if (controller.room.buildQuickActions() != null)
+                                      controller.room.buildQuickActions()!,
+                                    ReplyDisplay(controller),
+                                    ChatInputRow(controller),
+                                    ChatEmojiPicker(controller),
+                                  ],
+                                ),
                               ),
                             ),
                         ],
