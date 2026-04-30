@@ -109,11 +109,8 @@ class MessageContent extends StatelessWidget {
     final dslWidget = event.buildDSLWidget();
 
     if (dslWidget != null) {
-      return Padding(
-        padding: const EdgeInsets.all(4),
-        child: dslWidget,
-      );
-    }
+  return dslWidget;
+}
 
     final fontSize =
         AppConfig.messageFontSize * AppSettings.fontSizeFactor.value;
