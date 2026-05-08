@@ -231,6 +231,45 @@ DSLRegistry.instance.register(MenuHandler());
 ```
 
 ---
+## Registered Handlers
+
+| Type          | Version | File                        |
+|---------------|---------|-----------------------------|
+| payment       | 1       | payment_dsl_handler.dart    |
+
+## Payment DSL Payload
+
+| Field          | Type   | Required | Description             |
+|----------------|--------|----------|-------------------------|
+| amount         | int    | ✅        | Order amount in PKR     |
+| currency       | String | ✅        | Always PKR              |
+| order_id       | String | ✅        | Internal order ID       |
+| transaction_id | String | ✅        | Swich transaction ID    |
+| payment_url    | String | ✅        | Full Swich PWA URL      |
+| customer_name  | String | ✅        | Customer full name      |
+
+### Example Event
+```json
+{
+  "com.jaino.dsl": {
+    "v": 1,
+    "type": "payment",
+    "data": {
+      "amount": 500,
+      "currency": "PKR",
+      "order_id": "abc123",
+      "transaction_id": "DOTCAFE-500-a1b2c3d4",
+      "payment_url": "https://payin-pwa.swichnow.com?...",
+      "customer_name": "Shahzad"
+    }
+  }
+}
+```
+
+### Behavior
+- Renders payment card with amount and Pay Now button
+- Tapping Pay Now opens Swich PWA in external browser
+- Adapts to dark and light theme
 
 ## Error Handling
 
@@ -297,6 +336,7 @@ Useful when:
 ## Recommended Next Steps
 
 - [ ] Implement real handlers (`menu`, `invoice`, etc.)
+- [ ] Implement `payment` handler
 - [ ] Add a centralized action handling layer
 - [ ] Standardize DSL payload schemas
 - [ ] Add structured logging
