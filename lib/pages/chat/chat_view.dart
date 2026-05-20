@@ -328,7 +328,7 @@ class ChatView extends StatelessWidget {
                             placeholder: (_) => Container(),
                           ),
                         ),
-                      ),
+                     ),
                     SafeArea(
                       child: Column(
                         children: <Widget>[
@@ -352,59 +352,76 @@ class ChatView extends StatelessWidget {
                             )
                           else if (controller.room.canSendDefaultMessages &&
                               controller.room.membership == Membership.join)
-                            Container(
-                              margin: EdgeInsets.all(bottomSheetPadding),
-                              constraints: const BoxConstraints(
-                                maxWidth: FluffyThemes.maxTimelineWidth,
-                              ),
-                              alignment: Alignment.center,
-                              child: Material(
-                                clipBehavior: Clip.hardEdge,
-                                color: controller.selectedEvents.isNotEmpty
-                                    ? theme.colorScheme.tertiaryContainer
-                                    : theme.colorScheme.surfaceContainerHigh,
-                                borderRadius: BorderRadius.circular(32),
-                                child: controller.room.isAbandonedDMRoom == true
-                                    ? Row(
-                                        mainAxisAlignment: .spaceEvenly,
-                                        children: [
-                                          TextButton.icon(
-                                            style: TextButton.styleFrom(
-                                              padding: const EdgeInsets.all(16),
-                                              foregroundColor:
-                                                  theme.colorScheme.error,
-                                            ),
-                                            icon: const Icon(
-                                              Icons.archive_outlined,
-                                            ),
-                                            onPressed: controller.leaveChat,
-                                            label: Text(L10n.of(context).leave),
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                if (controller.room.buildQuickActions(
+                                  context,
+                                  onActionTap: (label) {
+                                    controller.sendController.text = label;
+                                    controller.send();
+                                  },
+                                ) != null)
+                                  controller.room.buildQuickActions(
+                                    context,
+                                    onActionTap: (label) {
+                                      controller.sendController.text = label;
+                                      controller.send();
+                                    },
+                                  )!,
+                                Container(
+                                  margin: EdgeInsets.all(bottomSheetPadding),
+                                  constraints: const BoxConstraints(
+                                    maxWidth: FluffyThemes.maxTimelineWidth,
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Material(
+                                    clipBehavior: Clip.hardEdge,
+                                    color: controller.selectedEvents.isNotEmpty
+                                        ? theme.colorScheme.tertiaryContainer
+                                        : theme.colorScheme.surfaceContainerHigh,
+                                    borderRadius: BorderRadius.circular(32),
+                                    child: controller.room.isAbandonedDMRoom == true
+                                        ? Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              TextButton.icon(
+                                                style: TextButton.styleFrom(
+                                                  padding: const EdgeInsets.all(16),
+                                                  foregroundColor:
+                                                      theme.colorScheme.error,
+                                                ),
+                                                icon: const Icon(
+                                                  Icons.archive_outlined,
+                                                ),
+                                                onPressed: controller.leaveChat,
+                                                label: Text(L10n.of(context).leave),
+                                              ),
+                                              TextButton.icon(
+                                                style: TextButton.styleFrom(
+                                                  padding: const EdgeInsets.all(16),
+                                                ),
+                                                icon: const Icon(
+                                                  Icons.forum_outlined,
+                                                ),
+                                                onPressed: controller.recreateChat,
+                                                label: Text(
+                                                  L10n.of(context).reopenChat,
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              ReplyDisplay(controller),
+                                              ChatInputRow(controller),
+                                              ChatEmojiPicker(controller),
+                                            ],
                                           ),
-                                          TextButton.icon(
-                                            style: TextButton.styleFrom(
-                                              padding: const EdgeInsets.all(16),
-                                            ),
-                                            icon: const Icon(
-                                              Icons.forum_outlined,
-                                            ),
-                                            onPressed: controller.recreateChat,
-                                            label: Text(
-                                              L10n.of(context).reopenChat,
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    : Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    if (controller.room.buildQuickActions() != null)
-                                      controller.room.buildQuickActions()!,
-                                    ReplyDisplay(controller),
-                                    ChatInputRow(controller),
-                                    ChatEmojiPicker(controller),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
                         ],
                       ),
