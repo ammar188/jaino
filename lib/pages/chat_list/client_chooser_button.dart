@@ -77,16 +77,16 @@ class ClientChooserButton extends StatelessWidget {
           ],
         ),
       ),
-      PopupMenuItem(
-        value: SettingsAction.support,
-        child: Row(
-          children: [
-            Icon(Icons.favorite, color: Colors.red),
-            const SizedBox(width: 18),
-            Text(L10n.of(context).supportFluffyChat),
-          ],
-        ),
-      ),
+      // PopupMenuItem(
+      //   value: SettingsAction.support,
+      //   child: Row(
+      //     children: [
+      //       Icon(Icons.favorite, color: Colors.red),
+      //       const SizedBox(width: 18),
+      //       Text(L10n.of(context).supportFluffyChat),
+      //     ],
+      //   ),
+      // ),
       const PopupMenuDivider(),
       for (final bundle in bundles) ...[
         if (matrix.accountBundles[bundle]!.length != 1 ||
@@ -218,11 +218,11 @@ class ClientChooserButton extends StatelessWidget {
         case SettingsAction.invite:
           FluffyShare.shareInviteLink(context);
           break;
-        case SettingsAction.support:
-          launchUrlString(
-            'https://fluffychat.im/faq/#how_can_i_support_fluffychat',
-          );
-          break;
+        // case SettingsAction.support:
+        //   launchUrlString(
+        //     'https://fluffychat.im/faq/#how_can_i_support_fluffychat',
+        //   );
+        //   break;
         case SettingsAction.settings:
           context.go('/rooms/settings');
           break;
@@ -242,7 +242,7 @@ enum SettingsAction {
   newGroup,
   setStatus,
   invite,
-  support,
+  // support,
   settings,
   archive,
 }

@@ -124,7 +124,7 @@ class _MenuTriggerButton extends StatelessWidget {
                       ),
                     ),
                     Icon(
-                      Icons.chevron_right,
+                      Icons.arrow_circle_right,
                       color: tapTextColor,
                       size: 14,
                     ),
@@ -207,7 +207,7 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
     final orderBarText = isDark ? Colors.white : const Color(0xFF111111);
     final orderBtnBg = isDark ? Colors.white : const Color(0xFF111111);
     final orderBtnText = isDark ? const Color(0xFF111111) : Colors.white;
-    final dragColor = isDark ? const Color(0xFF3A3A3C) : const Color(0xFFD9D9D9);
+    final dragColor = isDark ? const Color(0xFFD9D9D9) : const Color(0xFFD9D9D9);
 
     return Container(
       width: 388.39,

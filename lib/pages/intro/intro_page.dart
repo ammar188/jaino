@@ -101,20 +101,21 @@ class IntroPage extends StatelessWidget {
                     child: IntrinsicHeight(
                       child: Column(
                         children: [
-                          Container(
-                            alignment: Alignment.center,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0,
-                            ),
-                            child: Hero(
-                              tag: 'info-logo',
-                              child: Image.asset(
-                                './assets/banner_transparent.png',
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 32),
+                          // Container(
+                          //   alignment: Alignment.center,
+                          //   padding: const EdgeInsets.symmetric(
+                          //     horizontal: 8.0,
+                          //   ),
+                          //   child:
+                          //    Hero(
+                          //     tag: 'info-logo',
+                          //     child: Image.asset(
+                          //       './assets/banner_transparent.png',
+                          //       fit: BoxFit.fitWidth,
+                          //     ),
+                          //   ),
+                          // ),
+                          // const SizedBox(height: 32),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 32.0,

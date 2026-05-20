@@ -18,31 +18,38 @@ extension DSLRoomExtension on Room {
     final theme = Theme.of(context);
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(12, 0, 12, 6),
-      child: Row(
-        children: actions.map<Widget>((action) {
-          final label = action['label'] as String? ?? '';
-          final icon  = action['icon']  as String? ?? '';
+  padding: const EdgeInsets.fromLTRB(0,0,0,6),
+  child: SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
+    child: Row(
+      children: actions.map<Widget>((action) {
+        final label = action['label'] as String? ?? '';
 
-          return Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 7),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-  backgroundColor: Colors.white,
-  foregroundColor: Colors.black,
-  shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(16),
-  ),
-  padding: const EdgeInsets.symmetric(vertical: 10),
-),
-                onPressed: () => onActionTap(label),
-                child: Text(label),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width / 3.9,
+            child: ElevatedButton(
+              onPressed: () => onActionTap(label),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+              ),
+              child: Text(
+                label,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-          );
-        }).toList(),
-      ),
-    );
-  }
+          ),
+        );
+      }).toList(),
+    ),
+  ),
+);
+}
 }
