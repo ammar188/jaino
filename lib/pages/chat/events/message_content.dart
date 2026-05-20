@@ -106,7 +106,9 @@ class MessageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dslWidget = event.buildDSLWidget();
+    final dslWidget = event.buildDSLWidget(
+  timelineEvents: timeline.events,
+);
 
     if (dslWidget != null) {
   return dslWidget;

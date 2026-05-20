@@ -19,9 +19,9 @@ import 'dsl/handlers/menu_handler.dart';
 import 'dsl/handlers/payment_dsl_handler.dart';
 import 'dsl/handlers/appointment_handler.dart';
 import 'dsl/models/dsl_registry.dart';
+import 'dsl/handlers/review_handler.dart';
 import 'utils/background_push.dart';
 import 'widgets/fluffy_chat_app.dart';
-
 ReceivePort? mainIsolateReceivePort;
 
 bool _vodozemacInitialized = false;
@@ -96,10 +96,10 @@ void setupDSL() {
   DSLRegistry.instance.register(MenuDSLHandler());
   DSLRegistry.instance.register(PaymentDSLHandler());
   DSLRegistry.instance.register(AppointmentDSLHandler());
+  DSLRegistry.instance.register(ReviewDSLHandler());
 }
 /// Fetch the pincode for the applock and start the flutter engine.
 Future<void> startGui(List<Client> clients, SharedPreferences store) async {
-  // Fetch the pin for the applock if existing for mobile applications.
   String? pin;
   if (PlatformInfos.isMobile) {
     try {
@@ -111,10 +111,10 @@ Future<void> startGui(List<Client> clients, SharedPreferences store) async {
     }
   }
 
-  // Preload first client
   final firstClient = clients.firstOrNull;
   await firstClient?.roomsLoading;
   await firstClient?.accountDataLoading;
+
 
   runApp(FluffyChatApp(clients: clients, pincode: pin, store: store));
 }
