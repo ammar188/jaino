@@ -4,6 +4,7 @@ import 'package:matrix/matrix.dart';
 import '../models/dsl_message.dart';
 import '../models/dsl_registry.dart';
 import '../models/dsl_render_result.dart';
+import '../handlers/payment_dsl_handler.dart';
 
 extension EventDSLRuntime on Event {
   Map<String, dynamic>? get _rawDSL =>
@@ -12,7 +13,6 @@ extension EventDSLRuntime on Event {
   DSLMessage? get dsl {
     final raw = _rawDSL;
     if (raw == null) return null;
-
     try {
       return DSLMessage.fromMap(raw);
     } catch (_) {
@@ -22,8 +22,9 @@ extension EventDSLRuntime on Event {
 
   bool get hasDSL => dsl != null;
 
-  /// SAFE rendering (never throws, because you're not a psychopath)
-  Widget? buildDSLWidget() {
+  /// Pass [timelineEvents] so the payment card can check paid/expired state
+  /// by scanning already-loaded events — no async, no room.timeline needed.
+  Widget? buildDSLWidget({List<Event> timelineEvents = const []}) {
     final msg = dsl;
     if (msg == null) return null;
 
@@ -33,6 +34,11 @@ extension EventDSLRuntime on Event {
     }
 
     try {
+      // Payment handler gets the timeline events for paid/expired detection.
+      if (handler is PaymentDSLHandler) {
+        final result = handler.renderWithTimeline(this, msg, timelineEvents);
+        return result.widget;
+      }
       final result = handler.render(this, msg);
       return result.widget;
     } catch (_) {
@@ -40,7 +46,6 @@ extension EventDSLRuntime on Event {
     }
   }
 
-  /// Optional: if you still want structured result
   DSLRenderResult? renderDSL() {
     final msg = dsl;
     if (msg == null) return null;

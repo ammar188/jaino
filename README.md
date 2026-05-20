@@ -1,136 +1,108 @@
-![Screenshot](https://github.com/krille-chan/fluffychat/blob/main/assets/banner_transparent.png?raw=true)
+# Jaino — AI Marketplace Platform
 
-[FluffyChat](https://fluffy.chat) is an open source, nonprofit and cute [[matrix](https://matrix.org)] client written in [Flutter](https://flutter.dev). The goal of the app is to create an easy to use instant messenger which is open source and accessible for everyone.
+> A smart marketplace where every business gets its own AI agent and chat room.
 
-### Links:
+---
 
-- 🌐 [[Weblate] Translate FluffyChat into your language](https://hosted.weblate.org/projects/fluffychat/)
-- 🌍 [[m] Join the community](https://matrix.to/#/#fluffy-space:matrix.org)
-- 📰 [[Mastodon] Get updates on social media](https://troet.cafe/@krille)
-- 🖥️ [[Famedly] Server hosting and professional support](https://famedly.com/kontakt)
-- 💝 [[Liberapay] Support FluffyChat development](https://de.liberapay.com/KrilleChritzelius)
+## What is Jaino?
 
-<a href='https://ko-fi.com/C1C86VN53' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+Jaino is an AI-powered marketplace platform built for Pakistan. Instead of downloading a separate app for every restaurant, clinic, or salon — users open Jaino, browse businesses, tap one, and start chatting with that business's own AI agent.
 
-### Screenshots:
+Every business on Jaino gets a dedicated chat room powered by the Matrix protocol. The customer talks naturally with the AI — in Urdu or English — and the AI handles everything: showing menus, booking appointments, taking orders, and processing payments, all inside the chat as beautiful interactive cards.
 
-<img src="https://github.com/krille-chan/fluffychat-website/blob/main/src/assets/screenshots/mobile.png?raw=true" height="300">
-<img src="https://github.com/krille-chan/fluffychat-website/blob/main/src/assets/screenshots/desktop.png?raw=true" height="300">
+No forms. No phone calls. Just chat.
 
-# Features
+---
 
-- 📩 Send all kinds of messages, images and files
-- 🎙️ Voice messages
-- 📍 Location sharing
-- 🔔 Push notifications
-- 💬 Unlimited private and public group chats
-- 📣 Public channels with thousands of participants
-- 🛠️ Feature rich group moderation including all matrix features
-- 🔍 Discover and join public groups
+## How it works
+
+```
+User opens Jaino
+        │
+        ▼
+Browse the marketplace — restaurants, clinics, salons, shops
+        │
+        ▼
+Tap a business → open their chat room
+        │
+        ▼
+Talk to their AI agent
+        │
+        ├── "Show me the menu"     → interactive menu card appears
+        ├── "Book an appointment"  → appointment form card appears
+        ├── "I want to order"      → AI takes order, payment card appears
+        └── "What are your hours"  → AI answers instantly
+```
+
+---
+
+## Features
+
+- 🏪 Marketplace directory — browse all businesses in one place
+- 💬 One chat room per business — powered by Matrix protocol
+- 🤖 Every business has its own dedicated AI agent
+- 🃏 Interactive cards — menus, appointments, payments inside chat
+- 🌐 Urdu and English — AI detects language and replies accordingly
+- 🔐 End to end encrypted chats
 - 🌙 Dark mode
-- 🎨 Material You design
-- 📟 Hides complexity of Matrix IDs behind simple QR codes
-- 😄 Custom emotes and stickers
-- 🌌 Spaces
-- 🔄 Compatible with Element, Nheko, NeoChat and all other Matrix apps
-- 🔐 End to end encryption
-- 🔒 Encrypted chat backup
-- 😀 Emoji verification & cross signing
+- 📱 Android and iOS
 
-... and much more.
+---
 
+## AI Agents
 
-# Installation
+Each business on Jaino has its own AI agent trained specifically for that industry. The agent knows the business's products, services, prices, and policies — and handles the full customer journey from first message to payment.
 
-Please visit the website for installation instructions:
+### Restaurant agent
+Knows the full menu, takes food orders, handles special requests, and triggers a payment card when the customer is ready to pay. Remembers what the customer ordered in previous visits.
 
-- https://fluffy.chat
+### Clinic agent
+Asks about symptoms, suggests the right department, collects patient details, and books an appointment directly into the clinic's calendar. Sends a reminder before the appointment.
 
-# How to build
+### Salon agent
+Shows available services and stylists, checks slot availability, and confirms a booking with a card showing the stylist name, service, and time.
 
-1. To build FluffyChat you need [Flutter](https://flutter.dev) and [Rust](https://www.rust-lang.org/tools/install)
+### Shop agent
+Lets customers browse products through interactive cards, add items to a cart, and checkout with a payment card — all without leaving the chat.
 
-2. Clone the repo:
-```
-git clone https://github.com/krille-chan/fluffychat.git
-cd fluffychat
-```
-3. Choose your target platform below and enable support for it.
-3.1 If you want, enable Googles Firebase Cloud Messaging:
+---
 
-`./scripts/add-firebase-messaging.sh`
+## Business Verticals
 
-4. Debug with: `flutter run`
+| Business | AI Agent | Status |
+|---|---|---|
+| Restaurant | Food ordering, menu, payment | ✅ Live |
+| Clinic / Doctor | Symptoms, appointment booking | 🔧 In progress |
+| Salon / Beauty | Services, stylist booking | 📋 Planned |
+| Retail shop | Browse, cart, checkout | 📋 Planned |
+| Gym | Class booking, membership | 📋 Planned |
+| Hotel | Room booking, QR check-in | 📋 Planned |
 
-### Android
+---
 
-* Build with: `flutter build apk`
+## Roadmap
 
-### iOS / iPadOS
+- [ ] Business onboarding — any shop joins Jaino and gets a room and AI agent automatically
+- [ ] Universal profile — one account, order history across all businesses
+- [ ] Jaino wallet — earn points at any business, spend anywhere
+- [ ] Smart search — find businesses by name, category, or location
+- [ ] Push notifications — order ready and appointment reminders
+- [ ] Reviews and ratings — star rating card after every visit
+- [ ] Voice messages — speak your order, AI understands
+- [ ] Admin dashboard — each business manages orders and bookings from a web panel
 
-* Have a Mac with Xcode installed, and set up for Xcode-managed app signing
-* If you want automatic app installation to connected devices, make sure you have Apple Configurator installed, with the Automation Tools (`cfgutil`) enabled
-* Set a few environment variables
-    * FLUFFYCHAT_NEW_TEAM: the Apple Developer team that your certificates should live under
-    * FLUFFYCHAT_NEW_GROUP: the group you want App IDs and such to live under (ie: com.example.fluffychat)
-    * FLUFFYCHAT_INSTALL_IPA: set to `1` if you want the IPA to be deployed to connected devices after building, otherwise unset
-* Run `./scripts/build-ios.sh`
+---
 
-### Web
+## Built with
 
-* Build with:
-```bash
-./scripts/prepare-web.sh # To install Vodozemac
-flutter build web --release
-```
+- Flutter — mobile app (Android & iOS)
+- Matrix protocol — chat infrastructure
+- Gemini AI — powers all agents
+- LangGraph + LabgChain — agent reasoning and tool use
+- Supabase — database
 
-* Optionally configure by serving a `config.json` at the same path as fluffychat.
-  An example can be found at `config.sample.json`. All values there are optional.
-  **Please only the values, you really need**. If you e.g. only want
-  to change the default homeserver, then only modify the `defaultHomeserver` key.
+---
 
-### Desktop (Linux, Windows, macOS)
+## License
 
-* Enable Desktop support in Flutter: https://flutter.dev/desktop
-
-#### Install custom dependencies (Linux)
-
-```bash
-sudo apt install libjsoncpp1 libsecret-1-dev libsecret-1-0 librhash0 libwebkit2gtk-4.0-dev lld
-```
-
-* Build with one of these:
-```bash
-flutter build linux --release
-flutter build windows --release
-flutter build macos --release
-```
-
-## How to run integration tests
-
-You need to have docker installed locally! Run the preparation script before every test run:
-
-```sh
-./scripts/prepare_integration_test.sh
-```
-
-Then run all tests with:
-
-```sh
-flutter test integration_test/mobile_test.dart
-```
-
-
-# Special thanks
-
-* <a href="https://github.com/fabiyamada">Fabiyamada</a> is a graphics designer and has made the fluffychat logo and the banner. Big thanks for her great designs.
-
-* <a href="https://github.com/advocatux">Advocatux</a> has made the Spanish translation with great love and care. He always stands by my side and supports my work with great commitment.
-
-* Thanks to MTRNord and Sorunome for developing.
-
-* Also thanks to all translators and testers! With your help, fluffychat is now available in more than 12 languages.
-
-* <a href="https://github.com/madsrh/WoodenBeaver">WoodenBeaver</a> sound theme for the notification sound.
-
-* The Matrix Foundation for making and maintaining the [emoji translations](https://github.com/matrix-org/matrix-spec/blob/main/data-definitions/sas-emoji.json) used for emoji verification, licensed Apache 2.0
+Private — All rights reserved © Jaino 2025

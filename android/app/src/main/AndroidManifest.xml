@@ -33,6 +33,7 @@
         android:localeConfig="@xml/locale_config"
     >
         <activity
+            android:usesCleartextTraffic="true" 
             android:name=".MainActivity"
             android:launchMode="singleTask"
             android:theme="@style/LaunchTheme"
@@ -96,6 +97,17 @@
                 <action android:name="android.intent.action.SEND_MULTIPLE" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="*/*" />
+                
+            </intent-filter>
+             <!-- App can open jaino:// payment deep links -->
+            <intent-filter android:autoVerify="false">
+               <action android:name="android.intent.action.VIEW" />
+               <category android:name="android.intent.category.DEFAULT" />
+               <category android:name="android.intent.category.BROWSABLE" />
+               <data
+                   android:scheme="jaino"
+                   android:host="payment"
+                   android:pathPrefix="/success" />
             </intent-filter>
         </activity>
 
