@@ -19,9 +19,10 @@ import 'dsl/handlers/menu_handler.dart';
 import 'dsl/handlers/payment_dsl_handler.dart';
 import 'dsl/handlers/appointment_handler.dart';
 import 'dsl/models/dsl_registry.dart';
+import 'dsl/handlers/review_handler.dart';
 import 'utils/background_push.dart';
 import 'widgets/fluffy_chat_app.dart';
-
+import 'package:supabase_flutter/supabase_flutter.dart';
 ReceivePort? mainIsolateReceivePort;
 
 bool _vodozemacInitialized = false;
@@ -87,6 +88,10 @@ void main() async {
   Logs().i(
     '${AppSettings.applicationName.value} started in foreground mode. Rendering GUI...',
   );
+ await Supabase.initialize(
+    url: 'https://loektgljcwcpgnezlqon.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxvZWt0Z2xqY3djcGduZXpscW9uIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2ODgwMTE4OCwiZXhwIjoyMDg0Mzc3MTg4fQ.2OEEIDENEWad8baw5ASfCj2JMYuRohaFrbVla7d9Anw',
+  );
   setupDSL();
   await startGui(clients, store);
 }
@@ -96,10 +101,10 @@ void setupDSL() {
   DSLRegistry.instance.register(MenuDSLHandler());
   DSLRegistry.instance.register(PaymentDSLHandler());
   DSLRegistry.instance.register(AppointmentDSLHandler());
+  DSLRegistry.instance.register(ReviewDSLHandler());
 }
 /// Fetch the pincode for the applock and start the flutter engine.
 Future<void> startGui(List<Client> clients, SharedPreferences store) async {
-  // Fetch the pin for the applock if existing for mobile applications.
   String? pin;
   if (PlatformInfos.isMobile) {
     try {
@@ -111,10 +116,10 @@ Future<void> startGui(List<Client> clients, SharedPreferences store) async {
     }
   }
 
-  // Preload first client
   final firstClient = clients.firstOrNull;
   await firstClient?.roomsLoading;
   await firstClient?.accountDataLoading;
+
 
   runApp(FluffyChatApp(clients: clients, pincode: pin, store: store));
 }

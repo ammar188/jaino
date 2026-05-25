@@ -50,50 +50,51 @@ abstract class PlatformInfos {
   }
 
   static Future<void> showDialog(BuildContext context) async {
-    final l10n = L10n.of(context);
     final version = await PlatformInfos.getVersion();
     if (!context.mounted) return;
-    showAboutDialog(
+    showAdaptiveDialog<void>(
       context: context,
-      children: [
-        Text(l10n.versionWithNumber(version)),
-        TextButton.icon(
-          onPressed: () => launchUrlString(AppConfig.sourceCodeUrl),
-          icon: const Icon(Icons.source_outlined),
-          label: Text(l10n.sourceCode),
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
         ),
-        Builder(
-          builder: (innerContext) {
-            return TextButton.icon(
-              onPressed: () {
-                context.go('/logs');
-                Navigator.of(innerContext).pop();
-              },
-              icon: const Icon(Icons.list_outlined),
-              label: Text(l10n.logs),
-            );
-          },
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 12),
+            Image.asset(
+              'assets/icon.png',
+              width: 80,
+              height: 80,
+              filterQuality: FilterQuality.medium,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              AppSettings.applicationName.value,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'v$version',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey[500],
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
         ),
-        Builder(
-          builder: (innerContext) {
-            return TextButton.icon(
-              onPressed: () {
-                context.go('/configs');
-                Navigator.of(innerContext).pop();
-              },
-              icon: const Icon(Icons.settings_applications_outlined),
-              label: Text(l10n.advancedConfigs),
-            );
-          },
-        ),
-      ],
-      applicationIcon: Image.asset(
-        'assets/logo.png',
-        width: 64,
-        height: 64,
-        filterQuality: FilterQuality.medium,
+        actionsAlignment: MainAxisAlignment.center,
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Close'),
+          ),
+        ],
       ),
-      applicationName: AppSettings.applicationName.value,
     );
   }
 }

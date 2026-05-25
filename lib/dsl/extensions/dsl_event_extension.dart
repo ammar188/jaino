@@ -12,7 +12,6 @@ extension EventDSLRuntime on Event {
   DSLMessage? get dsl {
     final raw = _rawDSL;
     if (raw == null) return null;
-
     try {
       return DSLMessage.fromMap(raw);
     } catch (_) {
@@ -22,8 +21,9 @@ extension EventDSLRuntime on Event {
 
   bool get hasDSL => dsl != null;
 
-  /// SAFE rendering (never throws, because you're not a psychopath)
-  Widget? buildDSLWidget() {
+  /// Pass [timelineEvents] so the payment card can check paid/expired state
+  /// by scanning already-loaded events — no async, no room.timeline needed.
+  Widget? buildDSLWidget({List<Event> timelineEvents = const []}) {
     final msg = dsl;
     if (msg == null) return null;
 
@@ -33,14 +33,15 @@ extension EventDSLRuntime on Event {
     }
 
     try {
-      final result = handler.render(this, msg);
-      return result.widget;
-    } catch (_) {
+  final result = handler.render(this, msg);
+  if (result.widget == null) return null;
+  return result.widget;
+}
+     catch (_) {
       return const Text('Failed to render DSL');
     }
   }
 
-  /// Optional: if you still want structured result
   DSLRenderResult? renderDSL() {
     final msg = dsl;
     if (msg == null) return null;
