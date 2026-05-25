@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../models/dsl_handler.dart';
 import '../models/dsl_message.dart';
 import '../models/dsl_render_result.dart';
-
+import 'package:supabase_flutter/supabase_flutter.dart';
 class PaymentDSLHandler extends DSLHandler {
   @override
   String get type => 'payment';
@@ -31,50 +31,9 @@ class PaymentDSLHandler extends DSLHandler {
         customerName: customerName,
         room: room,
         senderUserId: room.client.userID ?? '',
-        isDisabled: false,
       ),
     );
   }
- DSLRenderResult renderWithTimeline(Event event, DSLMessage msg, List<Event> timelineEvents) {
-  final amount       = msg.get<int>('amount') ?? 0;
-  final currency     = msg.get<String>('currency') ?? 'PKR';
-  final orderId      = msg.get<String>('order_id') ?? '';
-  final paymentUrl   = msg.get<String>('payment_url') ?? '';
-  final customerName = msg.get<String>('customer_name') ?? '';
-  final room         = event.room;
-
-  final isPaid = timelineEvents.any((e) =>
-    e.type == EventTypes.Message &&
-    (e.content['body'] as String? ?? '').contains('Payment confirmed') &&
-    e.originServerTs.isAfter(event.originServerTs)
-  );
-
-  final isLatest = !timelineEvents.any((e) {
-    if (e.eventId == event.eventId) return false;
-    final dsl = e.content['com.jaino.dsl'] as Map<String, dynamic>?;
-    if (dsl == null) return false;
-    if (dsl['type'] != 'payment') return false;
-    final data = dsl['data'] as Map<String, dynamic>?;
-    if (data == null) return false;
-    return data['order_id'] == orderId &&
-        e.originServerTs.isAfter(event.originServerTs);
-  });
-
-  final isDisabled = isPaid || !isLatest;
-
-  return DSLRenderResult(
-    widget: _PaymentCard(
-      amount: amount,
-      currency: currency,
-      orderId: orderId,
-      paymentUrl: paymentUrl,
-      customerName: customerName,
-      room: room,
-      senderUserId: room.client.userID ?? '',
-      isDisabled: isDisabled,
-    ),
-  );
-}
 }
 
 class _PaymentCard extends StatefulWidget {
@@ -85,7 +44,6 @@ class _PaymentCard extends StatefulWidget {
   final String customerName;
   final Room room;
   final String senderUserId;
-  final bool isDisabled;
 
   const _PaymentCard({
     required this.amount,
@@ -95,7 +53,6 @@ class _PaymentCard extends StatefulWidget {
     required this.customerName,
     required this.room,
     required this.senderUserId,
-    required this.isDisabled,
   });
 
   @override
@@ -104,12 +61,109 @@ class _PaymentCard extends StatefulWidget {
 
 class _PaymentCardState extends State<_PaymentCard> {
   bool _loadingPay = false;
+  bool _isPaid = false;
+  bool _reviewEventSent = false;
+  RealtimeChannel? _channel;
 
-  Future<void> _openPayment() async {
+  @override
+  void initState() {
+    super.initState();
+    _checkInitialStatus();
+    _subscribeToPayment();
+  }
+
+  Future<void> _checkInitialStatus() async {
+  final response = await Supabase.instance.client
+      .from('payment_intents')
+      .select('status')
+      .eq('order_id', widget.orderId)
+      .eq('status', 'paid')
+      .maybeSingle();
+
+ if (response != null && mounted && !_reviewEventSent) {
+  _reviewEventSent = true;  // ADD THIS
+  setState(() => _isPaid = true);
+  await _sendPaymentSuccessEvent();
+}
+}
+
+  void _subscribeToPayment() {
+    _channel = Supabase.instance.client
+        .channel('payment_${widget.orderId}')
+        .onPostgresChanges(
+          event: PostgresChangeEvent.update,
+          schema: 'public',
+          table: 'payment_intents',
+          filter: PostgresChangeFilter(
+            type: PostgresChangeFilterType.eq,
+            column: 'order_id',
+            value: widget.orderId,
+          ),
+          callback: (payload) async {
+  final newStatus = payload.newRecord['status'];
+  if (newStatus == 'paid' && mounted && !_reviewEventSent) {
+    _reviewEventSent = true;  // ADD THIS
+    setState(() => _isPaid = true);
+    await _sendPaymentSuccessEvent();
+  }
+},
+        )
+        .subscribe();
+  }
+
+  @override
+  void dispose() {
+    _channel?.unsubscribe();
+    super.dispose();
+  }
+
+  Future<void> _sendPaymentSuccessEvent() async {
+  try {
+    await widget.room.sendEvent({
+      'msgtype': 'm.text',
+      'body': 'Payment confirmed',
+      'com.jaino.dsl': {
+        'type': 'payment_success',
+        'version': 1,
+        'data': {
+          'order_id': widget.orderId,
+        },
+      },
+    });
+    debugPrint('✅ payment_success DSL event sent for order ${widget.orderId}');
+  } catch (e) {
+    debugPrint('🔴 Failed to send payment_success event: $e');
+  }
+}
+
+ Future<void> _openPayment() async {
   setState(() => _loadingPay = true);
   try {
-    // Just open the payment_url directly — bot already created the transaction
-    if (widget.paymentUrl.isEmpty) {
+    final userId = widget.room.client.userID ?? '';
+    debugPrint('🔵 Calling refresh-payment | order_id: ${widget.orderId} | user_id: $userId');
+
+    final refreshResp = await Supabase.instance.client.functions.invoke(
+      'refresh-payment',
+      body: {
+        'order_id': widget.orderId,
+        'user_id': userId,
+      },
+    );
+    debugPrint('🟢 raw response data: ${refreshResp.data}');
+    debugPrint('🟢 response status: ${refreshResp.status}');
+
+    debugPrint('🟢 refresh-payment response: ${refreshResp.data}');
+    debugPrint('🟡 refresh-payment error: ${refreshResp.status}');
+
+    final refreshData = refreshResp.data as Map<String, dynamic>;
+
+    if (refreshData['status'] == 'paid') {
+      if (mounted) setState(() => _isPaid = true);
+      return;
+    }
+
+    final freshUrl = refreshData['payment_url'] as String?;
+    if (freshUrl == null || freshUrl.isEmpty) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Payment link not available')),
@@ -122,17 +176,19 @@ class _PaymentCardState extends State<_PaymentCard> {
       await Navigator.of(context).push(
         MaterialPageRoute(
           builder: (_) => _PaymentWebView(
-            url: widget.paymentUrl,
+            url: freshUrl,
             orderId: widget.orderId,
             room: widget.room,
           ),
         ),
       );
     }
-  } catch (e) {
+  } catch (e, stack) {
+    debugPrint('🔴 _openPayment error: $e');
+    debugPrint('🔴 stack: $stack');
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Connection error. Try again.')),
+        SnackBar(content: Text('Error: $e')),
       );
     }
   } finally {
@@ -142,14 +198,14 @@ class _PaymentCardState extends State<_PaymentCard> {
 
   @override
   Widget build(BuildContext context) {
-    final theme  = Theme.of(context);
+    final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final cardColor     = isDark ? Colors.white : const Color(0xFF1F1F1F);
-    final titleColor    = isDark ? const Color(0xFF1A1A1A) : Colors.white;
+    final cardColor = isDark ? Colors.white : const Color(0xFF1F1F1F);
+    final titleColor = isDark ? const Color(0xFF1A1A1A) : Colors.white;
     final subtitleColor = const Color(0xFFC9C9C9);
-    final btnBg         = isDark ? const Color(0xFF1A1A1A) : Colors.white;
-    final btnText       = isDark ? Colors.white : const Color(0xFF1A1A1A);
+    final btnBg = isDark ? const Color(0xFF1A1A1A) : Colors.white;
+    final btnText = isDark ? Colors.white : const Color(0xFF1A1A1A);
 
     return Container(
       width: 193,
@@ -182,7 +238,7 @@ class _PaymentCardState extends State<_PaymentCard> {
           ),
           const SizedBox(height: 2),
           Text(
-            'Complete your payment',
+            _isPaid ? 'Payment completed' : 'Complete your payment',
             style: TextStyle(
               color: subtitleColor,
               fontSize: 9,
@@ -196,52 +252,52 @@ class _PaymentCardState extends State<_PaymentCard> {
           ),
           const SizedBox(height: 8),
           GestureDetector(
-  onTap: (_loadingPay || widget.isDisabled) ? null : _openPayment,
-  child: Container(
-    width: double.infinity,
-    height: 32,
-    decoration: BoxDecoration(
-      color: widget.isDisabled ? Colors.grey.shade400 : btnBg,
-      borderRadius: BorderRadius.circular(6),
-      border: Border.all(
-        color: subtitleColor.withOpacity(0.3),
-        width: 0.5,
-      ),
-    ),
-    child: Center(
-      child: _loadingPay
-          ? SizedBox(
-              width: 16,
-              height: 16,
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                color: btnText,
-              ),
-            )
-          : Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.isDisabled ? 'Paid ✓' : 'Pay Now',
-                  style: TextStyle(
-                    color: widget.isDisabled ? Colors.white : btnText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
+            onTap: (_loadingPay || _isPaid) ? null : _openPayment,
+            child: Container(
+              width: double.infinity,
+              height: 32,
+              decoration: BoxDecoration(
+                color: _isPaid ? Colors.grey.shade400 : btnBg,
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all(
+                  color: subtitleColor.withOpacity(0.3),
+                  width: 0.5,
                 ),
-                if (!widget.isDisabled) ...[
-                  const SizedBox(width: 6),
-                  Icon(
-                    Icons.arrow_circle_right,
-                    color: btnText,
-                    size: 14,
-                  ),
-                ],
-              ],
+              ),
+              child: Center(
+                child: _loadingPay
+                    ? SizedBox(
+                        width: 16,
+                        height: 16,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: btnText,
+                        ),
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            _isPaid ? 'Paid ✓' : 'Pay Now',
+                            style: TextStyle(
+                              color: _isPaid ? Colors.white : btnText,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          if (!_isPaid) ...[
+                            const SizedBox(width: 6),
+                            Icon(
+                              Icons.arrow_circle_right,
+                              color: btnText,
+                              size: 14,
+                            ),
+                          ],
+                        ],
+                      ),
+              ),
             ),
-    ),
-  ),
-),
+          ),
         ],
       ),
     );

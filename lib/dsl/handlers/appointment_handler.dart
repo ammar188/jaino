@@ -35,11 +35,12 @@ class _AppointmentTriggerButton extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final cardColor     = isDark ? Colors.white : const Color(0xFF1F1F1F);
-    final titleColor    = isDark ? const Color(0xFF1A1A1A) : Colors.white;
+  
     final subtitleColor = const Color(0xFFC9C9C9);
-    final tapBgColor    = isDark ? const Color(0xFF3A3A3A) : const Color(0xFF1F1F1F);
     final tapTextColor  = Colors.white;
+    final cardColor     = isDark ? const Color(0xFF1F1F1F) : Colors.white;
+final titleColor    = isDark ? Colors.white : const Color(0xFF1A1A1A);
+final tapBgColor    = isDark ? const Color(0xFF3A3A3A) : const Color(0xFFF2F2F7);
 
     return GestureDetector(
       onTap: () => _showAppointmentModal(context, room),
@@ -258,13 +259,13 @@ Future<void> _submitAppointment() async {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final bgColor       = isDark ? Colors.white : const Color(0xFF1C1C1E);
-    final primaryText   = isDark ? const Color(0xFF272727) : Colors.white;
+    final bgColor       = isDark ? const Color(0xFF1C1C1E) : Colors.white;
+final primaryText   = isDark ? Colors.white : const Color(0xFF272727);
+final dividerColor  = isDark ? const Color(0xFF3A3A3C) : const Color(0xFFD9D9D9);
+final nextBtnBg     = isDark ? Colors.white : const Color(0xFF111111);
+final nextBtnText   = isDark ? const Color(0xFF111111) : Colors.white;
     final secondaryText = const Color(0xFF8E8E93);
-    final dividerColor  = isDark ? const Color(0xFFD9D9D9) : const Color(0xFF3A3A3C);
     final dragColor     = const Color(0xFFD9D9D9);
-    final nextBtnBg     = isDark ? const Color(0xFF111111) : Colors.white;
-    final nextBtnText   = isDark ? Colors.white : const Color(0xFF111111);
     final isLast        = _step == _questions.length - 1;
 
     return Padding(
@@ -306,9 +307,15 @@ Future<void> _submitAppointment() async {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+  color: isDark ? const Color(0xFF2C2C2E) : const Color(0xFFF2F2F7),
+  borderRadius: BorderRadius.circular(10),
+  border: Border.all(
+   color: _date != null
+    ? (isDark ? Colors.white : const Color(0xFF111111))
+    : (isDark ? const Color(0xFF3A3A3C) : const Color(0xFFD9D9D9)),
+    width: _date != null ? 2 : 1,
+  ),
+),
                     child: Icon(
                       Icons.arrow_back_ios_new_rounded,
                       size: 16,
@@ -330,7 +337,7 @@ Future<void> _submitAppointment() async {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
+                      color: isDark ? const Color(0xFF2C2C2E) : const Color(0xFFF2F2F7),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Icon(
@@ -482,34 +489,60 @@ Future<void> _submitAppointment() async {
   }
 
   // ── Reusable text input ───────────────────────────────────────────────────
-  Widget _inputField(
-    TextEditingController ctrl,
-    String hint,
-    bool isDark,
-    Color primaryText, {
-    TextInputType keyboardType = TextInputType.text,
-    int maxLines = 1,
-  }) {
-    return TextField(
-      controller: ctrl,
-      keyboardType: keyboardType,
-      maxLines: maxLines,
-      autofocus: true,
-      style: TextStyle(color: primaryText, fontSize: 14),
-      onChanged: (_) => setState(() {}),
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: const TextStyle(color: Color(0xFF8E8E93), fontSize: 14),
-        filled: true,
-        fillColor: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide.none,
-        ),
-      ),
-    );
-  }
+ Widget _inputField(
+  TextEditingController ctrl,
+  String hint,
+  bool isDark,
+  Color primaryText, {
+  TextInputType keyboardType = TextInputType.text,
+  int maxLines = 1,
+}) {
+  return Focus(
+    child: Builder(
+      builder: (context) {
+        final isFocused = Focus.of(context).hasFocus;
+        return TextField(
+          controller: ctrl,
+          keyboardType: keyboardType,
+          maxLines: maxLines,
+          autofocus: true,
+          style: TextStyle(color: primaryText, fontSize: 14),
+          onChanged: (_) => setState(() {}),
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: const TextStyle(color: Color(0xFF8E8E93), fontSize: 14),
+            filled: true,
+            fillColor: isDark
+    ? const Color(0xFF2C2C2E)
+    : const Color(0xFFF2F2F7),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide.none,
+            ),
+            enabledBorder: OutlineInputBorder(
+  borderRadius: BorderRadius.circular(10),
+  borderSide: BorderSide(
+    color: isDark
+        ? const Color(0xFF3A3A3C)
+        : const Color(0xFFD9D9D9),
+    width: 1,
+  ),
+),
+
+focusedBorder: OutlineInputBorder(
+  borderRadius: BorderRadius.circular(10),
+  borderSide: BorderSide(
+    color: isDark ? Colors.white : const Color(0xFF111111),
+    width: 2,
+  ),
+),
+          ),
+        );
+      },
+    ),
+  );
+}
 
   // ── Reusable chip selector ────────────────────────────────────────────────
   Widget _radioGroup(
@@ -531,7 +564,7 @@ Future<void> _submitAppointment() async {
           decoration: BoxDecoration(
             color: active
                 ? (isDark ? const Color(0xFF272727) : Colors.white)
-                : (isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E)),
+                : (isDark ? const Color(0xFF2C2C2E) : const Color(0xFFF2F2F7)),
             borderRadius: BorderRadius.circular(10),
             border: active
                 ? Border.all(
@@ -606,21 +639,36 @@ Future<void> _submitAppointment() async {
             duration: const Duration(milliseconds: 150),
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
-              color: active
-                  ? (isDark ? const Color(0xFF272727) : Colors.white)
-                  : (isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E)),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              opt,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                color: active
-                    ? (isDark ? Colors.white : const Color(0xFF111111))
-                    : primaryText,
-              ),
-            ),
+  color: active
+      ? (isDark
+          ? Colors.white
+          : const Color(0xFF111111))
+      : (isDark
+          ? const Color(0xFF2C2C2E)
+          : const Color(0xFFF2F2F7)),
+  borderRadius: BorderRadius.circular(8),
+  border: Border.all(
+    color: active
+        ? (isDark
+            ? Colors.white
+            : const Color(0xFF111111))
+        : Colors.transparent,
+    width: 1.5,
+  ),
+),
+
+child: Text(
+  opt,
+  style: TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w600,
+    color: active
+        ? (isDark
+            ? const Color(0xFF111111)
+            : Colors.white)
+        : primaryText,
+  ),
+),
           ),
         );
       }).toList(),
@@ -654,7 +702,7 @@ Future<void> _submitAppointment() async {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
         decoration: BoxDecoration(
-          color: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
+          color: isDark ? const Color(0xFF2C2C2E) : const Color(0xFFF2F2F7),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(children: [

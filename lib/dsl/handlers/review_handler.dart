@@ -44,11 +44,20 @@ class _ReviewTriggerButton extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final cardColor = isDark ? Colors.white : const Color(0xFF1F1F1F);
-    final titleColor = isDark ? const Color(0xFF1A1A1A) : Colors.white;
+    
     final subtitleColor = const Color(0xFFC9C9C9);
-    final btnBg = isDark ? const Color(0xFF1A1A1A) : Colors.white;
-    final btnText = isDark ? Colors.white : const Color(0xFF1A1A1A);
+    final cardColor = isDark ? const Color(0xFF1F1F1F) : Colors.white;
+final titleColor = isDark ? Colors.white : const Color(0xFF1A1A1A);
+
+final btnBg = isDark
+    ? Colors.white
+    : const Color(0xFF111111);
+
+final btnText = isDark
+    ? const Color(0xFF111111)
+    : Colors.white;
+    
+    
 
     return GestureDetector(
       onTap: () => _showReviewModal(context, menuItem, orderId, room),
@@ -64,7 +73,7 @@ class _ReviewTriggerButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '⭐ Rate Your Order',
+              'Share Your Feedback',
               style: TextStyle(
                 color: titleColor,
                 fontWeight: FontWeight.w600,
@@ -167,16 +176,37 @@ class _ReviewBottomSheetState extends State<_ReviewBottomSheet> {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final bgColor = isDark ? Colors.white : const Color(0xFF1C1C1E);
-    final primaryText = isDark ? const Color(0xFF272727) : Colors.white;
+    
     final secondaryText = const Color(0xFF8E8E93);
-    final dividerColor = isDark ? const Color(0xFFD9D9D9) : const Color(0xFF3A3A3C);
     final dragColor = const Color(0xFFD9D9D9);
-    final submitBg = isDark ? const Color(0xFF111111) : Colors.white;
-    final submitText = isDark ? Colors.white : const Color(0xFF111111);
-    final inputBg = isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E);
-    final inputText = isDark ? const Color(0xFF272727) : Colors.white;
     final inputHint = secondaryText;
+    final bgColor = isDark
+    ? const Color(0xFF1C1C1E)
+    : Colors.white;
+
+final primaryText = isDark
+    ? Colors.white
+    : const Color(0xFF272727);
+
+final dividerColor = isDark
+    ? const Color(0xFF3A3A3C)
+    : const Color(0xFFD9D9D9);
+
+final submitBg = isDark
+    ? Colors.white
+    : const Color(0xFF111111);
+
+final submitText = isDark
+    ? const Color(0xFF111111)
+    : Colors.white;
+
+final inputBg = isDark
+    ? const Color(0xFF2C2C2E)
+    : const Color(0xFFF2F2F7);
+
+final inputText = isDark
+    ? Colors.white
+    : const Color(0xFF272727);
 
     return Padding(
       padding: EdgeInsets.only(
@@ -213,7 +243,7 @@ class _ReviewBottomSheetState extends State<_ReviewBottomSheet> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Rate Your Order',
+                    'Share Your Feedback',
                     style: TextStyle(
                       color: primaryText,
                       fontWeight: FontWeight.w700,
@@ -241,23 +271,40 @@ class _ReviewBottomSheetState extends State<_ReviewBottomSheet> {
             const SizedBox(height: 20),
 
             // ── Stars ─────────────────────────────────────────────────────
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(5, (index) {
+            Wrap(
+  alignment: WrapAlignment.center,
+  spacing: 4,
+  children: List.generate(5, (index) {
                 final star = index + 1;
                 return GestureDetector(
                   onTap: () => setState(() => _selectedRating = star),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6),
-                    child: Icon(
-                      star <= _selectedRating
-                          ? Icons.star_rounded
-                          : Icons.star_outline_rounded,
-                      color: star <= _selectedRating
-                          ? const Color(0xFFFFCC00)
-                          : secondaryText,
-                      size: 40,
-                    ),
+                    child: AnimatedContainer(
+  duration: const Duration(milliseconds: 150),
+  padding: const EdgeInsets.all(6),
+  decoration: BoxDecoration(
+    color: star == _selectedRating
+        ? (isDark
+            ? Colors.white
+            : const Color(0xFF111111))
+        : Colors.transparent,
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: Icon(
+    star <= _selectedRating
+        ? Icons.star_rounded
+        : Icons.star_outline_rounded,
+    color: star == _selectedRating
+        ? (isDark
+            ? const Color(0xFF111111)
+            : Colors.white)
+        : (star <= _selectedRating
+            ? const Color(0xFFFFCC00)
+            : secondaryText),
+    size: 36,
+  ),
+),
                   ),
                 );
               }),

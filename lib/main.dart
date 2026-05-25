@@ -22,6 +22,7 @@ import 'dsl/models/dsl_registry.dart';
 import 'dsl/handlers/review_handler.dart';
 import 'utils/background_push.dart';
 import 'widgets/fluffy_chat_app.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 ReceivePort? mainIsolateReceivePort;
 
 bool _vodozemacInitialized = false;
@@ -86,6 +87,10 @@ void main() async {
   // Started in foreground mode.
   Logs().i(
     '${AppSettings.applicationName.value} started in foreground mode. Rendering GUI...',
+  );
+ await Supabase.initialize(
+    url: 'https://loektgljcwcpgnezlqon.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxvZWt0Z2xqY3djcGduZXpscW9uIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2ODgwMTE4OCwiZXhwIjoyMDg0Mzc3MTg4fQ.2OEEIDENEWad8baw5ASfCj2JMYuRohaFrbVla7d9Anw',
   );
   setupDSL();
   await startGui(clients, store);
