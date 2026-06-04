@@ -55,4 +55,6 @@ abstract class AppConfig {
 
   static const String mainIsolatePortName = 'main_isolate';
   static const String pushIsolatePortName = 'push_isolate';
+
+  static const String defaultHomeserver = 'https://workspace.thebrandsbureau.com';
 }

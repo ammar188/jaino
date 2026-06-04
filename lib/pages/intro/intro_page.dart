@@ -161,22 +161,22 @@ class IntroPage extends StatelessWidget {
                                   child: Text(L10n.of(context).signIn),
                                 ),
 
-                                if (!hasPresetHomeserver)
-                                  TextButton(
-                                    onPressed: () async {
-                                      final client = await Matrix.of(
-                                        context,
-                                      ).getLoginClient();
-                                      if (!context.mounted) return;
-                                      context.go(
-                                        '${GoRouterState.of(context).uri.path}/login',
-                                        extra: client,
-                                      );
-                                    },
-                                    child: Text(
-                                      L10n.of(context).loginWithMatrixId,
-                                    ),
-                                  ),
+                                // if (!hasPresetHomeserver)
+                                //   TextButton(
+                                //     onPressed: () async {
+                                //       final client = await Matrix.of(
+                                //         context,
+                                //       ).getLoginClient();
+                                //       if (!context.mounted) return;
+                                //       context.go(
+                                //         '${GoRouterState.of(context).uri.path}/login',
+                                //         extra: client,
+                                //       );
+                                //     },
+                                //     child: Text(
+                                //       L10n.of(context).loginWithMatrixId,
+                                //     ),
+                                //   ),
                               ],
                             ),
                           ),

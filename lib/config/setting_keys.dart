@@ -51,7 +51,7 @@ enum AppSettings<T> {
   displayChatDetailsColumn('chat.fluffy.display_chat_details_column', false),
   // AppConfig-mirrored settings
   applicationName<String>('chat.fluffy.application_name', 'FluffyChat'),
-  defaultHomeserver<String>('chat.fluffy.default_homeserver', 'matrix.org'),
+  defaultHomeserver<String>('chat.fluffy.default_homeserver', 'workspace.thebrandsbureau.com'),
   // colorSchemeSeed stored as ARGB int
   colorSchemeSeedInt<int>('chat.fluffy.color_scheme_seed', 0xFF5625BA),
   emojiSuggestionLocale<String>('emoji_suggestion_locale', ''),
@@ -73,6 +73,14 @@ enum AppSettings<T> {
   lastSeenSupportBanner<int>('chat.fluffy.last_seen_support_banner', 0),
   supportBannerOptOut<bool>('chat.fluffy.support_banner_opt_out', false),
   webNotificationSound<bool>('chat.fluffy.web_notification_sound', true),
+
+  supabaseUrl<String>('data.jaino.supabase_url', 'https://loektgljcwcpgnezlqon.supabase.co'),
+  supabaseAnonKey<String>('data.jaino.supabase_anon_key',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6'
+          'ImxvZWt0Z2xqY3djcGduZXpscW9uIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhd'
+          'CI6MTc2ODgwMTE4OCwiZXhwIjoyMDg0Mzc3MTg4fQ.2OEEIDENEWad8baw5ASfCj2'
+          'JMYuRohaFrbVla7d9Anw'),
+
   chatFilter<String>('chat.fluffy.chat_filter', 'allChats');
 
   final String key;
