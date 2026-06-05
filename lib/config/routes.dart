@@ -28,6 +28,7 @@ import 'package:fluffychat/pages/settings_password/settings_password.dart';
 import 'package:fluffychat/pages/settings_security/settings_security.dart';
 import 'package:fluffychat/pages/settings_style/settings_style.dart';
 import 'package:fluffychat/pages/sign_in/sign_in_page.dart';
+import 'package:fluffychat/utils/matrix_supabase_auth.dart';
 import 'package:fluffychat/widgets/config_viewer.dart';
 import 'package:fluffychat/widgets/layouts/empty_page.dart';
 import 'package:fluffychat/widgets/layouts/two_column_layout.dart';
@@ -39,6 +40,9 @@ import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 
 abstract class AppRoutes {
+  /// Set this from main.dart after initializing MatrixSupabaseAuthService.
+  static late MatrixSupabaseAuthService matrixAuth;
+
   static FutureOr<String?> loggedInRedirect(
     BuildContext context,
     GoRouterState state,
@@ -86,7 +90,10 @@ abstract class AppRoutes {
           pageBuilder: (context, state) => defaultPageBuilder(
             context,
             state,
-            Login(client: state.extra as Client),
+            Login(
+              client: state.extra as Client,
+              matrixAuth: matrixAuth,
+            ),
           ),
           redirect: loggedInRedirect,
         ),
@@ -302,7 +309,10 @@ abstract class AppRoutes {
                           pageBuilder: (context, state) => defaultPageBuilder(
                             context,
                             state,
-                            Login(client: state.extra as Client),
+                            Login(
+                              client: state.extra as Client,
+                              matrixAuth: matrixAuth,
+                            ),
                           ),
                           redirect: loggedOutRedirect,
                         ),
