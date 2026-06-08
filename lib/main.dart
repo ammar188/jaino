@@ -12,14 +12,17 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_vodozemac/flutter_vodozemac.dart' as vod;
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:universal_html/universal_html.dart' as web;
 
+import 'config/routes.dart';
 import 'config/setting_keys.dart';
+import 'dsl/handlers/appointment_handler.dart';
 import 'dsl/handlers/menu_handler.dart';
 import 'dsl/handlers/payment_dsl_handler.dart';
-import 'dsl/handlers/appointment_handler.dart';
 import 'dsl/models/dsl_registry.dart';
 import 'utils/background_push.dart';
+import 'utils/matrix_supabase_auth.dart';
 import 'widgets/fluffy_chat_app.dart';
 
 ReceivePort? mainIsolateReceivePort;
@@ -61,6 +64,23 @@ void main() async {
   Logs().nativeColors = !PlatformInfos.isIOS;
   final clients = await ClientManager.getClients(store: store);
 
+  // ─── Supabase ─────────────────────────────────────────────────────────────
+
+  final supabaseResult = await Supabase.initialize(
+    url: AppSettings.supabaseUrl.value,
+    anonKey: AppSettings.supabaseAnonKey.value,
+  );
+
+  // ─── Matrix ↔ Supabase auth sync ─────────────────────────────────────────
+  // todo(ammar): consider using dependency injection
+  final matrixAuth = MatrixSupabaseAuthService(
+    matrixClients: clients,
+    supabase: supabaseResult.client,
+  );
+
+  matrixAuth.init();
+  AppRoutes.matrixAuth = matrixAuth;
+
   // If the app starts in detached mode, we assume that it is in
   // background fetch mode for processing push notifications. This is
   // currently only supported on Android.
@@ -97,6 +117,7 @@ void setupDSL() {
   DSLRegistry.instance.register(PaymentDSLHandler());
   DSLRegistry.instance.register(AppointmentDSLHandler());
 }
+
 /// Fetch the pincode for the applock and start the flutter engine.
 Future<void> startGui(List<Client> clients, SharedPreferences store) async {
   // Fetch the pin for the applock if existing for mobile applications.

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/utils/localized_exception_extension.dart';
+import 'package:fluffychat/utils/matrix_supabase_auth.dart';
 import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
 import 'package:fluffychat/widgets/adaptive_dialogs/show_text_input_dialog.dart';
 import 'package:fluffychat/widgets/future_loading_dialog.dart';
@@ -15,7 +16,13 @@ import 'login_view.dart';
 
 class Login extends StatefulWidget {
   final Client client;
-  const Login({required this.client, super.key});
+  final MatrixSupabaseAuthService matrixAuth;
+
+  const Login({
+    required this.client,
+    required this.matrixAuth,
+    super.key,
+  });
 
   @override
   LoginController createState() => LoginController();
@@ -81,6 +88,10 @@ class LoginController extends State<Login> {
         password: passwordController.text,
         initialDeviceDisplayName: PlatformInfos.clientName,
       );
+
+      // Sync Supabase auth after successful Matrix login
+      await widget.matrixAuth.onMatrixLogin(client);
+
       if (mounted) {
         context.go('/backup');
       }
