@@ -104,7 +104,7 @@ slots:
   dbus-svc:
     interface: dbus
     bus: session
-    name: chat.fluffy.fluffychat
+    name: ai.jaeno.app
 
 apps:
   fluffychat:

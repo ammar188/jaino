@@ -7,7 +7,7 @@ import '../models/dsl_render_result.dart';
 
 extension EventDSLRuntime on Event {
   Map<String, dynamic>? get _rawDSL =>
-      content['com.jaino.dsl'] as Map<String, dynamic>?;
+      content['ai.jaeno.dsl'] as Map<String, dynamic>?;
 
   DSLMessage? get dsl {
     final raw = _rawDSL;
