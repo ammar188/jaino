@@ -20,6 +20,7 @@ import 'config/setting_keys.dart';
 import 'dsl/handlers/appointment_handler.dart';
 import 'dsl/handlers/menu_handler.dart';
 import 'dsl/handlers/payment_dsl_handler.dart';
+import 'dsl/handlers/order_history_dsl_handler.dart';
 import 'dsl/models/dsl_registry.dart';
 import 'utils/background_push.dart';
 import 'utils/matrix_supabase_auth.dart';
@@ -116,6 +117,7 @@ void setupDSL() {
   DSLRegistry.instance.register(MenuDSLHandler());
   DSLRegistry.instance.register(PaymentDSLHandler());
   DSLRegistry.instance.register(AppointmentDSLHandler());
+  DSLRegistry.instance.register(OrderHistoryDSLHandler());
 }
 
 /// Fetch the pincode for the applock and start the flutter engine.
