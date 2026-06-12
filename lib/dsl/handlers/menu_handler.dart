@@ -4,7 +4,7 @@ import 'package:matrix/matrix.dart';
 import '../models/dsl_handler.dart';
 import '../models/dsl_message.dart';
 import '../models/dsl_render_result.dart';
-
+import 'dart:ui';
 class MenuDSLHandler extends DSLHandler {
   @override
   String get type => 'menu';
@@ -35,103 +35,101 @@ class _MenuTriggerButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-
-    // light mode = black card, dark mode = white card
-    final cardColor = isDark ? Colors.white : const Color(0xFF1F1F1F);
-    final titleColor = isDark ? const Color(0xFF1A1A1A) : Colors.white;
-    final subtitleColor = isDark ? const Color(0xFFC9C9C9) : const Color(0xFFC9C9C9);
-    final dividerColor = isDark ? const Color(0xFFC9C9C9) : const Color(0xFFC9C9C9);
-    final tapBgColor = isDark ? const Color(0xFF3A3A3A) : const Color(0xFF1F1F1F);
-    final tapTextColor = Colors.white;
+    final bottomBg = const Color(0xFFF4F6FB);
+    final textColor = const Color(0xFF111111);
 
     return GestureDetector(
       onTap: () => _showMenuModal(context, title, items, room),
       child: Container(
         width: 193.52,
-        height: 95.50,
-        padding: const EdgeInsets.all(12.61),
+        height: 136.77,
         decoration: BoxDecoration(
-          color: cardColor,
-          borderRadius: BorderRadius.circular(15.14),
+          color: bottomBg,
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ── Title + subtitle ──────────────────────────────────
-            SizedBox(
-              width: 168.29,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      color: titleColor,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      letterSpacing: 0.2,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    '${items.length} items available',
-                    style: TextStyle(
-                      color: subtitleColor,
-                      fontSize: 9,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
+            // ── Top image area ────────────────────────────────────────────
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(12),
               ),
-            ),
-
-            const SizedBox(height: 6),
-
-            // ── Divider ───────────────────────────────────────────
-            Container(
-              width: 166.51,
-              height: 0.60,
-              color: dividerColor.withOpacity(0.5),
-            ),
-
-            const SizedBox(height: 7),
-
-            // ── Tap to view button ────────────────────────────────
-            GestureDetector(
-              onTap: () => _showMenuModal(context, title, items, room),
               child: Container(
-                width: 168.29,
-                height: 21.04,
-                padding: const EdgeInsets.symmetric(horizontal: 5.01),
-                decoration: BoxDecoration(
-                  color: tapBgColor,
-                  borderRadius: BorderRadius.circular(5.01),
-                  border: isDark ? null : Border.all(
-                    color: Colors.white.withOpacity(0.15),
-                    width: 0.5,
+                width: 193.52,
+                height: 90.5,
+                color: const Color(0xFFE8E8E8),
+                child: Image.asset(
+                  'assets/menu_banner.png',
+                  width: 193.52,
+                  height: 90.5,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) => Container(
+                    width: 193.52,
+                    height: 90.5,
+                    color: const Color(0xFFE0E0E0),
+                    child: const Icon(
+                      Icons.restaurant_menu,
+                      color: Color(0xFFAAAAAA),
+                      size: 32,
+                    ),
                   ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Tap to view menu',
-                      style: TextStyle(
-                        color: tapTextColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_circle_right,
-                      color: tapTextColor,
-                      size: 14,
-                    ),
-                  ],
                 ),
               ),
             ),
+
+            // ── Bottom tap area ───────────────────────────────────────────
+           Container(
+  width: 193.52,
+  height: 46.27,
+  padding: const EdgeInsets.all(12.61),
+  decoration: const BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.vertical(
+      bottom: Radius.circular(12),
+    ),
+  ),
+  child: Center(
+    child: Container(
+      width: 173.04,
+      height: 21.04,
+      padding: const EdgeInsets.all(5.01),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF4F6FB),
+        borderRadius: BorderRadius.circular(5.01),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            'Tap to view  menu',
+            style: TextStyle(
+              color: textColor,
+              fontSize: 8,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          Container(
+            width: 11.02,
+            height: 11.02,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: const Color(0xFF111111),
+                width: 0.83,
+              ),
+            ),
+            child: const Icon(
+              Icons.arrow_forward_ios,
+              color: Color(0xFF111111),
+              size: 6,
+            ),
+          ),
+        ],
+      ),
+    ),
+  ),
+),
           ],
         ),
       ),
@@ -165,7 +163,6 @@ class _MenuBottomSheet extends StatefulWidget {
 }
 
 class _MenuBottomSheetState extends State<_MenuBottomSheet> {
-  // tracks quantity of each item by index
   final Map<int, int> _quantities = {};
 
   int get _totalItems => _quantities.values.fold(0, (a, b) => a + b);
@@ -194,33 +191,41 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    // ── Fixed color tokens — always black modal, white cards ──────────────────
+    const Color modalBg       = Color(0xFF111111);
+    const Color cardBg        = Colors.white;
+    const Color primaryText   = Color(0xFF1F1F1F);
+    const Color secondaryText = Color(0xFF8E8E93);
+    const Color dividerColor  = Color(0xFFFFFFFF);
+    const Color numberBoxBg   = Color(0xFFD9D9D9);
+    const Color numberBoxText = Color(0xFFA7ABAE);
+    const Color plusBg        = Color(0xFF1C1C1E);
+    const Color orderBarBg    = Colors.white;
+    const Color orderBarText  = Color(0xFF111111);
+    const Color orderBtnBg    = Color(0xFF111111);
+    const Color orderBtnText  = Colors.white;
+    const Color dragColor     = Color(0xFF3A3A3A);
 
-    final bgColor = isDark ? Colors.white : const Color(0xFF1C1C1E);
-    final primaryText = isDark ? const Color(0xFF272727) : Colors.white;
-    final secondaryText = const Color(0xFF8E8E93);
-    final dividerColor = isDark ? const Color(0xFFD9D9D9) : const Color(0xFF3A3A3C);
-    final numberBoxColor = isDark ? const Color(0xFF2C2C2E) : const Color(0xFFD9D9D9);
-    final plusBgColor = const Color(0xFF282828);
-    final orderBarBg = isDark ? const Color(0xFF111111) : Colors.white;
-    final orderBarText = isDark ? Colors.white : const Color(0xFF111111);
-    final orderBtnBg = isDark ? Colors.white : const Color(0xFF111111);
-    final orderBtnText = isDark ? const Color(0xFF111111) : Colors.white;
-    final dragColor = isDark ? const Color(0xFFD9D9D9) : const Color(0xFFD9D9D9);
-
-    return Container(
-      width: 388.39,
-      constraints: const BoxConstraints(maxHeight: 484.42),
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(28.43),
-        ),
+    return BackdropFilter(
+  filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+  child: Container(
+    constraints: const BoxConstraints(maxHeight: 577.91),
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color(0xFF7150DB).withOpacity(0.81),
+          Colors.white.withOpacity(0.81),
+        ],
       ),
-      padding: const EdgeInsets.all(21.87),
+      borderRadius: const BorderRadius.vertical(
+        top: Radius.circular(28.5),
+      ),
+    ),
+      padding: const EdgeInsets.all(21.92),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: [
           // ── Drag handle ───────────────────────────────────────────────────
           Center(
@@ -243,20 +248,20 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                    widget.title,
-                    style: TextStyle(
-                      color: isDark ? const Color(0xFF272727) : Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 22,
-                      letterSpacing: -0.3,
-                    ),
+                  widget.title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 22,
+                    letterSpacing: -1.1,
                   ),
+                ),
                 const SizedBox(height: 2),
                 Text(
                   '${widget.items.length} items available',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: secondaryText,
-                    fontSize: 12,
+                    fontSize: 11,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -266,101 +271,113 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
 
           const SizedBox(height: 12),
 
-          // ── Divider ───────────────────────────────────────────────────────
-          Container(
-            width: 338.99,
-            height: 0.28,
-            color: dividerColor,
-          ),
 
-          const SizedBox(height: 9.84),
+Container(
+  width: 330.81,
+  height: 0,
+  decoration: BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: const Color(0xFFFFFFFF),
+        width: 0.28,
+      ),
+    ),
+  ),
+),
+
+const SizedBox(height: 9.84),
+
 
           // ── Menu items list ───────────────────────────────────────────────
-          SizedBox(
-            width: 338.99,
-            height: 280,
+          Expanded(
             child: ListView.separated(
               padding: EdgeInsets.zero,
               itemCount: widget.items.length,
-              separatorBuilder: (_, __) => Column(
-                children: [
-                  const SizedBox(height: 9.84),
-                  Container(height: 0.28, color: dividerColor),
-                  const SizedBox(height: 9.84),
-                ],
-              ),
+              separatorBuilder: (_, __) => const SizedBox(height: 9.68),
               itemBuilder: (context, index) {
                 final item = widget.items[index];
-                final name = (item['name'] ?? '').toString();
+                final name  = (item['name']  ?? '').toString();
                 final price = (item['price'] ?? '').toString();
-                final qty = _quantities[index] ?? 0;
+                final image = (item['image'] ?? '').toString();
+                final qty   = _quantities[index] ?? 0;
 
-                return SizedBox(
-                  height: 36.09,
+                return 
+                Container(
+                  width: double.infinity,
+                  height: 64,
+                  padding: const EdgeInsets.only(left: 12, top: 12, bottom: 12,  right: 12),
+                  decoration: BoxDecoration(
+                    color: cardBg,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: Row(
                     children: [
-                      // ── Number box ──────────────────────────────────────
+                      // ── Thumbnail / number box ──────────────────────────
                       Container(
-                        width: 26.31,
-                        height: 26.31,
-                        decoration: BoxDecoration(
-                          color: isDark ? const Color(0xFFD9D9D9) : numberBoxColor,
-                          borderRadius: BorderRadius.circular(4.38),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '${index + 1}',
-                            style: TextStyle(
-                              color: isDark
-                                  ? const Color(0xFFA7ABAE)
-                                  : primaryText,
-                              fontSize: 12.64,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: 'Poppins',
-                              letterSpacing: -0.139,
-                              height: 10.78 / 12.64,
+  width: 40,
+  height: 40,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(7),
+    border: Border.all(
+      color: const Color(0xFFD9D9D9),
+      width: 0.8,
+    ),
+  ),
+  child: ClipRRect(
+    borderRadius: BorderRadius.circular(7),
+    child: image.isNotEmpty
+        ? Image.network(
+            image,
+            width: 40,
+            height: 40,
+            fit: BoxFit.cover,
+            errorBuilder: (_, __, ___) =>
+                _numberBox(index, numberBoxBg, numberBoxText),
+          )
+        : _numberBox(index, numberBoxBg, numberBoxText),
+  ),
+),
+
+                      const SizedBox(width: 9.87),
+
+                      // ── Name + price ────────────────────────────────────
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              name,
+                              style: const TextStyle(
+                                color: primaryText,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                          ),
+                            const SizedBox(height: 2),
+                            Text(
+                              price,
+                              style: const TextStyle(
+                                color: primaryText,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
 
-                      const SizedBox(width: 10.94),
-
-                    
-                      // ── Item name ───────────────────────────────────────
-                          Expanded(
-                            child: Text(
-                              name,
-                              style: TextStyle(
-                                color: isDark ? const Color(0xFF272727) : Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-
-                          // ── Price ───────────────────────────────────────────
-                          Text(
-                            price,
-                            style: TextStyle(
-                              color: isDark ? const Color(0xFF272727) : Colors.white,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-
-                      const SizedBox(width: 11.33),
-
-                      // ── Plus / Minus + Count ────────────────────────────
+                      // ── Plus / Minus controls ───────────────────────────
                       if (qty == 0)
                         GestureDetector(
                           onTap: () => setState(() => _quantities[index] = 1),
                           child: Container(
-                            width: 26.25,
-                            height: 26.25,
+                            width: 17.04,
+                            height: 17.04,
+                            padding: const EdgeInsets.all(0),
                             decoration: BoxDecoration(
-                              color: plusBgColor,
-                              borderRadius: BorderRadius.circular(4.53),
+                              color: const Color(0xFF7150DB),
+                              borderRadius: BorderRadius.circular(4.54),
                               border: Border.all(
                                 color: dividerColor,
                                 width: 0.22,
@@ -369,69 +386,95 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
                             child: const Icon(
                               Icons.add,
                               color: Colors.white,
-                              size: 14,
+                              size: 11,
                             ),
                           ),
                         )
                       else
-                        Row(
-                          children: [
-                            // ── Minus ─────────────────────────────────────
-                            GestureDetector(
-                              onTap: () => setState(() {
-                                if (_quantities[index]! > 1) {
-                                  _quantities[index] = _quantities[index]! - 1;
-                                } else {
-                                  _quantities.remove(index);
-                                }
-                              }),
-                              child: Container(
-                                width: 26.25,
-                                height: 26.25,
-                                decoration: BoxDecoration(
-                                  color: plusBgColor,
-                                  borderRadius: BorderRadius.circular(4.53),
-                                ),
-                                child: const Icon(
-                                  Icons.remove,
-                                  color: Colors.white,
-                                  size: 14,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            // ── Count ─────────────────────────────────────
-                            Text(
-                              '$qty',
-                              style: TextStyle(
-                                color: primaryText,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            // ── Plus ──────────────────────────────────────
-                            GestureDetector(
-                              onTap: () => setState(
-                                () => _quantities[index] =
-                                    (_quantities[index] ?? 0) + 1,
-                              ),
-                              child: Container(
-                                width: 26.25,
-                                height: 26.25,
-                                decoration: BoxDecoration(
-                                  color: plusBgColor,
-                                  borderRadius: BorderRadius.circular(4.53),
-                                ),
-                                child: const Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                  size: 14,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+  Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      // Minus
+      GestureDetector(
+        onTap: () => setState(() {
+          if (_quantities[index]! > 1) {
+            _quantities[index] = _quantities[index]! - 1;
+          } else {
+            _quantities.remove(index);
+          }
+        }),
+        child: Container(
+          width: 17.04,
+          height: 17.04,
+          decoration: BoxDecoration(
+            color: const Color(0xFFD9D9D9),
+            borderRadius: BorderRadius.circular(4.54),
+            border: Border.all(
+              color: const Color(0xFFC9C9C9),
+              width: 0.22,
+            ),
+          ),
+          child: const Icon(
+            Icons.remove,
+             color: Color(0xFFA7ABAE),
+            size: 13,
+          ),
+        ),
+      ),
+
+      const SizedBox(width: 4),
+
+      // Count box
+      Container(
+        width: 32.72,
+        height: 17.04,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(4.54),
+          border: Border.all(
+            color: const Color(0xFFC9C9C9),
+            width: 0.22,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            '$qty',
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 11,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+      ),
+
+      const SizedBox(width: 4),
+
+      // Plus
+      GestureDetector(
+        onTap: () => setState(
+          () => _quantities[index] = (_quantities[index] ?? 0) + 1,
+        ),
+        child: Container(
+          width: 17.04,
+          height: 17.04,
+          decoration: BoxDecoration(
+            color: const Color(0xFF7150DB),
+            borderRadius: BorderRadius.circular(4.54),
+            border: Border.all(
+              color: const Color(0xFFC9C9C9),
+              width: 0.22,
+            ),
+          ),
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+            size: 13,
+          ),
+        ),
+      ),
+    ],
+  ),
                     ],
                   ),
                 );
@@ -439,22 +482,24 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
             ),
           ),
 
+  
+
           const SizedBox(height: 9.66),
 
           // ── Order Now bar ─────────────────────────────────────────────────
           if (_totalItems > 0)
             Container(
-              width: 344.65,
-              height: 56.37,
-              padding: const EdgeInsets.all(10.94),
+              width: double.infinity,
+              height: 66,
+              padding: const EdgeInsets.all(10.96),
               decoration: BoxDecoration(
                 color: orderBarBg,
-                borderRadius: BorderRadius.circular(8.75),
+                borderRadius: BorderRadius.circular(8.77),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // ── Total info ────────────────────────────────────────
+                  // Total info
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -464,7 +509,7 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 6,
-                            vertical: 1,
+                            vertical: 2,
                           ),
                           decoration: BoxDecoration(
                             color: orderBarText.withOpacity(0.15),
@@ -472,18 +517,19 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
                           ),
                           child: Text(
                             '$_totalItems item${_totalItems > 1 ? 's' : ''}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: orderBarText,
                               fontSize: 9,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
+                        const SizedBox(height: 4),
                         Text(
                           'Total Rs ${_totalPrice()}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: orderBarText,
-                            fontSize: 12,
+                            fontSize: 11,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -491,20 +537,24 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
                     ),
                   ),
 
-                  // ── Order Now button ──────────────────────────────────
+                  // Order Now button
                   GestureDetector(
                     onTap: () {
                       final msg = _buildOrderMessage();
                       Navigator.of(context).pop(msg);
                     },
                     child: Container(
-                      width: 87.66,
-                      height: 31.66,
+                      width: 87.72,
+                      height: 31.72,
                       decoration: BoxDecoration(
-                        color: orderBtnBg,
-                        borderRadius: BorderRadius.circular(6),
+                        color: const Color(0xFF7150DB),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.white.withOpacity(0.22),
+                          width: 0.22,
+                        ),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Order Now',
                           style: TextStyle(
@@ -521,6 +571,34 @@ class _MenuBottomSheetState extends State<_MenuBottomSheet> {
             ),
         ],
       ),
+  ),
+    );
+  }
+
+  Widget _numberBox(int index, Color bg, Color textColor) {
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(4.38),
+      ),
+      child: Center(
+        child: Text(
+          '${index + 1}',
+          style: TextStyle(
+            color: textColor,
+            fontSize: 12.64,
+            fontWeight: FontWeight.w400,
+            fontFamily: 'Poppins',
+            letterSpacing: -0.139,
+            height: 10.78 / 12.64,
+          ),
+        ),
+      ),
     );
   }
 }
+
+
+

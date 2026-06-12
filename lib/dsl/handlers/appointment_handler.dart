@@ -14,661 +14,673 @@ class AppointmentDSLHandler extends DSLHandler {
 
   @override
   DSLRenderResult render(Event event, DSLMessage msg) {
-    print('🏥 APPOINTMENT DSL RECEIVED: ${msg.data}');
     final title = msg.get<String>('title') ?? 'Book Appointment';
-
     return DSLRenderResult(
-      widget: _AppointmentTriggerButton(title: title, room: event.room),
+      widget: _AppointmentTriggerCard(title: title, room: event.room),
     );
   }
 }
 
-// ── Trigger Button ────────────────────────────────────────────────────────────
-class _AppointmentTriggerButton extends StatelessWidget {
+// ── Trigger Card ─────────────────────────────────────────────────────────────
+class _AppointmentTriggerCard extends StatelessWidget {
   final String title;
   final Room room;
 
-  const _AppointmentTriggerButton({required this.title, required this.room});
+  const _AppointmentTriggerCard({required this.title, required this.room});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-
-    final cardColor     = isDark ? Colors.white : const Color(0xFF1F1F1F);
-    final titleColor    = isDark ? const Color(0xFF1A1A1A) : Colors.white;
-    final subtitleColor = const Color(0xFFC9C9C9);
-    final tapBgColor    = isDark ? const Color(0xFF3A3A3A) : const Color(0xFF1F1F1F);
-    final tapTextColor  = Colors.white;
-
     return GestureDetector(
-      onTap: () => _showAppointmentModal(context, room),
+      onTap: () => Navigator.of(context, rootNavigator: true).push(
+        MaterialPageRoute(
+          builder: (_) => _AppointmentScreen1(room: room, title: title),
+        ),
+      ),
       child: Container(
         width: 193.52,
-        height: 95.50,
-        padding: const EdgeInsets.all(12.61),
+        height: 64,
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: cardColor,
-          borderRadius: BorderRadius.circular(15.14),
+          color: const Color(0xFFF4F6FB),
+          borderRadius: BorderRadius.circular(12),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              width: 168.29,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      color: titleColor,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      letterSpacing: 0.2,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    'Fill in your details',
-                    style: TextStyle(
-                      color: subtitleColor,
-                      fontSize: 9,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 6),
-
-            Container(
-              width: 166.51,
-              height: 0.60,
-              color: subtitleColor.withOpacity(0.5),
-            ),
-
-            const SizedBox(height: 7),
-
-            Container(
-              width: 168.29,
-              height: 21.04,
-              padding: const EdgeInsets.symmetric(horizontal: 5.01),
-              decoration: BoxDecoration(
-                color: tapBgColor,
-                borderRadius: BorderRadius.circular(5.01),
-                border: isDark
-                    ? null
-                    : Border.all(color: Colors.white.withOpacity(0.15), width: 0.5),
-              ),
-              child: 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Tap to book',
-                    style: TextStyle(
-                      color: tapTextColor,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  Icon(Icons.arrow_circle_right, color: tapTextColor, size: 14),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// ── Show Modal ────────────────────────────────────────────────────────────────
-void _showAppointmentModal(BuildContext context, Room room) {
-  showModalBottomSheet(
-    context: context,
-    isScrollControlled: true,
-    backgroundColor: Colors.transparent,
-    builder: (_) => _AppointmentBottomSheet(room: room),
-  );
-}
-
-// ── Bottom Sheet ──────────────────────────────────────────────────────────────
-class _AppointmentBottomSheet extends StatefulWidget {
-  final Room room;
-  const _AppointmentBottomSheet({required this.room});
-
-  @override
-  State<_AppointmentBottomSheet> createState() => _AppointmentBottomSheetState();
-}
-
-class _AppointmentBottomSheetState extends State<_AppointmentBottomSheet> {
-  int _step = 0;
-
-  // ── Field values ──────────────────────────────────────────────────────────
-  final _nameCtrl      = TextEditingController();
-  final _ageCtrl       = TextEditingController();
-  final _phoneCtrl     = TextEditingController();
-  final _complaintCtrl = TextEditingController();
-  String? _gender;
-  String? _department;
-  String? _date;
-  String? _time;
-  String? _visitType;
-
-  // ── Step config ───────────────────────────────────────────────────────────
-  final List<String> _questions = [
-    'What is your full name?',
-    'How old are you?',
-    'What is your gender?',
-    'Your phone number?',
-    'Which department?',
-    'Preferred date?',
-    'Preferred time slot?',
-    'Visit type?',
-    'Describe your symptoms',
-  ];
-
-  // Is the current step ready to proceed?
-  bool get _canProceed {
-    switch (_step) {
-      case 0: return _nameCtrl.text.trim().isNotEmpty;
-      case 1: return _ageCtrl.text.trim().isNotEmpty;
-      case 2: return _gender != null;
-      case 3: return _phoneCtrl.text.trim().isNotEmpty;
-      case 4: return _department != null;
-      case 5: return _date != null;
-      case 6: return _time != null;
-      case 7: return _visitType != null;
-      case 8: return _complaintCtrl.text.trim().isNotEmpty;
-      default: return false;
-    }
-  }
-
-  // The message sent to the room for the current step
-  String get _currentMessage {
-    switch (_step) {
-      case 0: return _nameCtrl.text.trim();
-      case 1: return _ageCtrl.text.trim();
-      case 2: return _gender!;
-      case 3: return _phoneCtrl.text.trim();
-      case 4: return _department!;
-      case 5: return _date!;
-      case 6: return _time!;
-      case 7: return _visitType!;
-      case 8: return _complaintCtrl.text.trim();
-      default: return '';
-    }
-  }
-
-  Future<void> _next() async {
-  if (_step < _questions.length - 1) {
-    setState(() => _step++);
-  } else {
-    FocusScope.of(context).unfocus();
-    await Future.delayed(const Duration(milliseconds: 150));
-    await _submitAppointment();
-    if (mounted) Navigator.of(context).pop();
-  }
-}
-
-void _back() {
-  if (_step > 0) {
-    setState(() => _step--);
-  } else {
-    Navigator.of(context).pop(); // close sheet on first step
-  }
-}
-
-Future<void> _submitAppointment() async {
-  await widget.room.sendEvent(
-    {
-      'v': 1,
-      'type': 'appointment_form',
-      'data': {
-        'name': _nameCtrl.text.trim(),
-        'age': _ageCtrl.text.trim(),
-        'gender': _gender,
-        'phone': _phoneCtrl.text.trim(),
-        'department': _department,
-        'date': _date,
-        'time': _time,
-        'visit_type': _visitType,
-        'symptoms': _complaintCtrl.text.trim(),
-      },
-    },
-    type: 'com.jaino.appointment_form',
-  );
-}
-
-  @override
-  void dispose() {
-    _nameCtrl.dispose();
-    _ageCtrl.dispose();
-    _phoneCtrl.dispose();
-    _complaintCtrl.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-
-    final bgColor       = isDark ? Colors.white : const Color(0xFF1C1C1E);
-    final primaryText   = isDark ? const Color(0xFF272727) : Colors.white;
-    final secondaryText = const Color(0xFF8E8E93);
-    final dividerColor  = isDark ? const Color(0xFFD9D9D9) : const Color(0xFF3A3A3C);
-    final dragColor     = const Color(0xFFD9D9D9);
-    final nextBtnBg     = isDark ? const Color(0xFF111111) : Colors.white;
-    final nextBtnText   = isDark ? Colors.white : const Color(0xFF111111);
-    final isLast        = _step == _questions.length - 1;
-
-    return Padding(
-  padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-  child: ConstrainedBox(
-    constraints: BoxConstraints(
-      maxHeight: MediaQuery.of(context).size.height * 0.85,
-    ),
-    child: Container(
-      width: 388.39,
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(28.43)),
-      ),
-      padding: const EdgeInsets.all(21.87),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // drag handle
-            Center(
-              child: Container(
-                width: 80.92,
-                height: 4.37,
-                decoration: BoxDecoration(
-                  color: dragColor,
-                  borderRadius: BorderRadius.circular(13.12),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            // nav row: back + step counter + close
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GestureDetector(
-                  onTap: _back,
-                  child: Container(
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      size: 16,
-                      color: primaryText,
-                    ),
-                  ),
-                ),
                 Text(
-                  'Step ${_step + 1} of ${_questions.length}',
-                  style: TextStyle(
-                    color: secondaryText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                  title,
+                  style: const TextStyle(
+                    color: Color(0xFF111111),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: Container(
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(
-                      color: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Icon(
-                      Icons.close_rounded,
-                      size: 16,
-                      color: primaryText,
-                    ),
+                const Text(
+                  'Tap to book',
+                  style: TextStyle(
+                    color: Color(0xFF8E8E93),
+                    fontSize: 11,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 12),
-            // title
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Book Appointment',
-                style: TextStyle(
-                  color: primaryText,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 22,
-                  letterSpacing: -0.3,
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            // progress bar
             Container(
-              width: double.infinity,
-              height: 3,
+              width: 11,
+              height: 11,
               decoration: BoxDecoration(
-                color: dividerColor.withOpacity(0.25),
-                borderRadius: BorderRadius.circular(2),
+                shape: BoxShape.circle,
+                border: Border.all(color: const Color(0xFF111111), width: 0.83),
               ),
-              child: FractionallySizedBox(
-                alignment: Alignment.centerLeft,
-                widthFactor: (_step + 1) / _questions.length,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: primaryText,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                ),
-              ),
+              child: const Icon(Icons.arrow_forward_ios, color: Color(0xFF111111), size: 6),
             ),
-            const SizedBox(height: 9.84),
-            Container(width: double.infinity, height: 0.28, color: dividerColor),
-            const SizedBox(height: 16),
-            // question
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                _questions[_step],
-                style: TextStyle(
-                  color: primaryText,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            const SizedBox(height: 14),
-            // input
-            _buildStepField(isDark, primaryText, secondaryText),
-            const SizedBox(height: 20),
-            // next/done button
-            GestureDetector(
-              onTap: _canProceed ? _next : null,
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: _canProceed ? nextBtnBg : nextBtnBg.withOpacity(0.25),
-                  borderRadius: BorderRadius.circular(10.94),
-                  border: isDark
-                      ? null
-                      : Border.all(color: Colors.white.withOpacity(0.15), width: 0.5),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      isLast ? 'Done' : 'Next',
-                      style: TextStyle(
-                        color: nextBtnText,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 8),
           ],
         ),
       ),
+    );
+  }
+}
+
+// ── Screen 1: Calendar + Time ─────────────────────────────────────────────────
+class _AppointmentScreen1 extends StatefulWidget {
+  final Room room;
+  final String title;
+
+  const _AppointmentScreen1({required this.room, required this.title});
+
+  @override
+  State<_AppointmentScreen1> createState() => _AppointmentScreen1State();
+}
+
+class _AppointmentScreen1State extends State<_AppointmentScreen1> {
+  DateTime _focusedMonth = DateTime.now();
+  DateTime? _selectedDate;
+  String? _selectedTime;
+
+  final List<String> _times = [
+    '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
+    '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM',
+    '05:00 PM', '06:00 PM', 
+  ];
+
+  bool get _canProceed => _selectedDate != null && _selectedTime != null;
+
+  String _formatDate(DateTime d) =>
+      '${d.day.toString().padLeft(2, '0')}/${d.month.toString().padLeft(2, '0')}/${d.year}';
+
+  void _prevMonth() => setState(() =>
+      _focusedMonth = DateTime(_focusedMonth.year, _focusedMonth.month - 1));
+
+  void _nextMonth() => setState(() =>
+      _focusedMonth = DateTime(_focusedMonth.year, _focusedMonth.month + 1));
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFF2F2F7),
+      appBar: _buildAppBar(context, widget.title),
+      body: SingleChildScrollView(
+  padding: const EdgeInsets.symmetric(horizontal: 15),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const SizedBox(height: 16),
+      const Text(
+        'Book Appointment',
+        style: TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+          fontSize: 18,
+          letterSpacing: -1,
+          color: Color(0xFF111111),
+        ),
+      ),
+      const SizedBox(height: 16),
+      // ── Calendar ──
+            Container(
+              width: 340.10,
+              height: 344.49,
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(22),
+              ),
+              child: Column(
+                children: [
+                  // Month nav
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+  onTap: _prevMonth,
+  child: Container(
+    width: 28.50,
+    height: 28.50,
+    padding: const EdgeInsets.fromLTRB(7, 7, 8, 7),
+    decoration: BoxDecoration(
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(7),
+      border: Border.all(color: const Color(0xFFCED3DE), width: 0.84),
     ),
+    child: const Icon(Icons.chevron_left, size: 14, color: Color(0xFF8F9BB3)),
   ),
-);
-  }
-
-  // ── Field per step ────────────────────────────────────────────────────────
-  Widget _buildStepField(bool isDark, Color primaryText, Color secondaryText) {
-    switch (_step) {
-      case 0:
-        return _inputField(_nameCtrl, 'Your Name', isDark, primaryText);
-      case 1:
-        return _inputField(_ageCtrl, 'Age', isDark, primaryText,
-            keyboardType: TextInputType.number);
-      case 2:
-  return _radioGroup(
-    ['Male', 'Female', 'Other'],
-    _gender,
-    (v) => setState(() => _gender = v),
-    isDark, primaryText,
-  );
-      case 3:
-        return _inputField(_phoneCtrl, 'Phone Number', isDark, primaryText,
-            keyboardType: TextInputType.phone);
-      case 4:
-  return _radioGroup(
-    ['General', 'Cardiology', 'Orthopedic', 'Neurology', 'Pediatrics'],
-    _department,
-    (v) => setState(() => _department = v),
-    isDark, primaryText,
-  );
-      case 5:
-        return _datePicker(isDark, primaryText, secondaryText);
-      case 6:
-        return _chips(
-            ['9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '2:00 PM', '2:30 PM', '3:00 PM'],
-            _time,
-            (v) => setState(() => _time = v),
-            isDark,
-            primaryText);
-      case 7:
-  return _radioGroup(
-    ['In-clinic', 'Video call'],
-    _visitType,
-    (v) => setState(() => _visitType = v),
-    isDark, primaryText,
-  );
-      case 8:
-        return _inputField(_complaintCtrl, 'Describe your symptoms briefly...', isDark, primaryText,
-            maxLines: 3);
-      default:
-        return const SizedBox();
-    }
-  }
-
-  // ── Reusable text input ───────────────────────────────────────────────────
-  Widget _inputField(
-    TextEditingController ctrl,
-    String hint,
-    bool isDark,
-    Color primaryText, {
-    TextInputType keyboardType = TextInputType.text,
-    int maxLines = 1,
-  }) {
-    return TextField(
-      controller: ctrl,
-      keyboardType: keyboardType,
-      maxLines: maxLines,
-      autofocus: true,
-      style: TextStyle(color: primaryText, fontSize: 14),
-      onChanged: (_) => setState(() {}),
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: const TextStyle(color: Color(0xFF8E8E93), fontSize: 14),
-        filled: true,
-        fillColor: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide.none,
+),
+                      Column(
+  children: [
+    const Text(
+      'Select Date',
+      style: TextStyle(
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+        letterSpacing: 0,
+        color: Color(0xFF111111),
+      ),
+    ),
+    const SizedBox(height: 2),
+    Text(
+      '${_monthName(_focusedMonth.month)} ${_focusedMonth.year}',
+      style: const TextStyle(
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w400,
+        fontSize: 10.06,
+        letterSpacing: 0,
+        color: Color(0xFF8E8E93),
+      ),
+    ),
+  ],
+),
+                      GestureDetector(
+  onTap: _nextMonth,
+  child: Container(
+    width: 28.50,
+    height: 28.50,
+    padding: const EdgeInsets.fromLTRB(7, 7, 8, 7),
+    decoration: BoxDecoration(
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(7),
+      border: Border.all(color: const Color(0xFFCED3DE), width: 0.84),
+    ),
+    child: const Icon(Icons.chevron_right, size: 14, color: Color(0xFF8F9BB3)),
+  ),
+),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  // Day headers
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                        .map((d) => SizedBox(
+                              width: 32,
+                              child: Center(
+                                child: Text(
+                                  d,
+                                  style: const TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xFF8E8E93),
+                                  ),
+                                ),
+                              ),
+                            ))
+                        .toList(),
+                  ),
+                  const SizedBox(height: 8),
+                  // Days grid
+                  Expanded(child: _buildCalendarGrid()),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            // ── Select Time ──
+            SizedBox(
+              width: 360.10,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Select Time',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF111111),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: _times.map((t) {
+                      final selected = _selectedTime == t;
+                      return GestureDetector(
+                        onTap: () => setState(() => _selectedTime = t),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 9.51, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: selected
+                                ? const Color(0xFF7150DB)
+                                : Colors.white,
+                            borderRadius: BorderRadius.circular(28.53),
+                            border: Border.all(
+                              color: selected
+                                  ? const Color(0xFF7150DB)
+                                  : const Color(0xFFE0E0E0),
+                              width: 0.57,
+                            ),
+                          ),
+                          child: Text(
+                            t,
+                            style: TextStyle(
+                              fontSize: 9,
+                              fontWeight: FontWeight.w500,
+                              color: selected
+                                  ? Colors.white
+                                  : const Color(0xFF70737D),
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 24),
+            // ── Next Button ──
+            Center(
+              child: GestureDetector(
+                onTap: _canProceed
+                    ? () => Navigator.of(context, rootNavigator: true).push(
+                          MaterialPageRoute(
+                            builder: (_) => _AppointmentScreen2(
+                              room: widget.room,
+                              title: widget.title,
+                              date: _formatDate(_selectedDate!),
+                              time: _selectedTime!,
+                            ),
+                          ),
+                        )
+                    : null,
+                child: Container(
+                  width: 82,
+                  height: 34,
+                  decoration: BoxDecoration(
+                    color: _canProceed
+                        ? const Color(0xFF7150DB)
+                        : const Color(0xFFE0E0E0),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Next',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: _canProceed ? Colors.white : const Color(0xFF8E8E93),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+          ],
         ),
       ),
     );
   }
 
-  // ── Reusable chip selector ────────────────────────────────────────────────
-  Widget _radioGroup(
-  List<String> options,
-  String? selected,
-  ValueChanged<String> onSelect,
-  bool isDark,
-  Color primaryText,
-) {
-  return Column(
-    children: options.map((opt) {
-      final active = selected == opt;
-      return GestureDetector(
-        onTap: () => onSelect(opt),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
-          margin: const EdgeInsets.only(bottom: 8),
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-          decoration: BoxDecoration(
-            color: active
-                ? (isDark ? const Color(0xFF272727) : Colors.white)
-                : (isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E)),
-            borderRadius: BorderRadius.circular(10),
-            border: active
-                ? Border.all(
-                    color: isDark ? const Color(0xFF272727) : Colors.white,
-                    width: 1.5,
-                  )
-                : null,
-          ),
-          child: Row(
-            children: [
-              // Radio circle
-              Container(
-                width: 18,
-                height: 18,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: active
-                        ? (isDark ? Colors.white : const Color(0xFF111111))
-                        : const Color(0xFF8E8E93),
-                    width: 2,
-                  ),
-                ),
-                child: active
-                    ? Center(
-                        child: Container(
-                          width: 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: isDark ? Colors.white : const Color(0xFF111111),
-                          ),
-                        ),
-                      )
-                    : null,
-              ),
-              const SizedBox(width: 12),
-              Text(
-                opt,
+  Widget _buildCalendarGrid() {
+    final firstDay = DateTime(_focusedMonth.year, _focusedMonth.month, 1);
+    final lastDay = DateTime(_focusedMonth.year, _focusedMonth.month + 1, 0);
+    // Monday = 1, so offset = weekday - 1
+    final startOffset = (firstDay.weekday - 1) % 7;
+    final today = DateTime.now();
+
+    List<Widget> cells = [];
+
+    // Empty cells before first day
+    for (int i = 0; i < startOffset; i++) {
+      cells.add(const SizedBox(width: 32, height: 32));
+    }
+
+    for (int d = 1; d <= lastDay.day; d++) {
+      final date = DateTime(_focusedMonth.year, _focusedMonth.month, d);
+      final isSelected = _selectedDate != null &&
+          _selectedDate!.year == date.year &&
+          _selectedDate!.month == date.month &&
+          _selectedDate!.day == date.day;
+      final isToday = date.year == today.year &&
+          date.month == today.month &&
+          date.day == today.day;
+      final isPast = date.isBefore(DateTime(today.year, today.month, today.day));
+
+      cells.add(
+        GestureDetector(
+          onTap: isPast ? null : () => setState(() => _selectedDate = date),
+          child: Container(
+  width: 25.15,
+  height: 25.15,
+  decoration: BoxDecoration(
+    color: isSelected ? const Color(0xFF7150DB) : Colors.transparent,
+    borderRadius: BorderRadius.circular(8.38),
+  ),
+            child: Center(
+              child: Text(
+                '$d',
                 style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: active ? FontWeight.w600 : FontWeight.w400,
-                  color: active
-                      ? (isDark ? Colors.white : const Color(0xFF111111))
-                      : primaryText,
+                  fontSize: 12,
+                  fontWeight: isToday ? FontWeight.w700 : FontWeight.w400,
+                  color: isSelected
+                      ? Colors.white
+                      : isPast
+                          ? const Color(0xFFD0D0D0)
+                          : isToday
+                              ? const Color(0xFF7150DB)
+                              : const Color(0xFF111111),
                 ),
               ),
-            ],
+            ),
           ),
         ),
       );
-    }).toList(),
-  );
-}
+    }
 
-// ── Reusable chip selector ────────────────────────────────────────────────
-  Widget _chips(
-    List<String> options,
-    String? selected,
-    ValueChanged<String> onSelect,
-    bool isDark,
-    Color primaryText,
-  ) {
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: options.map((opt) {
-        final active = selected == opt;
-        return GestureDetector(
-          onTap: () => onSelect(opt),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 150),
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-            decoration: BoxDecoration(
-              color: active
-                  ? (isDark ? const Color(0xFF272727) : Colors.white)
-                  : (isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E)),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              opt,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                color: active
-                    ? (isDark ? Colors.white : const Color(0xFF111111))
-                    : primaryText,
-              ),
-            ),
-          ),
-        );
-      }).toList(),
+    return GridView.count(
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: 7,
+      mainAxisSpacing: 4,
+      crossAxisSpacing: 0,
+      childAspectRatio: 1,
+      children: cells,
     );
   }
 
-  // ── Date picker ───────────────────────────────────────────────────────────
-  Widget _datePicker(bool isDark, Color primaryText, Color secondaryText) {
-    return GestureDetector(
-      onTap: () async {
-        final picked = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now().add(const Duration(days: 1)),
-          firstDate: DateTime.now(),
-          lastDate: DateTime.now().add(const Duration(days: 90)),
-          builder: (ctx, child) => Theme(
-            data: Theme.of(ctx).copyWith(
-              colorScheme: ColorScheme.light(
-                primary: isDark ? const Color(0xFF272727) : Colors.white,
+  String _monthName(int m) => [
+        '', 'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ][m];
+}
+
+// ── Screen 2: Your Details ────────────────────────────────────────────────────
+class _AppointmentScreen2 extends StatefulWidget {
+  final Room room;
+  final String title;
+  final String date;
+  final String time;
+
+  const _AppointmentScreen2({
+    required this.room,
+    required this.title,
+    required this.date,
+    required this.time,
+  });
+
+  @override
+  State<_AppointmentScreen2> createState() => _AppointmentScreen2State();
+}
+
+class _AppointmentScreen2State extends State<_AppointmentScreen2> {
+  final _nameCtrl = TextEditingController();
+  final _phoneCtrl = TextEditingController();
+  final _genderCtrl = TextEditingController();
+  final _noteCtrl = TextEditingController();
+  bool _isSubmitting = false;
+
+  bool get _canSubmit =>
+      _nameCtrl.text.trim().isNotEmpty &&
+      _phoneCtrl.text.trim().isNotEmpty &&
+      _genderCtrl.text.trim().isNotEmpty;
+
+  @override
+  void dispose() {
+    _nameCtrl.dispose();
+    _phoneCtrl.dispose();
+    _genderCtrl.dispose();
+    _noteCtrl.dispose();
+    super.dispose();
+  }
+
+  Future<void> _submit() async {
+    if (!_canSubmit || _isSubmitting) return;
+    setState(() => _isSubmitting = true);
+
+    await widget.room.sendEvent(
+      {
+        'v': 1,
+        'type': 'appointment_form',
+        'data': {
+          'name': _nameCtrl.text.trim(),
+          'phone': _phoneCtrl.text.trim(),
+          'gender': _genderCtrl.text.trim(),
+          'department': 'General',
+          'date': widget.date,
+          'time': widget.time,
+          'visit_type': 'In-clinic',
+          'symptoms': _noteCtrl.text.trim().isNotEmpty
+              ? _noteCtrl.text.trim()
+              : 'No notes',
+        },
+      },
+      type: 'com.jaino.appointment_form',
+    );
+
+    if (mounted) {
+      Navigator.of(context, rootNavigator: true).pop();
+      Navigator.of(context, rootNavigator: true).pop();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFF2F2F7),
+      appBar: _buildAppBar(context, widget.title),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 16),
+            // ── Details card ──
+            Container(
+              width: 360.10,
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(22),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Your Details',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF111111),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _inputField(_nameCtrl, 'Name'),
+                  const SizedBox(height: 10),
+                  _inputField(_phoneCtrl, '+92 300 0000000',
+                      keyboardType: TextInputType.phone),
+                  const SizedBox(height: 10),
+                  _inputField(_genderCtrl, 'Gender'),
+                  const SizedBox(height: 10),
+                  // Note field
+                  SizedBox(
+                    width: 330,
+                    height: 106,
+                    child: TextField(
+                      controller: _noteCtrl,
+                      maxLines: 5,
+                      onChanged: (_) => setState(() {}),
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: Color(0xFF111111),
+                      ),
+                      decoration: InputDecoration(
+                        hintText: 'Add a note (optional)',
+                        hintStyle: const TextStyle(
+                          color: Color(0xFF8E8E93),
+                          fontSize: 13,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.all(15),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFE0E0E0),
+                            width: 0.4,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF7150DB),
+                            width: 0.8,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            child: child!,
-          ),
-        );
-        if (picked != null) {
-          setState(() =>
-              _date = '${picked.day}/${picked.month}/${picked.year}');
-        }
-      },
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-        decoration: BoxDecoration(
-          color: isDark ? const Color(0xFFF2F2F7) : const Color(0xFF2C2C2E),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(children: [
-          Icon(Icons.calendar_today_outlined, size: 16, color: secondaryText),
-          const SizedBox(width: 10),
-          Text(
-            _date ?? 'Select a date',
-            style: TextStyle(
-              fontSize: 14,
-              color: _date != null ? primaryText : secondaryText,
+            const SizedBox(height: 24),
+            // ── Done button ──
+            Center(
+              child: GestureDetector(
+                onTap: _canSubmit ? _submit : null,
+                child: Container(
+                  width: 82,
+                  height: 34,
+                  decoration: BoxDecoration(
+                    color: _canSubmit
+                        ? const Color(0xFF7150DB)
+                        : const Color(0xFFE0E0E0),
+                    borderRadius: BorderRadius.circular(18),
+                  ),
+                  child: Center(
+                    child: _isSubmitting
+                        ? const SizedBox(
+                            width: 14,
+                            height: 14,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 1.5,
+                              color: Colors.white,
+                            ),
+                          )
+                        : Text(
+                            'Done',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: _canSubmit
+                                  ? Colors.white
+                                  : const Color(0xFF8E8E93),
+                            ),
+                          ),
+                  ),
+                ),
+              ),
             ),
-          ),
-        ]),
+            const SizedBox(height: 24),
+          ],
+        ),
       ),
     );
   }
+
+  Widget _inputField(
+    TextEditingController ctrl,
+    String hint, {
+    TextInputType keyboardType = TextInputType.text,
+  }) {
+    return SizedBox(
+      width: 330,
+      height: 37,
+      child: TextField(
+        controller: ctrl,
+        keyboardType: keyboardType,
+        onChanged: (_) => setState(() {}),
+        style: const TextStyle(fontSize: 13, color: Color(0xFF111111)),
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: const TextStyle(
+            color: Color(0xFF8E8E93),
+            fontSize: 13,
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(9),
+            borderSide: const BorderSide(
+              color: Color(0xFFE0E0E0),
+              width: 0.4,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(9),
+            borderSide: const BorderSide(
+              color: Color(0xFF7150DB),
+              width: 0.8,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ── Shared AppBar ─────────────────────────────────────────────────────────────
+PreferredSizeWidget _buildAppBar(BuildContext context, String title) {
+  return PreferredSize(
+    preferredSize: const Size(390, 110),
+    child: Container(
+      width: 390,
+      color: Colors.white,
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const Icon(
+                  Icons.arrow_back_ios,
+                  color: Color(0xFF70737D),
+                  size: 16,
+                ),
+              ),
+              const Expanded(
+                child: Center(
+                  child: Text(
+                    'Appointment',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Color(0xFF111111),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 16),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
 }

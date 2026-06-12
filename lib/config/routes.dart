@@ -37,7 +37,7 @@ import 'package:fluffychat/widgets/share_scaffold_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
-
+import 'package:fluffychat/pages/payments/payments.dart';
 abstract class AppRoutes {
   static FutureOr<String?> loggedInRedirect(
     BuildContext context,
@@ -249,6 +249,15 @@ abstract class AppRoutes {
                       ),
                       redirect: loggedOutRedirect,
                     ),
+                    GoRoute(
+                      path: 'payments',
+                      pageBuilder: (context, state) => defaultPageBuilder(
+                        context,
+                        state,
+                        const PaymentsPage(),
+                      ),
+                      redirect: loggedOutRedirect,
+),
                     GoRoute(
                       path: 'chat',
                       pageBuilder: (context, state) => defaultPageBuilder(

@@ -184,6 +184,14 @@ class SettingsView extends StatelessWidget {
                   ? theme.colorScheme.surfaceContainerHigh
                   : null,
             ),
+            ListTile(
+  leading: const Icon(Icons.email_outlined),
+  title: Text(L10n.of(context).passwordRecovery),
+  onTap: () => context.go('/rooms/settings/security/3pid'),
+  tileColor: activeRoute.startsWith('/rooms/settings/security/3pid')
+      ? theme.colorScheme.surfaceContainerHigh
+      : null,
+),
             Divider(color: theme.dividerColor),
             ListTile(
               leading: const Icon(Icons.dns_outlined),
