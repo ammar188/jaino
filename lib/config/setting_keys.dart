@@ -57,7 +57,7 @@ enum AppSettings<T> {
   emojiSuggestionLocale<String>('emoji_suggestion_locale', ''),
   enableSoftLogout<bool>('chat.fluffy.enable_soft_logout', false),
   enableMatrixNativeOIDC<bool>('chat.fluffy.enable_matrix_native_oidc', false),
-  presetHomeserver<String>('chat.fluffy.preset_homeserver', ''),
+  presetHomeserver<String>('chat.fluffy.preset_homeserver', 'chat.jaeno.ai'),
   welcomeText<String>('chat.fluffy.welcome_text', ''),
   website<String>('chat.fluffy.website_url', 'https://fluffychat.im'),
   logoUrl<String>(

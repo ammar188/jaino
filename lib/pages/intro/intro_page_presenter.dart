@@ -108,6 +108,21 @@ class _IntroPagePresenterState extends State<IntroPagePresenter> {
     );
   }
 
+  void _signup() {
+    final presetHomeserver = AppSettings.presetHomeserver.value;
+    if (presetHomeserver.isEmpty) {
+      context.go('${GoRouterState.of(context).uri.path}/register');
+      return;
+    }
+
+    connectToHomeserverFlow(
+      PublicHomeserverData(name: presetHomeserver),
+      context,
+      (snapshot) {},
+      true,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return IntroPage(
@@ -118,6 +133,7 @@ class _IntroPagePresenterState extends State<IntroPagePresenter> {
           ? null
           : AppSettings.welcomeText.value,
       login: _login,
+      signup: _signup,
     );
   }
 }
