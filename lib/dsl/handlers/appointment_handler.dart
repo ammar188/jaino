@@ -240,7 +240,7 @@ Future<void> _submitAppointment() async {
         'symptoms': _complaintCtrl.text.trim(),
       },
     },
-    type: 'com.jaino.appointment_form',
+    type: 'ai.jaeno.appointment_form',
   );
 }
 
