@@ -43,16 +43,6 @@ class _FormView extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           children: [
-            if (homeserver != null)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(24, 16, 24, 8),
-                child: Text(
-                  'on $homeserver',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.outline,
-                  ),
-                ),
-              ),
             const SizedBox(height: 8),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -67,8 +57,6 @@ class _FormView extends StatelessWidget {
                     controller.loading ? null : [AutofillHints.email],
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.email_outlined),
-                  errorText: controller.emailError,
-                  errorStyle: const TextStyle(color: Colors.orange),
                   hintText: 'you@example.com',
                   labelText: l10n.addEmail,
                 ),
@@ -87,8 +75,6 @@ class _FormView extends StatelessWidget {
                     controller.loading ? null : [AutofillHints.newUsername],
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.account_box_outlined),
-                  errorText: controller.usernameError,
-                  errorStyle: const TextStyle(color: Colors.orange),
                   hintText: 'username',
                   labelText: l10n.username,
                 ),
@@ -107,8 +93,6 @@ class _FormView extends StatelessWidget {
                     controller.loading ? null : [AutofillHints.newPassword],
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.lock_outlined),
-                  errorText: controller.passwordError,
-                  errorStyle: const TextStyle(color: Colors.orange),
                   suffixIcon: IconButton(
                     onPressed: controller.toggleShowPassword,
                     icon: Icon(
@@ -136,8 +120,6 @@ class _FormView extends StatelessWidget {
                     controller.loading ? null : [AutofillHints.newPassword],
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.lock_outlined),
-                  errorText: controller.confirmPasswordError,
-                  errorStyle: const TextStyle(color: Colors.orange),
                   suffixIcon: IconButton(
                     onPressed: controller.toggleShowConfirmPassword,
                     icon: Icon(
