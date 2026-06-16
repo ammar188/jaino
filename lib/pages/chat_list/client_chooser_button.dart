@@ -68,6 +68,16 @@ class ClientChooserButton extends StatelessWidget {
         ),
       ),
       PopupMenuItem(
+        value: SettingsAction.reviews,
+        child: Row(
+          children: [
+            const Icon(Icons.star_outline),
+            const SizedBox(width: 18),
+            const Text('Reviews'),
+          ],
+        ),
+      ),
+      PopupMenuItem(
         value: SettingsAction.settings,
         child: Row(
           children: [
@@ -229,6 +239,9 @@ class ClientChooserButton extends StatelessWidget {
         case SettingsAction.archive:
           context.go('/rooms/archive');
           break;
+        case SettingsAction.reviews:
+          context.go('/rooms/reviews');
+          break;
         case SettingsAction.setStatus:
           controller.setStatus();
           break;
@@ -245,4 +258,5 @@ enum SettingsAction {
   // support,
   settings,
   archive,
+  reviews,
 }
