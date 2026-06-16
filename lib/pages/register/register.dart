@@ -37,10 +37,6 @@ class RegisterController extends State<Register> {
 
   RegisterStep step = RegisterStep.form;
 
-  String? emailError;
-  String? usernameError;
-  String? passwordError;
-  String? confirmPasswordError;
   bool loading = false;
   bool showPassword = false;
   bool showConfirmPassword = false;
@@ -62,53 +58,35 @@ class RegisterController extends State<Register> {
   Future<void> sendVerificationEmail() async {
     final l10n = L10n.of(context);
 
-    setState(() {
-      emailError = null;
-      usernameError = null;
-      passwordError = null;
-      confirmPasswordError = null;
-    });
-
     final email = emailController.text.trim();
     final username = usernameController.text.trim();
     final password = passwordController.text;
     final confirmPassword = confirmPasswordController.text;
 
-    var hasError = false;
+    String? errorMsg;
 
     if (email.isEmpty || !email.contains('@')) {
-      setState(() => emailError = l10n.enterAnEmailAddress);
-      hasError = true;
-    }
-
-    if (username.isEmpty) {
-      setState(() => usernameError = l10n.pleaseEnterYourUsername);
-      hasError = true;
+      errorMsg = l10n.enterAnEmailAddress;
+    } else if (username.isEmpty) {
+      errorMsg = l10n.pleaseEnterYourUsername;
     } else if (!RegExp(r'^[a-z0-9._\-=/]+$').hasMatch(username)) {
-      setState(
-        () => usernameError =
-            'Only lowercase letters, numbers and ._-=/ are allowed',
-      );
-      hasError = true;
-    }
-
-    if (password.isEmpty) {
-      setState(() => passwordError = l10n.pleaseEnterYourPassword);
-      hasError = true;
+      errorMsg = 'Only lowercase letters, numbers and ._-=/ are allowed';
+    } else if (password.isEmpty) {
+      errorMsg = l10n.pleaseEnterYourPassword;
     } else if (password.length < 8) {
-      setState(() => passwordError = 'Password must be at least 8 characters');
-      hasError = true;
-    }
-
-    if (confirmPassword.isEmpty) {
-      setState(() => confirmPasswordError = l10n.pleaseEnterYourPassword);
-      hasError = true;
+      errorMsg = 'Password must be at least 8 characters';
+    } else if (confirmPassword.isEmpty) {
+      errorMsg = l10n.pleaseEnterYourPassword;
     } else if (password != confirmPassword) {
-      setState(() => confirmPasswordError = l10n.passwordsDoNotMatch);
-      hasError = true;
+      errorMsg = l10n.passwordsDoNotMatch;
     }
 
-    if (hasError) return;
+    if (errorMsg != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(errorMsg)),
+      );
+      return;
+    }
 
     setState(() => loading = true);
 
@@ -149,9 +127,17 @@ class RegisterController extends State<Register> {
 
       if (mounted) setState(() => step = RegisterStep.verifyEmail);
     } on MatrixException catch (e) {
-      setState(() => passwordError = e.errorMessage);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.errorMessage)),
+        );
+      }
     } catch (e) {
-      setState(() => passwordError = e.toString());
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+      }
     } finally {
       if (mounted) setState(() => loading = false);
     }

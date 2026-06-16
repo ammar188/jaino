@@ -8,8 +8,13 @@ import 'loyalty_page_view.dart';
 class LoyaltyPageData {
   final int points;
   final List<LoyaltyTransaction> transactions;
+  final String? referralCode;
 
-  const LoyaltyPageData({required this.points, required this.transactions});
+  const LoyaltyPageData({
+    required this.points,
+    required this.transactions,
+    this.referralCode,
+  });
 }
 
 class LoyaltyPage extends StatefulWidget {
@@ -37,10 +42,12 @@ class LoyaltyPageController extends State<LoyaltyPage> {
     final results = await Future.wait([
       AppRoutes.loyalty.getPoints(userId),
       AppRoutes.loyalty.getTransactions(userId),
+      AppRoutes.loyalty.getReferralCode(userId),
     ]);
     return LoyaltyPageData(
       points: results[0] as int,
       transactions: results[1] as List<LoyaltyTransaction>,
+      referralCode: results[2] as String?,
     );
   }
 
