@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 
 extension DSLRoomExtension on Room {
-  static const _quickActionsType = 'com.jaino.dsl.quick_actions';
+  static const _quickActionsType = 'ai.jaeno.dsl.quick_actions';
 
   Widget? buildQuickActions(
     BuildContext context, {
