@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:fluffychat/config/routes.dart';
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/pages/invitation_selection/invitation_selection_view.dart';
 import 'package:fluffychat/widgets/future_loading_dialog.dart';
 import 'package:fluffychat/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
+import 'package:supabase_flutter/supabase_flutter.dart' as supabase;
 
 import '../../utils/localized_exception_extension.dart';
 
@@ -24,6 +26,20 @@ class InvitationSelectionController extends State<InvitationSelection> {
   bool loading = false;
   List<Profile> foundProfiles = [];
   Timer? coolDown;
+  String? referralCode;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadReferralCode();
+  }
+
+  Future<void> _loadReferralCode() async {
+    final userId = supabase.Supabase.instance.client.auth.currentUser?.id;
+    if (userId == null) return;
+    final code = await AppRoutes.loyalty.getReferralCode(userId);
+    if (mounted) setState(() => referralCode = code);
+  }
 
   String? get roomId => widget.roomId;
 

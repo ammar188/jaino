@@ -1,4 +1,5 @@
 import 'package:fluffychat/l10n/l10n.dart';
+import 'package:fluffychat/utils/loyalty_service.dart';
 import 'package:fluffychat/utils/matrix_supabase_auth.dart';
 import 'package:fluffychat/utils/platform_infos.dart';
 import 'package:fluffychat/widgets/matrix.dart';
@@ -13,10 +14,12 @@ enum RegisterStep { form, verifyEmail }
 class Register extends StatefulWidget {
   final Client client;
   final MatrixSupabaseAuthService matrixAuth;
+  final LoyaltyService loyalty;
 
   const Register({
     required this.client,
     required this.matrixAuth,
+    required this.loyalty,
     super.key,
   });
 
@@ -30,6 +33,7 @@ class RegisterController extends State<Register> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+  final TextEditingController referralCodeController = TextEditingController();
 
   RegisterStep step = RegisterStep.form;
 
@@ -121,6 +125,13 @@ class RegisterController extends State<Register> {
         // Server accepted registration without any auth (dummy flow won).
         // Should not happen when we want email verification, but handle gracefully.
         await widget.matrixAuth.onMatrixLogin(client);
+        final supabaseUserId = widget.matrixAuth.currentUser?.id;
+        if (supabaseUserId != null) {
+          await widget.loyalty.onNewUserRegistered(
+            supabaseUserId,
+            referralCode: referralCodeController.text,
+          );
+        }
         if (mounted) context.go('/backup');
         return;
       } on MatrixException catch (e) {
@@ -193,6 +204,13 @@ class RegisterController extends State<Register> {
       );
 
       await widget.matrixAuth.onMatrixLogin(client);
+      final supabaseUserId = widget.matrixAuth.currentUser?.id;
+      if (supabaseUserId != null) {
+        await widget.loyalty.onNewUserRegistered(
+          supabaseUserId,
+          referralCode: referralCodeController.text,
+        );
+      }
 
       if (mounted) context.go('/backup');
     } on MatrixException catch (e) {
@@ -220,6 +238,7 @@ class RegisterController extends State<Register> {
     usernameController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
+    referralCodeController.dispose();
     super.dispose();
   }
 

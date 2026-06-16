@@ -6,8 +6,6 @@ import 'package:fluffychat/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
 import '../../utils/fluffy_share.dart';
 import 'chat_list.dart';
 
@@ -64,6 +62,16 @@ class ClientChooserButton extends StatelessWidget {
             const Icon(Icons.archive_outlined),
             const SizedBox(width: 18),
             Text(L10n.of(context).archive),
+          ],
+        ),
+      ),
+      PopupMenuItem(
+        value: SettingsAction.loyalty,
+        child: Row(
+          children: [
+            const Icon(Icons.star_outline_rounded),
+            const SizedBox(width: 18),
+            const Text('Loyalty Points'),
           ],
         ),
       ),
@@ -223,6 +231,9 @@ class ClientChooserButton extends StatelessWidget {
         //     'https://fluffychat.im/faq/#how_can_i_support_fluffychat',
         //   );
         //   break;
+        case SettingsAction.loyalty:
+          context.go('/rooms/settings/loyalty');
+          break;
         case SettingsAction.settings:
           context.go('/rooms/settings');
           break;
@@ -243,6 +254,7 @@ enum SettingsAction {
   setStatus,
   invite,
   // support,
+  loyalty,
   settings,
   archive,
 }

@@ -15,6 +15,7 @@ import 'package:fluffychat/pages/device_settings/device_settings.dart';
 import 'package:fluffychat/pages/intro/intro_page_presenter.dart';
 import 'package:fluffychat/pages/invitation_selection/invitation_selection.dart';
 import 'package:fluffychat/pages/login/login.dart';
+import 'package:fluffychat/pages/loyalty/loyalty_page.dart';
 import 'package:fluffychat/pages/new_group/new_group.dart';
 import 'package:fluffychat/pages/new_private_chat/new_private_chat.dart';
 import 'package:fluffychat/pages/register/register.dart';
@@ -29,6 +30,7 @@ import 'package:fluffychat/pages/settings_password/settings_password.dart';
 import 'package:fluffychat/pages/settings_security/settings_security.dart';
 import 'package:fluffychat/pages/settings_style/settings_style.dart';
 import 'package:fluffychat/pages/sign_in/sign_in_page.dart';
+import 'package:fluffychat/utils/loyalty_service.dart';
 import 'package:fluffychat/utils/matrix_supabase_auth.dart';
 import 'package:fluffychat/widgets/config_viewer.dart';
 import 'package:fluffychat/widgets/layouts/empty_page.dart';
@@ -43,6 +45,9 @@ import 'package:matrix/matrix.dart';
 abstract class AppRoutes {
   /// Set this from main.dart after initializing MatrixSupabaseAuthService.
   static late MatrixSupabaseAuthService matrixAuth;
+
+  /// Set this from main.dart after initializing LoyaltyService.
+  static late LoyaltyService loyalty;
 
   static FutureOr<String?> loggedInRedirect(
     BuildContext context,
@@ -88,6 +93,7 @@ abstract class AppRoutes {
             Register(
               client: state.extra as Client,
               matrixAuth: matrixAuth,
+              loyalty: loyalty,
             ),
           ),
           redirect: loggedInRedirect,
@@ -322,6 +328,7 @@ abstract class AppRoutes {
                             Register(
                               client: state.extra as Client,
                               matrixAuth: matrixAuth,
+                              loyalty: loyalty,
                             ),
                           ),
                           redirect: loggedOutRedirect,
@@ -337,6 +344,15 @@ abstract class AppRoutes {
                           const SettingsHomeserver(),
                         );
                       },
+                      redirect: loggedOutRedirect,
+                    ),
+                    GoRoute(
+                      path: 'loyalty',
+                      pageBuilder: (context, state) => defaultPageBuilder(
+                        context,
+                        state,
+                        const LoyaltyPage(),
+                      ),
                       redirect: loggedOutRedirect,
                     ),
                     GoRoute(

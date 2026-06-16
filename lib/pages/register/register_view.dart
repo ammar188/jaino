@@ -129,9 +129,8 @@ class _FormView extends StatelessWidget {
                 readOnly: controller.loading,
                 autocorrect: false,
                 controller: controller.confirmPasswordController,
-                textInputAction: TextInputAction.go,
+                textInputAction: TextInputAction.next,
                 obscureText: !controller.showConfirmPassword,
-                onSubmitted: (_) => controller.sendVerificationEmail(),
                 autofillHints:
                     controller.loading ? null : [AutofillHints.newPassword],
                 decoration: InputDecoration(
@@ -148,6 +147,23 @@ class _FormView extends StatelessWidget {
                   ),
                   hintText: '••••••••',
                   labelText: l10n.repeatPassword,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: TextField(
+                readOnly: controller.loading,
+                autocorrect: false,
+                controller: controller.referralCodeController,
+                textInputAction: TextInputAction.go,
+                textCapitalization: TextCapitalization.characters,
+                onSubmitted: (_) => controller.sendVerificationEmail(),
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.card_giftcard_outlined),
+                  hintText: 'e.g. ABC12345',
+                  labelText: 'Referral code (optional)',
                 ),
               ),
             ),
