@@ -1,4 +1,4 @@
-/*package chat.fluffy.fluffychat
+/*package ai.jaeno.app
 
 import com.famedly.fcm_shared_isolate.FcmSharedIsolateService
 

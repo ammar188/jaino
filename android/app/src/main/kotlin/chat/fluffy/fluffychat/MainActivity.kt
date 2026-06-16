@@ -1,4 +1,4 @@
-package chat.fluffy.fluffychat
+package ai.jaeno.app
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine

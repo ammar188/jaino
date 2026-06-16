@@ -873,7 +873,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "fluffychat": "Jaino",
+    "fluffychat": "Jaeno",
     "@fluffychat": {
         "type": "String",
         "placeholders": {}
@@ -1029,7 +1029,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "inviteText": "{username} invited you to Jaino.\n1. Download Jaino app\n2. Sign up or sign in\n3. Open the invite link:\n {link}",
+    "inviteText": "{username} invited you to Jaeno.\n1. Download Jaeno app\n2. Sign up or sign in\n3. Open the invite link:\n {link}",
     "@inviteText": {
         "type": "String",
         "placeholders": {
@@ -1195,7 +1195,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "newMessageInFluffyChat": "💬 New message in Jaino",
+    "newMessageInFluffyChat": "💬 New message in Jaeno",
     "@newMessageInFluffyChat": {
         "type": "String",
         "placeholders": {}
@@ -1809,7 +1809,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "title": "Jaino",
+    "title": "Jaeno",
     "@title": {
         "description": "Title for the application",
         "type": "String",
@@ -2201,7 +2201,7 @@
     "custom": "Custom",
     "foregroundServiceRunning": "This notification appears when the foreground service is running.",
     "screenSharingTitle": "screen sharing",
-    "screenSharingDetail": "You are sharing your screen in Jaino",
+    "screenSharingDetail": "You are sharing your screen in Jaeno",
     "whyIsThisMessageEncrypted": "Why is this message unreadable?",
     "noKeyForThisMessage": "This can happen if the message was sent before you have signed in to your account at this device.\n\nIt is also possible that the sender has blocked your device or something went wrong with the internet connection.\n\nAre you able to read the message on another session? Then you can transfer the message from it! Go to Settings > Devices and make sure that your devices have verified each other. When you open the room the next time and both sessions are in the foreground, the keys will be transmitted automatically.\n\nDo you not want to lose the keys when logging out or switching devices? Make sure that you have enabled the chat backup in the settings.",
     "newGroup": "New group",
@@ -2525,7 +2525,7 @@
     "oneOfYourDevicesIsNotVerified": "One of your devices is not verified",
     "noticeChatBackupDeviceVerification": "Note: When you connect all your devices to the chat backup, they are automatically verified.",
     "continueText": "Continue",
-    "welcomeText": "Hey Hey 👋 Welcome to Jaino! ",
+    "welcomeText": "Hey Hey 👋 Welcome to Jaeno! ",
     "blur": "Blur:",
     "opacity": "Opacity:",
     "setWallpaper": "Set wallpaper",
@@ -2761,9 +2761,9 @@
     "advancedConfigurations": "Advanced configurations",
     "signIn": "Sign in",
     "createNewAccount": "Create new account",
-    "signUpGreeting": "Jaino is decentralized! Select a server where you want to create your account and let's go!",
+    "signUpGreeting": "Jaeno is decentralized! Select a server where you want to create your account and let's go!",
     "signInGreeting": "You already have an account in Matrix? Welcome back! Select your homeserver and sign in.",
-    "appIntro": "Welcome to Jaino! Everything in One App",
+    "appIntro": "Welcome to Jaeno! Everything in One App",
     "theProcessWasCanceled": "The process was canceled.",
     "join": "Join",
     "searchOrEnterHomeserverAddress": "Search or enter homeserver address",
@@ -2782,12 +2782,12 @@
     },
     "createNewChat": "Create new chat",
     "reset": "Reset",
-    "supportFluffyChat": "Support Jaino",
+    "supportFluffyChat": "Support Jaeno",
     "support": "Support",
-    "fluffyChatSupportBannerMessage": "Jaino is growing!\n❤️❤️❤️\nThank you for using Jaino. We are always working to improve your experience.",
+    "fluffyChatSupportBannerMessage": "Jaeno is growing!\n❤️❤️❤️\nThank you for using Jaeno. We are always working to improve your experience.",
     "skipSupportingFluffyChat": "Skip",
     "iDoNotWantToSupport": "Maybe later",
-    "iAlreadySupportFluffyChat": "I already support Jaino",
+    "iAlreadySupportFluffyChat": "I already support Jaeno",
     "setLowPriority": "Set low priority",
     "unsetLowPriority": "Unset low priority",
     "removeCallFromChat": "Remove call from chat",

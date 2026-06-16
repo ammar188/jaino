@@ -16,7 +16,7 @@ abstract class AppConfig {
   static const String deepLinkPrefix = 'im.fluffychat://chat/';
   static const String schemePrefix = 'matrix:';
   static const String pushNotificationsChannelId = 'fluffychat_push';
-  static const String pushNotificationsAppId = 'com.jaino.app';
+  static const String pushNotificationsAppId = 'ai.jaeno.app';
   static const double borderRadius = 16.0;
   static const double spaceBorderRadius = 11.0;
   static const double columnWidth = 360.0;
@@ -56,5 +56,5 @@ abstract class AppConfig {
   static const String mainIsolatePortName = 'main_isolate';
   static const String pushIsolatePortName = 'push_isolate';
 
-  static const String defaultHomeserver = 'https://workspace.thebrandsbureau.com';
+  static const String defaultHomeserver = 'https://chat.jaeno.ai';
 }

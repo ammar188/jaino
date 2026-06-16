@@ -39,7 +39,7 @@ class LoginView extends StatelessWidget {
                 // ),
                 // const SizedBox(height: 16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0),
                   child: TextField(
                     readOnly: controller.loading,
                     autocorrect: false,
@@ -56,7 +56,7 @@ class LoginView extends StatelessWidget {
                       errorText: controller.usernameError,
                       errorStyle: const TextStyle(color: Colors.orange),
                       hintText: '@username:domain',
-                      labelText: L10n.of(context).matrixId,
+                      labelText: 'Jaeno ID',
                     ),
                   ),
                 ),

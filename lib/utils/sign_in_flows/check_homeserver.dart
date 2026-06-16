@@ -11,7 +11,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 Future<void> connectToHomeserverFlow(
   PublicHomeserverData homeserverData,
@@ -33,11 +32,10 @@ Future<void> connectToHomeserverFlow(
       fetchAuthMetadata: true,
     );
 
-    final regLink = homeserverData.regLink;
     final supportsSso = loginFlows.any((flow) => flow.type == 'm.login.sso');
 
     if ((kIsWeb || PlatformInfos.isLinux) &&
-        (supportsSso || authMetadata != null || (signUp && regLink != null))) {
+        (supportsSso || authMetadata != null)) {
       if (!context.mounted) return;
       final consent = await showOkCancelAlertDialog(
         context: context,
@@ -55,15 +53,14 @@ Future<void> connectToHomeserverFlow(
     } else if (supportsSso) {
       await ssoLoginFlow(client, context, signUp, loginFlows);
     } else {
-      if (signUp && regLink != null) {
-        await launchUrlString(regLink);
-      }
       if (!context.mounted) return;
       final pathSegments = List.of(
         GoRouter.of(context).routeInformationProvider.value.uri.pathSegments,
       );
-      pathSegments.removeLast();
-      pathSegments.add('login');
+      if (AppSettings.presetHomeserver.value == '') {
+        pathSegments.removeLast();
+      }
+      pathSegments.add(signUp ? 'register' : 'login');
       context.go('/${pathSegments.join('/')}', extra: client);
       setState(AsyncSnapshot.withData(ConnectionState.done, true));
       return;
