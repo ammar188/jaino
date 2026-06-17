@@ -22,6 +22,7 @@ import 'dsl/handlers/menu_handler.dart';
 import 'dsl/handlers/payment_dsl_handler.dart';
 import 'dsl/models/dsl_registry.dart';
 import 'utils/background_push.dart';
+import 'utils/loyalty_service.dart';
 import 'utils/matrix_supabase_auth.dart';
 import 'widgets/fluffy_chat_app.dart';
 
@@ -80,6 +81,9 @@ void main() async {
 
   matrixAuth.init();
   AppRoutes.matrixAuth = matrixAuth;
+
+  final loyalty = LoyaltyService(supabase: supabaseResult.client);
+  AppRoutes.loyalty = loyalty;
 
   // If the app starts in detached mode, we assume that it is in
   // background fetch mode for processing push notifications. This is

@@ -13,6 +13,7 @@ class IntroPage extends StatelessWidget {
   final bool isLoading, hasPresetHomeserver;
   final String? loggingInToHomeserver, welcomeText;
   final VoidCallback login;
+  final VoidCallback signup;
 
   const IntroPage({
     required this.isLoading,
@@ -21,6 +22,7 @@ class IntroPage extends StatelessWidget {
     required this.hasPresetHomeserver,
     required this.welcomeText,
     required this.login,
+    required this.signup,
   });
 
   @override
@@ -101,21 +103,6 @@ class IntroPage extends StatelessWidget {
                     child: IntrinsicHeight(
                       child: Column(
                         children: [
-                          // Container(
-                          //   alignment: Alignment.center,
-                          //   padding: const EdgeInsets.symmetric(
-                          //     horizontal: 8.0,
-                          //   ),
-                          //   child:
-                          //    Hero(
-                          //     tag: 'info-logo',
-                          //     child: Image.asset(
-                          //       './assets/banner_transparent.png',
-                          //       fit: BoxFit.fitWidth,
-                          //     ),
-                          //   ),
-                          // ),
-                          // const SizedBox(height: 32),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 32.0,
@@ -140,7 +127,6 @@ class IntroPage extends StatelessWidget {
                               mainAxisSize: .min,
                               crossAxisAlignment: .stretch,
                               children: [
-                                if (!hasPresetHomeserver)
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor:
@@ -148,9 +134,7 @@ class IntroPage extends StatelessWidget {
                                       foregroundColor:
                                           theme.colorScheme.onSecondary,
                                     ),
-                                    onPressed: () => context.go(
-                                      '${GoRouterState.of(context).uri.path}/sign_up',
-                                    ),
+                                    onPressed: signup,
                                     child: Text(
                                       L10n.of(context).createNewAccount,
                                     ),
@@ -160,23 +144,6 @@ class IntroPage extends StatelessWidget {
                                   onPressed: login,
                                   child: Text(L10n.of(context).signIn),
                                 ),
-
-                                // if (!hasPresetHomeserver)
-                                //   TextButton(
-                                //     onPressed: () async {
-                                //       final client = await Matrix.of(
-                                //         context,
-                                //       ).getLoginClient();
-                                //       if (!context.mounted) return;
-                                //       context.go(
-                                //         '${GoRouterState.of(context).uri.path}/login',
-                                //         extra: client,
-                                //       );
-                                //     },
-                                //     child: Text(
-                                //       L10n.of(context).loginWithMatrixId,
-                                //     ),
-                                //   ),
                               ],
                             ),
                           ),

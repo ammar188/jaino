@@ -4,7 +4,9 @@ import 'package:fluffychat/widgets/avatar.dart';
 import 'package:fluffychat/widgets/layouts/max_width_body.dart';
 import 'package:fluffychat/widgets/matrix.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:matrix/matrix.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../widgets/adaptive_dialogs/user_dialog.dart';
 
@@ -39,6 +41,8 @@ class InvitationSelectionView extends StatelessWidget {
         innerPadding: const EdgeInsets.symmetric(vertical: 8),
         child: Column(
           children: [
+            if (controller.referralCode != null)
+              _ReferralBanner(code: controller.referralCode!),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
@@ -148,6 +152,87 @@ class InvitationSelectionView extends StatelessWidget {
               },
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ReferralBanner extends StatelessWidget {
+  final String code;
+  const _ReferralBanner({required this.code});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Invite friends to Jaeno',
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Share your code — you both earn 100 points when they sign up.',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.outline,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.secondaryContainer,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        code,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton(
+                    tooltip: 'Copy code',
+                    onPressed: () {
+                      Clipboard.setData(ClipboardData(text: code));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Referral code copied!')),
+                      );
+                    },
+                    icon: const Icon(Icons.copy_outlined),
+                  ),
+                  IconButton(
+                    tooltip: 'Share',
+                    onPressed: () => SharePlus.instance.share(
+                      ShareParams(
+                        text:
+                            'Join me on Jaeno! Use my referral code $code when signing up and we both get 100 bonus points.',
+                      ),
+                    ),
+                    icon: const Icon(Icons.share_outlined),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

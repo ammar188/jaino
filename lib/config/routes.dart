@@ -15,8 +15,10 @@ import 'package:fluffychat/pages/device_settings/device_settings.dart';
 import 'package:fluffychat/pages/intro/intro_page_presenter.dart';
 import 'package:fluffychat/pages/invitation_selection/invitation_selection.dart';
 import 'package:fluffychat/pages/login/login.dart';
+import 'package:fluffychat/pages/loyalty/loyalty_page.dart';
 import 'package:fluffychat/pages/new_group/new_group.dart';
 import 'package:fluffychat/pages/new_private_chat/new_private_chat.dart';
+import 'package:fluffychat/pages/register/register.dart';
 import 'package:fluffychat/pages/settings/settings.dart';
 import 'package:fluffychat/pages/settings_3pid/settings_3pid.dart';
 import 'package:fluffychat/pages/settings_chat/settings_chat.dart';
@@ -28,6 +30,7 @@ import 'package:fluffychat/pages/settings_password/settings_password.dart';
 import 'package:fluffychat/pages/settings_security/settings_security.dart';
 import 'package:fluffychat/pages/settings_style/settings_style.dart';
 import 'package:fluffychat/pages/sign_in/sign_in_page.dart';
+import 'package:fluffychat/utils/loyalty_service.dart';
 import 'package:fluffychat/utils/matrix_supabase_auth.dart';
 import 'package:fluffychat/widgets/config_viewer.dart';
 import 'package:fluffychat/widgets/layouts/empty_page.dart';
@@ -42,6 +45,9 @@ import 'package:matrix/matrix.dart';
 abstract class AppRoutes {
   /// Set this from main.dart after initializing MatrixSupabaseAuthService.
   static late MatrixSupabaseAuthService matrixAuth;
+
+  /// Set this from main.dart after initializing LoyaltyService.
+  static late LoyaltyService loyalty;
 
   static FutureOr<String?> loggedInRedirect(
     BuildContext context,
@@ -80,9 +86,16 @@ abstract class AppRoutes {
           redirect: loggedInRedirect,
         ),
         GoRoute(
-          path: 'sign_up',
-          pageBuilder: (context, state) =>
-              defaultPageBuilder(context, state, SignInPage(signUp: true)),
+          path: 'register',
+          pageBuilder: (context, state) => defaultPageBuilder(
+            context,
+            state,
+            Register(
+              client: state.extra as Client,
+              matrixAuth: matrixAuth,
+              loyalty: loyalty,
+            ),
+          ),
           redirect: loggedInRedirect,
         ),
         GoRoute(
@@ -296,15 +309,6 @@ abstract class AppRoutes {
                           redirect: loggedOutRedirect,
                         ),
                         GoRoute(
-                          path: 'sign_up',
-                          pageBuilder: (context, state) => defaultPageBuilder(
-                            context,
-                            state,
-                            SignInPage(signUp: true),
-                          ),
-                          redirect: loggedOutRedirect,
-                        ),
-                        GoRoute(
                           path: 'login',
                           pageBuilder: (context, state) => defaultPageBuilder(
                             context,
@@ -312,6 +316,19 @@ abstract class AppRoutes {
                             Login(
                               client: state.extra as Client,
                               matrixAuth: matrixAuth,
+                            ),
+                          ),
+                          redirect: loggedOutRedirect,
+                        ),
+                        GoRoute(
+                          path: 'register',
+                          pageBuilder: (context, state) => defaultPageBuilder(
+                            context,
+                            state,
+                            Register(
+                              client: state.extra as Client,
+                              matrixAuth: matrixAuth,
+                              loyalty: loyalty,
                             ),
                           ),
                           redirect: loggedOutRedirect,
@@ -327,6 +344,15 @@ abstract class AppRoutes {
                           const SettingsHomeserver(),
                         );
                       },
+                      redirect: loggedOutRedirect,
+                    ),
+                    GoRoute(
+                      path: 'loyalty',
+                      pageBuilder: (context, state) => defaultPageBuilder(
+                        context,
+                        state,
+                        const LoyaltyPage(),
+                      ),
                       redirect: loggedOutRedirect,
                     ),
                     GoRoute(

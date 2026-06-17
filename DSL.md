@@ -6,7 +6,7 @@ A system for rendering structured UI dynamically from Matrix events using a Doma
 
 ## Overview
 
-Instead of treating messages as plain text, events can carry a `com.jaino.dsl` payload which is:
+Instead of treating messages as plain text, events can carry a `ai.jaeno.dsl` payload which is:
 
 1. Parsed into a `DSLMessage`
 2. Resolved via `DSLRegistry`
@@ -37,13 +37,13 @@ Flutter Widget
 
 ## DSL Event Format
 
-Each Matrix event may include a `com.jaino.dsl` field:
+Each Matrix event may include a `ai.jaeno.dsl` field:
 
 ```json
 {
   "msgtype": "m.text",
   "body": "Fallback text",
-  "com.jaino.dsl": {
+  "ai.jaeno.dsl": {
     "v": 1,
     "type": "menu",
     "data": {
@@ -220,7 +220,7 @@ DSLRegistry.instance.register(MenuHandler());
 
 ```json
 {
-  "com.jaino.dsl": {
+  "ai.jaeno.dsl": {
     "v": 1,
     "type": "menu",
     "data": {
@@ -251,7 +251,7 @@ DSLRegistry.instance.register(MenuHandler());
 ### Example Event
 ```json
 {
-  "com.jaino.dsl": {
+  "ai.jaeno.dsl": {
     "v": 1,
     "type": "payment",
     "data": {
