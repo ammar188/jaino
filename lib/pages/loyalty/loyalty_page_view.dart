@@ -146,7 +146,7 @@ class _PointsCard extends StatelessWidget {
           children: [
             Icon(
               Icons.star_rounded,
-              size: 48,
+              size: 46,
               color: Colors.white,
             ),
             const SizedBox(height: 12),
