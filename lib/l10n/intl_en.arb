@@ -158,6 +158,11 @@
         "type": "String",
         "placeholders": {}
     },
+    "discardEdits": "You have unsaved changes. Discard your edits?",
+    "@discardEdits": {
+        "type": "String",
+        "placeholders": {}
+    },
     "areYouSureYouWantToLogout": "Are you sure you want to log out?",
     "@areYouSureYouWantToLogout": {
         "type": "String",
@@ -434,14 +439,8 @@
         "type": "String",
         "placeholders": {}
     },
-    "yourChatBackupHasBeenSetUp": "Your chat backup has been set up.",
     "chatBackup": "Chat backup",
     "@chatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "chatBackupDescription": "Your messages are secured with a recovery key. Please make sure you don't lose it.",
-    "@chatBackupDescription": {
         "type": "String",
         "placeholders": {}
     },
@@ -858,16 +857,6 @@
             }
         }
     },
-    "everythingReady": "Everything ready!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Extremely offensive",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "File name",
     "@fileName": {
         "type": "String",
@@ -959,11 +948,6 @@
     "hideRedactedMessages": "Hide redacted messages",
     "hideRedactedMessagesBody": "If someone redacts a message, this message won't be visible in the chat anymore.",
     "hideInvalidOrUnknownMessageFormats": "Hide invalid or unknown message formats",
-    "howOffensiveIsThisContent": "How offensive is this content?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -980,11 +964,6 @@
     },
     "incorrectPassphraseOrKey": "Incorrect passphrase or recovery key",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Inoffensive",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1288,11 +1267,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "offensive": "Offensive",
-    "@offensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "offline": "Offline",
     "@offline": {
         "type": "String",
@@ -1339,7 +1313,6 @@
     "addToBundle": "Add to bundle",
     "removeFromBundle": "Remove from this bundle",
     "bundleName": "Bundle name",
-    "enableMultiAccounts": "(BETA) Enable multi accounts on this device",
     "openInMaps": "Open in maps",
     "@openInMaps": {
         "type": "String",
@@ -1377,7 +1350,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "overview": "Overview",
     "passwordRecoverySettings": "Password recovery settings",
     "passwordRecovery": "Password recovery",
     "@passwordRecovery": {
@@ -1588,7 +1560,6 @@
         "placeholders": {}
     },
     "recoveryKey": "Recovery key",
-    "recoveryKeyLost": "Recovery key lost?",
     "send": "Send",
     "@send": {
         "type": "String",
@@ -1731,11 +1702,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "presencesToggle": "Show status messages from other users",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "skip": "Skip",
     "@skip": {
         "type": "String",
@@ -1817,11 +1783,6 @@
     },
     "tooManyRequestsWarning": "Too many requests. Please try again later!",
     "@tooManyRequestsWarning": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "transferFromAnotherDevice": "Transfer from another device",
-    "@transferFromAnotherDevice": {
         "type": "String",
         "placeholders": {}
     },
@@ -2031,11 +1992,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Wipe your chat backup to create a new recovery key?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "With these addresses you can recover your password.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -2078,8 +2034,6 @@
     "openGallery": "Open gallery",
     "removeFromSpace": "Remove from space",
     "start": "Start",
-    "pleaseEnterRecoveryKeyDescription": "To unlock your old messages, please enter your recovery key that has been generated in a previous session. Your recovery key is NOT your password.",
-    "openChat": "Open Chat",
     "markAsRead": "Mark as read",
     "reportUser": "Report user",
     "dismiss": "Dismiss",
@@ -2183,9 +2137,6 @@
     "noOneCanJoin": "No one can join",
     "knock": "Knock",
     "users": "Users",
-    "unlockOldMessages": "Unlock old messages",
-    "storeInSecureStorageDescription": "Store the recovery key in the secure storage of this device.",
-    "saveKeyManuallyDescription": "Save this key manually by triggering the system share dialog or clipboard.",
     "storeInAndroidKeystore": "Store in Android KeyStore",
     "storeInAppleKeyChain": "Store in Apple KeyChain",
     "storeSecurlyOnThisDevice": "Store securely on this device",
@@ -2207,7 +2158,6 @@
     "newGroup": "New group",
     "newSpace": "New space",
     "allSpaces": "All spaces",
-    "hidePresences": "Hide Status List?",
     "doNotShowAgain": "Do not show again",
     "wasDirectChatDisplayName": "Empty chat (was {oldDisplayName})",
     "@wasDirectChatDisplayName": {
@@ -2497,31 +2447,8 @@
     "loginWithMatrixId": "Login with Matrix-ID",
     "doesNotSeemToBeAValidHomeserver": "Doesn't seem to be a compatible homeserver. Wrong URL?",
     "calculatingFileSize": "Calculating file size...",
-    "prepareSendingAttachment": "Prepare sending attachment...",
     "sendingAttachment": "Sending attachment...",
-    "generatingVideoThumbnail": "Generating video thumbnail...",
     "compressVideo": "Compressing video...",
-    "sendingAttachmentCountOfCount": "Sending attachment {index} of {length}...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
-    "serverLimitReached": "Server limit reached! Waiting {seconds} seconds...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "oneOfYourDevicesIsNotVerified": "One of your devices is not verified",
     "noticeChatBackupDeviceVerification": "Note: When you connect all your devices to the chat backup, they are automatically verified.",
     "continueText": "Continue",
@@ -2648,6 +2575,8 @@
     "displayNavigationRail": "Show navigation rail on mobile",
     "customReaction": "Custom reaction",
     "moreEvents": "More events",
+    "showMore": "Show more",
+    "showLess": "Show less",
     "declineInvitation": "Decline invitation",
     "noMessagesYet": "No messages yet",
     "longPressToRecordVoiceMessage": "Long press to record voice message.",
@@ -2731,8 +2660,6 @@
     "attribution": "Attribution",
     "skipChatBackup": "Skip chat backup",
     "skipChatBackupWarning": "Are you sure? Without enabling the chat backup you may lose access to your messages if you switch your device.",
-    "loadingMessages": "Loading messages",
-    "setupChatBackup": "Set up chat backup",
     "noMoreResultsFound": "No more results found",
     "chatSearchedUntil": "Chat searched until {time}",
     "@chatSearchedUntil": {
@@ -2763,7 +2690,6 @@
     "createNewAccount": "Create new account",
     "signUpGreeting": "FluffyChat is decentralized! Select a server where you want to create your account and let's go!",
     "signInGreeting": "You already have an account in Matrix? Welcome back! Select your homeserver and sign in.",
-    "appIntro": "With FluffyChat you can chat with your friends. It's a secure decentralized [matrix] messenger! Learn more on https://matrix.org if you like or just sign up.",
     "theProcessWasCanceled": "The process was canceled.",
     "join": "Join",
     "searchOrEnterHomeserverAddress": "Search or enter homeserver address",
@@ -2784,23 +2710,187 @@
     "reset": "Reset",
     "supportFluffyChat": "Support FluffyChat",
     "support": "Support",
-    "fluffyChatSupportBannerMessage": "FluffyChat needs YOUR help!\n❤️❤️❤️\nFluffyChat will always be free, but development and hosting still cost money.\nThe future of the project depends on support from people like you.",
-    "skipSupportingFluffyChat": "Skip supporting FluffyChat",
-    "iDoNotWantToSupport": "I do not want to support",
-    "iAlreadySupportFluffyChat": "I already support FluffyChat",
     "setLowPriority": "Set low priority",
     "unsetLowPriority": "Unset low priority",
-    "removeCallFromChat": "Remove call from chat",
-    "removeCallFromChatDescription": "Do you want to remove the call from the chat for all members?",
-    "removeCallForEveryone": "Remove call for everyone",
-    "startVoiceCall": "Start voice call",
-    "startVideoCall": "Start video call",
-    "joinVoiceCall": "Join voice call",
-    "joinVideoCall": "Join video call",
-    "live": "Live",
     "playSoundOnNotification": "Play sound on notification",
     "addTag": "Add tag",
     "removeTag": "Remove tag",
     "tagName": "Tag name",
-    "createNewTag": "Create new tag"
+    "createNewTag": "Create new tag",
+    "hideRoomsInSpaces": "Hide rooms that are in a space",
+    "possibleByYou": "This release was only possible thanks to your support. FluffyChat remains free, open-source, and entirely community-driven.",
+    "showThumbnailsInTimeline": "Show thumbnails of images and videos",
+    "appSubtitle": "Secure [matrix] Communication",
+    "appDescription": "Communicate encrypted over the decentralized [matrix] network in an easy and accessible way for everyone.",
+    "interactiveVerification": "Interactive verification",
+    "interactiveVerificationDescription": "If you are next to each other or communicate via a secure channel then you can verify all devices at once by comparing a security number or emojis.",
+    "countUnverifiedDevices": "{count} unverified devices in the chat.",
+    "@countUnverifiedDevices": {
+        "type": "int",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "check": "Check",
+    "encryptedMessage": "Encrypted message",
+    "unencryptedMessage": "Unencrypted message",
+    "allow": "Allow",
+    "messageCanOnlyBeReadByUser": "Your message is end to end encrypted and can only be read by this user:",
+    "messageCanOnlyBeReadByUsers": "Your message is end to end encrypted and can only be read by these users:",
+    "publicKey": "Public key: {key}",
+    "@publicKey": {
+        "type": "String",
+        "placeholders": {
+            "key": {
+                "type": "String"
+            }
+        }
+    },
+    "deviceIdentityKey": "Device identity key",
+    "restoreBootstrapEmptyDevicesDescription": "Please enter your passphrase or recovery key to verify this device and get access to your encrypted message backup.",
+    "@restoreBootstrapEmptyDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreBootstrapDevicesDescription": "Please pick one of your other devices, to verify this session:",
+    "@restoreBootstrapDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccount": "Reset account",
+    "@resetAccount": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreCryptoIdentity": "Restore Crypto Identity",
+    "@restoreCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetCryptoIdentity": "Reset Crypto Identity",
+    "@resetCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "setUpCryptoIdentity": "Set Up Crypto Identity",
+    "@setUpCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "waitingForKeys": "Waiting for keys... Please keep the other device active.",
+    "@waitingForKeys": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "noKeysTransmitted": "No keys transmitted. Please try again.",
+    "@noKeysTransmitted": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "unlock": "Unlock",
+    "@unlock": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "openFile": "Open file",
+    "@openFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccountWarning": "When you reset your account you will lose the access to your old messages forever. All your current devices need to be verified again. Please only perform this action when you have no other devices left to verify your session and you have lost your recovery key and passphrase!",
+    "@resetAccountWarning": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphraseDescription": "FluffyChat uses end to end encryption. To not lose your messages, please choose a strong passphrase to secure your crypto identity and your encrypted message backup.",
+    "@newPassphraseDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphrase": "New passphrase",
+    "@newPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "repeatPassphrase": "Repeat passphrase",
+    "@repeatPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphrasesMatch": "Passphrases match",
+    "@passphrasesMatch": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseLengthRequirement": "At least 12 characters long.",
+    "@passphraseLengthRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseUpperAndLowerCaseRequirement": "Contains uppercase and lowercase characters.",
+    "@passphraseUpperAndLowerCaseRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseSpecialCharactersRequirement": "Contains special characters.",
+    "@passphraseSpecialCharactersRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseNumberRequirement": "Contains one numbers.",
+    "@passphraseNumberRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "storeRecoveryKeyDescription": "Please note down your recovery key to be able to restore your encrypted messages and your crypto identity on.",
+    "@storeRecoveryKeyDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "saveAsFile": "Save as file",
+    "@saveAsFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "youAreReadyToStart": "You are ready to start!",
+    "noUserKeyFound": "No user key found",
+    "@noUserKeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "knownSince": "Known since: {date}",
+    "@knownSince": {
+        "type": "String",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "unsignedDevice": "Unsigned device",
+    "@unsignedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "signedDevice": "Signed device",
+    "@signedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "noCurve25519KeyFound": "No curve25519 key found",
+    "@noCurve25519KeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "messageNotDecryptable": "Message not decryptable",
+    "today": "Today",
+    "sending": "Sending",
+    "generatingThumbnail": "Generating thumbnail",
+    "encrypting": "Encrypting",
+    "uploading": "Uploading",
+    "edited": "(edited)",
+    "couldNotBeSent": "Could not be sent",
+    "yesterday": "Yesterday"
 }

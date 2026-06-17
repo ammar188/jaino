@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/utils/fluffy_share.dart';
 import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
@@ -106,7 +111,7 @@ class PublicRoomDialog extends StatelessWidget {
             final topic = profile?.topic;
             return SingleChildScrollView(
               child: Column(
-                spacing: 16,
+                spacing: 8,
                 mainAxisSize: .min,
                 crossAxisAlignment: .stretch,
                 children: [

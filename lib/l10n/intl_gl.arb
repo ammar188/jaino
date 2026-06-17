@@ -364,11 +364,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "chatBackupDescription": "As mensaxes están protexidas cunha clave de recuperación. Pon coidado e non a perdas.",
-    "@chatBackupDescription": {
-        "type": "String",
-        "placeholders": {}
-    },
     "chatDetails": "Detalles da conversa",
     "@chatDetails": {
         "type": "String",
@@ -736,16 +731,6 @@
             }
         }
     },
-    "everythingReady": "Todo preparado!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Extremadamente ofensivo",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "Nome do ficheiro",
     "@fileName": {
         "type": "String",
@@ -837,11 +822,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "É moi ofensivo este contido?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -864,11 +844,6 @@
     },
     "incorrectPassphraseOrKey": "Frase de paso ou chave de recuperación incorrecta",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Inofensivo",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1158,11 +1133,6 @@
     },
     "obtainingLocation": "Obtendo a localización…",
     "@obtainingLocation": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "offensive": "Ofensivo",
-    "@offensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1639,11 +1609,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "Transferir desde outro dispositivo",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "Inténtao outra vez",
     "@tryToSendAgain": {
         "type": "String",
@@ -1849,11 +1814,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Queres eliminar a copia de apoio e crear unha nova chave de recuperación?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "Con estos enderezos podes recuperar o contrasinal.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -1894,11 +1854,9 @@
     "sendOnEnter": "Enter para enviar",
     "homeserver": "Servidor de inicio",
     "serverRequiresEmail": "O servidor precisa validar o teu enderezo de email para rexistrarte.",
-    "enableMultiAccounts": "(BETA) Activar varias contas neste dispositivo",
     "addAccount": "Engadir conta",
     "oneClientLoggedOut": "Un dos teus clientes foi desconectado",
     "link": "Ligazón",
-    "yourChatBackupHasBeenSetUp": "Configurouse a copia de apoio da charla.",
     "unverified": "Sen verificar",
     "repeatPassword": "Repite o contrasinal",
     "messageInfo": "Info da mensaxe",
@@ -1931,7 +1889,6 @@
     "dismiss": "Desbotar",
     "markAsRead": "Marcar como lido",
     "reportUser": "Denunciar usuaria",
-    "openChat": "Abrir Conversa",
     "voiceCall": "Chamada de voz",
     "emojis": "Emojis",
     "placeCall": "Chamar",
@@ -2016,15 +1973,11 @@
             }
         }
     },
-    "saveKeyManuallyDescription": "Garda esta chave manualmente usando o sistema para compartir do dispositivo ou portapapeis.",
     "storeInAndroidKeystore": "Gardar en Android KeyStore",
     "storeInAppleKeyChain": "Gardar en Apple KeyChain",
-    "recoveryKeyLost": "Perdeches a chave de recuperación?",
     "recoveryKey": "Chave de recuperación",
     "storeSecurlyOnThisDevice": "Gardar de xeito seguro no dispositivo",
-    "pleaseEnterRecoveryKeyDescription": "Para desbloquear as mensaxes antigas, escribe a chave de recuperación creada nunha sesión existente. A chave de recuperación NON é o teu contrasinal.",
     "users": "Usuarias",
-    "storeInSecureStorageDescription": "Gardar a chave de recuperación na almacenaxe segura deste dispositivo.",
     "countFiles": "{count} ficheiros",
     "@countFiles": {
         "placeholders": {
@@ -2033,7 +1986,6 @@
             }
         }
     },
-    "unlockOldMessages": "Desbloquear mensaxes antigas",
     "hydrate": "Restablecer desde copia de apoio",
     "dehydrateWarning": "Esta acción non é reversible. Pon coidado en gardar o ficheiro de apoio.",
     "dehydrate": "Exportar sesión e eliminar dispositivo",
@@ -2324,12 +2276,6 @@
             }
         }
     },
-    "hidePresences": "Agochar Lista de estados?",
-    "presencesToggle": "Mostra mensaxes de estado de outras usuarias",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "incomingMessages": "Mensaxes recibidas",
     "stickers": "Adhesivos",
     "discover": "Descubrir",
@@ -2370,7 +2316,6 @@
     "appLockDescription": "Bloquear a app cun código PIN cando non a uses",
     "globalChatId": "ID Global da charla",
     "customEmojisAndStickersBody": "Engade ou comparte emojis personais e adhesivos que poden usarse nas charlas.",
-    "overview": "Vista xeral",
     "passwordRecoverySettings": "Axustes de recuperación do contrasinal",
     "knock": "Solicitar acceso",
     "noOneCanJoin": "Ninguén pode unirse",
@@ -2467,31 +2412,8 @@
     "loginWithMatrixId": "Acceder co ID-Matrix",
     "doesNotSeemToBeAValidHomeserver": "Non semella ser un servidor de inicio compatible. É o URL correcto?",
     "calculatingFileSize": "Calculando o tamaño do ficheiro…",
-    "prepareSendingAttachment": "Preparando o envío…",
     "sendingAttachment": "Enviando o anexo…",
-    "generatingVideoThumbnail": "Creando miniatura do vídeo…",
     "compressVideo": "Comprimindo o vídeo…",
-    "serverLimitReached": "Acadouse o límite do servidor! Agarda {seconds} segundos…",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
-    "sendingAttachmentCountOfCount": "Enviando o anexo {index} de {length}…",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
     "oneOfYourDevicesIsNotVerified": "Un dos teus dispositivos non está verificado",
     "noticeChatBackupDeviceVerification": "Nota: Cando conectas todos os teus dispositivos á copia de apoio da conversa quedan verificados automaticamente.",
     "blur": "Néboa:",
@@ -2740,8 +2662,6 @@
     "stickerPackName": "Nome do paquete de adhesivos",
     "skipChatBackup": "Omitir copia da conversa",
     "skipChatBackupWarning": "Tes certeza? A non activar a copia de apoio da conversa poderías perder o acceso ás mensaxes se cambias de dispositivo.",
-    "loadingMessages": "Cargando mensaxes",
-    "setupChatBackup": "Configurar copia de apoio",
     "changedTheChatDescription": "{username} cambiou a descrición da sala",
     "changedTheChatName": "{username} cambiou o nome da sala",
     "noMoreResultsFound": "Non hai máis resultados",
@@ -2774,7 +2694,6 @@
     "createNewAccount": "Crear nova conta",
     "signUpGreeting": "FluffyChat é descentralizada! Elixe un servidor para crear a conta e xa podes utilizar a app!",
     "signInGreeting": "Xa tes unha conta en Matrix? Benvida! Selecciona o teu servidor de orixe e accede.",
-    "appIntro": "Con FluffyChat podes conversar coas amizades. É mensaxería segura e descentralizada en [matrix]! Coñece máis en https://matrix.org ou crea unha conta.",
     "theProcessWasCanceled": "Desbotouse o proceso.",
     "join": "Unirse",
     "searchOrEnterHomeserverAddress": "Busca ou escribe o enderezo do servidor de inicio",
@@ -2795,20 +2714,8 @@
     "reset": "Restablecer",
     "supportFluffyChat": "Apoia a FluffyChat",
     "support": "Axuda",
-    "fluffyChatSupportBannerMessage": "FluffyChat precisa a TÚA axuda!\n❤️❤️❤️\nFluffyChat vai ser sempre gratuíta, pero o desenvolvemento e a hospedaxe costan cartos.\nO futuro do proxecto depende da axuda de persoas coma ti.",
-    "skipSupportingFluffyChat": "Omitir apoiar a FluffyChat",
-    "iDoNotWantToSupport": "Non quero axudar",
-    "iAlreadySupportFluffyChat": "Xa apoiei a FluffyChat",
     "setLowPriority": "Establecer prioridade baixa",
     "unsetLowPriority": "Non establecer prioridade baixa",
-    "removeCallFromChat": "Eliminar a chamada da conversa",
-    "removeCallFromChatDescription": "Queres eliminar a chamada da conversa para todos os membros?",
-    "removeCallForEveryone": "Eliminar para todos a chamada",
-    "startVoiceCall": "Iniciar chamada de voz",
-    "startVideoCall": "Iniciar chamada de vídeo",
-    "joinVoiceCall": "Unirse á chamada de voz",
-    "joinVideoCall": "Unirse á chamada de vídeo",
-    "live": "En directo",
     "playSoundOnNotification": "Reproducir son coas notificacións",
     "addTag": "Engadir etiqueta",
     "removeTag": "Retirar etiqueta",

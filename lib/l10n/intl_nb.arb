@@ -317,11 +317,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "chatBackupDescription": "Meldingene dine er sikret med en gjenopprettingsnøkkel. Pass på at du ikke mister den.",
-    "@chatBackupDescription": {
-        "type": "String",
-        "placeholders": {}
-    },
     "chatDetails": "Sludringsdetaljer",
     "@chatDetails": {
         "type": "String",
@@ -580,16 +575,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "everythingReady": "Alt er klart!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Veldig",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "Filnavn",
     "@fileName": {
         "type": "String",
@@ -681,11 +666,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "Hvor støtende er innholdet?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -708,11 +688,6 @@
     },
     "incorrectPassphraseOrKey": "Feilaktig passord eller gjenopprettingsnøkkel",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Harmløst",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -967,11 +942,6 @@
                 "type": "int"
             }
         }
-    },
-    "offensive": "Støtende",
-    "@offensive": {
-        "type": "String",
-        "placeholders": {}
     },
     "offline": "Frakoblet",
     "@offline": {
@@ -1357,11 +1327,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "Overfør fra en annen enhet",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "Prøv å sende igjen",
     "@tryToSendAgain": {
         "type": "String",
@@ -1714,7 +1679,6 @@
         "placeholders": {}
     },
     "dismiss": "Avvis",
-    "openChat": "Åpne chat",
     "reopenChat": "Gjenåpne chat",
     "changeTheDescriptionOfTheGroup": "Endre beskrivelsen til chatten",
     "inviteOtherUsers": "Inviter andre brukere til denne chatten",
@@ -1843,7 +1807,6 @@
         }
     },
     "commandHint_roomupgrade": "Oppgrader dette rommet til den gitte romversjonen",
-    "overview": "Oversikt",
     "passwordRecoverySettings": "Innstillinger for gjenoppretting av passord",
     "pleaseChooseAPasscode": "Vennligst velg en passordkode",
     "@pleaseChooseAPasscode": {
@@ -1877,7 +1840,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "yourChatBackupHasBeenSetUp": "Sikkerhetskopien av chatten din er konfigurert.",
     "discover": "Oppdag",
     "thereAreCountUsersBlocked": "Akkurat nå er det {count} blokkerte brukere.",
     "@thereAreCountUsersBlocked": {
@@ -1892,7 +1854,6 @@
     "hydrate": "Gjenopprett fra sikkerhetskopifil",
     "oneClientLoggedOut": "En av klientene dine har blitt logget ut",
     "addAccount": "Legg til konto",
-    "enableMultiAccounts": "(BETA) Aktiver flere kontoer på denne enheten",
     "openInMaps": "Åpne i kart",
     "@openInMaps": {
         "type": "String",
@@ -1982,11 +1943,6 @@
             }
         }
     },
-    "presencesToggle": "Vis statusmeldinger fra andre brukere",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "voiceCall": "Taleanrop",
     "accessAndVisibilityDescription": "Hvem som har lov til å bli med i denne chatten og hvordan chatten kan oppdages.",
     "calls": "Anrop",
@@ -2072,15 +2028,6 @@
         }
     },
     "jumpToLastReadMessage": "Hopp til sist leste melding",
-    "serverLimitReached": "Grensen for server er nådd! Venter i {seconds} sekunder...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "blur": "Uskarphet:",
     "opacity": "Ugjennomsiktighet:",
     "noContactInformationProvided": "Serveren oppgir ingen gyldig kontaktinformasjon",
@@ -2173,7 +2120,6 @@
             }
         }
     },
-    "hidePresences": "Skjul statuslisten?",
     "noMessagesYet": "Ingen meldinger enda",
     "notificationRuleMasterDescription": "Overstyrer alle andre regler og deaktiverer alle varsler.",
     "notificationRuleSuppressNotices": "Undertrykk automatiserte meldinger",
@@ -2330,7 +2276,6 @@
     "generalNotificationSettings": "Generelle varslingsinnstillinger",
     "notificationRuleContainsUserNameDescription": "Varsler bruker når en melding inneholder ens brukernavn.",
     "removeFromSpace": "Fjern fra området",
-    "pleaseEnterRecoveryKeyDescription": "For å låse opp gamle meldinger, vennligst skriv inn gjenopprettingsnøkkelen som ble generert i en tidligere økt. Gjenopprettingsnøkkelen er IKKE passordet ditt.",
     "reactedWith": "{sender} reagerte med {reaction}",
     "@reactedWith": {
         "type": "String",
@@ -2366,8 +2311,6 @@
         "description": "Usage hint for the command /clearcache"
     },
     "doesNotSeemToBeAValidHomeserver": "Ser ikke ut til å være en kompatibel hjemmeserver. Feil URL?",
-    "prepareSendingAttachment": "Forbered sending av vedlegg...",
-    "generatingVideoThumbnail": "Genererer videominiatyrbilde ...",
     "compressVideo": "Komprimerer video...",
     "welcomeText": "Hei, hei! 👋 Dette er FluffyChat. Du kan logge på hvilken som helst hjemmeserver som er kompatibel med https://matrix.org. Og deretter chatte med hvem som helst. Det er et stort desentralisert meldingsnettverk!",
     "notificationRuleIsUserMentionDescription": "Varsler brukeren når de er direkte nevnt i en melding.",
@@ -2448,11 +2391,6 @@
     },
     "waitingPartnerEmoji": "Venter på at partneren skal godta emojien…",
     "@waitingPartnerEmoji": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "wipeChatBackup": "Vil du slette sikkerhetskopien av chatten din for å opprette en ny gjenopprettingsnøkkel?",
-    "@wipeChatBackup": {
         "type": "String",
         "placeholders": {}
     },
@@ -2545,7 +2483,6 @@
     "kickUserDescription": "Brukeren blir kastet ut av chatten, men ikke utestengt. I offentlige chatter kan brukeren bli med på nytt når som helst.",
     "sendTypingNotifications": "Send varsler ved skriving",
     "swipeRightToLeftToReply": "Sveip fra høyre mot venstre for å svare",
-    "unlockOldMessages": "Lås opp gamle meldinger",
     "storeInAndroidKeystore": "Lagre i Android KeyStore",
     "storeInAppleKeyChain": "Lagre i Apple nøkkelring",
     "storeSecurlyOnThisDevice": "Lagre sikkert på denne enheten",
@@ -2566,7 +2503,6 @@
     "notificationRuleJitsiDescription": "Varsler brukeren om hendelser i Jitsi-widgeten.",
     "customReaction": "Egendefinert reaksjon",
     "pause": "Pause",
-    "storeInSecureStorageDescription": "Oppbevar gjenopprettingsnøkkelen på en sikker lagringsplass på denne enheten.",
     "foregroundServiceRunning": "Denne varslingen vises når forgrunnstjenesten kjører.",
     "longPressToRecordVoiceMessage": "Langt trykk for å spille inn talemelding.",
     "startedAPoll": "{username} startet en avstemning.",
@@ -2609,8 +2545,6 @@
     "backToMainChat": "Tilbake til hovedchatten",
     "saveChanges": "Lagre endringer",
     "skipChatBackup": "Hopp over sikkerhetskopiering av chat",
-    "loadingMessages": "Laster inn meldinger",
-    "setupChatBackup": "Konfigurer sikkerhetskopi av chat",
     "commandHint_googly": "Send noen googly-eyes",
     "commandHint_cuddle": "Send en kos",
     "googlyEyesContent": "{senderName} sender deg googly-eyes",
@@ -2626,7 +2560,6 @@
     "changedTheChatDescription": "{username} endret beskrivelsen av chatten",
     "changedTheChatName": "{username} endret navnet på chatten",
     "commandHint_markasdm": "Marker som rom for direktemeldinger for den angitte Matrix-IDen",
-    "recoveryKeyLost": "Mistet gjenopprettingsnøkkel?",
     "setAsCanonicalAlias": "Angi som hovedalias",
     "@setAsCanonicalAlias": {
         "type": "String",
@@ -2744,18 +2677,6 @@
             }
         }
     },
-    "sendingAttachmentCountOfCount": "Sender vedlegg {index} av {length}...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
     "spaceMemberOf": "Områdemedlem av {spaces}",
     "@spaceMemberOf": {
         "type": "String",
@@ -2766,7 +2687,6 @@
         }
     },
     "confirmEventUnpin": "Er du sikker på at du vil løsne hendelsen permanent?",
-    "saveKeyManuallyDescription": "Lagre denne nøkkelen manuelt ved å åpne systemets delingsmeny eller kopiere til utklippstavlen.",
     "newSpaceDescription": "Områder lar deg samle chattene dine og bygge private eller offentlige fellesskap.",
     "chatPermissionsDescription": "Definer hvilket tilgangsnivå som kreves for bestemte handlinger i denne chatten. Nivåene 0, 50 og 100 representerer vanligvis brukere, moderatorer og administratorer, men alle mellomtrinn er mulige.",
     "knocking": "Banker på",
@@ -2781,7 +2701,6 @@
     "createNewAccount": "Opprett ny konto",
     "signUpGreeting": "FluffyChat er desentralisert! Velg en server der du vil opprette kontoen din, så kjører vi på!",
     "signInGreeting": "Har du allerede en Matrix-konto? Velkommen tilbake! Velg hjemmeserveren din og logg inn.",
-    "appIntro": "Med FluffyChat kan du chatte med vennene dine. Det er en sikker, desentralisert [matrix]-meldingsapp! Les mer på https://matrix.org hvis du vil, eller bare registrer deg.",
     "theProcessWasCanceled": "Prosessen ble avbrutt.",
     "join": "Bli med",
     "searchOrEnterHomeserverAddress": "Søk eller angi adresse til hjemmeserver",
@@ -2802,20 +2721,8 @@
     "reset": "Nullstill",
     "supportFluffyChat": "Støtt FluffyChat",
     "support": "Støtte",
-    "fluffyChatSupportBannerMessage": "FluffyChat trenger DIN hjelp!\n❤️❤️❤️\nFluffyChat vil alltid være gratis, men utvikling og drift koster fortsatt penger. \nProsjektets fremtid avhenger av støtte fra folk som deg.",
-    "skipSupportingFluffyChat": "Hopp over støtte til FluffyChat",
-    "iDoNotWantToSupport": "Jeg ønsker ikke å støtte",
-    "iAlreadySupportFluffyChat": "Jeg støtter allerede FluffyChat",
     "setLowPriority": "Sett lav prioritet",
     "unsetLowPriority": "Fjern lav prioritet",
-    "removeCallFromChat": "Fjern anrop fra chat",
-    "removeCallFromChatDescription": "Vil du fjerne anropet fra chatten for alle medlemmer?",
-    "removeCallForEveryone": "Fjern anrop fra alle",
-    "startVoiceCall": "Start lydsamtale",
-    "startVideoCall": "Start videosamtale",
-    "joinVoiceCall": "Bli med i lydsamtale",
-    "joinVideoCall": "Bli med i videosamtale",
-    "live": "Direkte",
     "playSoundOnNotification": "Spill av lyd ved varsling",
     "addTag": "Legg til emneknagg",
     "removeTag": "Fjern emneknagg",

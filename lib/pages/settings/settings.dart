@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'dart:async';
 
 import 'package:collection/collection.dart';
@@ -80,6 +85,8 @@ class SettingsController extends State<Settings> {
       context: context,
       future: () => matrix.client.logout(),
     );
+    if (!mounted) return;
+    context.go('/');
   }
 
   Future<void> setAvatarAction() async {
@@ -168,6 +175,7 @@ class SettingsController extends State<Settings> {
   Future<void> checkBootstrap() async {
     final client = Matrix.of(context).client;
     if (!client.encryptionEnabled) return;
+    if (!client.isLogged()) return;
     await client.accountDataLoading;
     await client.userDeviceKeysLoading;
     if (client.prevBatch == null) {

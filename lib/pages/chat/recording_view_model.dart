@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'dart:async';
 
 import 'package:device_info_plus/device_info_plus.dart';
@@ -28,8 +33,6 @@ class RecordingViewModel extends StatefulWidget {
 class RecordingViewModelState extends State<RecordingViewModel> {
   Timer? _recorderSubscription;
   Duration duration = Duration.zero;
-
-  bool isSending = false;
 
   bool get isRecording => _audioRecorder != null;
 
@@ -140,7 +143,7 @@ class RecordingViewModelState extends State<RecordingViewModel> {
     _recorderSubscription?.cancel();
     _audioRecorder?.stop();
     _audioRecorder = null;
-    isSending = false;
+
     fileName = null;
     duration = Duration.zero;
     amplitudeTimeline.clear();
@@ -189,18 +192,7 @@ class RecordingViewModelState extends State<RecordingViewModel> {
       waveform.add((amplitudeTimeline[i] / 100 * 1024).round());
     }
 
-    setState(() {
-      isSending = true;
-    });
-    try {
-      await onSend(path, duration.inMilliseconds, waveform, fileName!);
-    } catch (e, s) {
-      Logs().e('Unable to send voice message', e, s);
-      setState(() {
-        isSending = false;
-      });
-      return;
-    }
+    onSend(path, duration.inMilliseconds, waveform, fileName!);
 
     cancel();
   }

@@ -363,11 +363,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "chatBackupDescription": "Suas mensagens são protegidas com sua chave de recuperação. Evite perdê-la.",
-    "@chatBackupDescription": {
-        "type": "String",
-        "placeholders": {}
-    },
     "chatDetails": "Detalhes da conversa",
     "@chatDetails": {
         "type": "String",
@@ -735,16 +730,6 @@
             }
         }
     },
-    "everythingReady": "Tudo pronto!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Extremamente ofensivo",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "Nome do arquivo",
     "@fileName": {
         "type": "String",
@@ -836,11 +821,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "O quão ofensivo é este conteúdo?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -863,11 +843,6 @@
     },
     "incorrectPassphraseOrKey": "Frase secreta ou chave de recuperação incorreta",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Inofensivo",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1157,11 +1132,6 @@
     },
     "obtainingLocation": "Obtendo localização…",
     "@obtainingLocation": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "offensive": "Ofensivo",
-    "@offensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1638,11 +1608,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "Transferir de outro dispositivo",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "Tentar enviar novamente",
     "@tryToSendAgain": {
         "type": "String",
@@ -1848,11 +1813,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Apagar o backup de conversas para criar uma nova chave de recuperação?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "Você pode recuperar a sua senha com estes endereços.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -1891,7 +1851,6 @@
     "oneClientLoggedOut": "Um dos seus clientes foi desconectado",
     "addAccount": "Adicionar conta",
     "unverified": "Não verificado",
-    "yourChatBackupHasBeenSetUp": "Seu backup de conversas foi configurado.",
     "editBundlesForAccount": "Editar coleções para esta conta",
     "serverRequiresEmail": "Este servidor precisa validar seu e-mail para efetuar o cadastro.",
     "messageInfo": "Informações da mensagem",
@@ -1927,13 +1886,11 @@
     "addToBundle": "Adicionar à coleção",
     "removeFromBundle": "Remover desta coleção",
     "bundleName": "Nome da coleção",
-    "enableMultiAccounts": "(BETA) Ativar múltiplas contas neste dispositivo",
     "time": "Horário",
     "messageType": "Tipo da mensagem",
     "openGallery": "Abrir galeria",
     "markAsRead": "Marcar como lido",
     "dismiss": "Descartar",
-    "openChat": "Abrir conversa",
     "reportUser": "Denunciar usuário",
     "emojis": "Emojis",
     "placeCall": "Chamar",
@@ -2024,7 +1981,6 @@
             }
         }
     },
-    "pleaseEnterRecoveryKeyDescription": "Para desbloquear as suas mensagens antigas, digite a sua chave de recuperação gerada numa sessão prévia. Sua chave de recuperação NÃO é sua senha.",
     "users": "Usuários",
     "confirmMatrixId": "Confirme seu ID Matrix para apagar sua conta.",
     "supposedMxid": "Isto deveria ser {mxid}",
@@ -2037,7 +1993,6 @@
         }
     },
     "recoveryKey": "Chave de recuperação",
-    "recoveryKeyLost": "Perdeu a chave de recuperação?",
     "commandHint_cuddle": "Enviar um afago",
     "commandHint_hug": "Enviar um abraço",
     "commandHint_googly": "Enviar olhos arregalados",
@@ -2062,8 +2017,6 @@
     "commandHint_markasdm": "Marcar como sala de mensagens diretas para o ID Matrix fornecido",
     "commandHint_markasgroup": "Marcar como grupo",
     "hydrate": "Restaurar a partir de um arquivo de backup",
-    "storeInSecureStorageDescription": "Guardar a chave de recuperação no armazenamento seguro deste dispositivo.",
-    "saveKeyManuallyDescription": "Salvar esta chave manualmente via compartilhamento do sistema ou área de transferência.",
     "storeInAndroidKeystore": "Guardar no cofre do Android (KeyStore)",
     "storeInAppleKeyChain": "Guardar no chaveiro da Apple",
     "storeSecurlyOnThisDevice": "Guardar de modo seguro neste dispositivo",
@@ -2082,7 +2035,6 @@
         }
     },
     "doNotShowAgain": "Não mostrar novamente",
-    "unlockOldMessages": "Desbloquear mensagens antigas",
     "dehydrate": "Exportar sessão e apagar dispositivo",
     "dehydrateWarning": "Esta ação não pode ser desfeita. Certifique-se de que o arquivo de backup está guardado e seguro.",
     "whyIsThisMessageEncrypted": "Por que não consigo ler esta mensagem?",
@@ -2272,14 +2224,8 @@
     "sendReadReceipts": "Enviar recibos de leitura",
     "sendTypingNotificationsDescription": "Outros participantes nesta conversa podem ver quando você está digitando uma nova mensagem.",
     "formattedMessages": "Mensagens formatadas",
-    "presencesToggle": "Mostrar as mensagens de estado de outros usuários",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "commandHint_ignore": "Ignorar o ID Matrix especificado",
     "commandHint_unignore": "Parar de ignorar o ID Matrix especificado",
-    "hidePresences": "Ocultar lista de estado?",
     "sessionLostBody": "Sua sessão foi desconectada. Relate este ao desenvolvedor em {url}. A mensagem de erro é: {error}",
     "@sessionLostBody": {
         "type": "String",
@@ -2354,7 +2300,6 @@
     "hideRedactedMessages": "Ocultar mensagens apagadas",
     "hideRedactedMessagesBody": "Se alguém apagar uma mensagem, esta mensagem não será mais visível na conversa.",
     "hideInvalidOrUnknownMessageFormats": "Ocultar formatos de mensagem inválidos ou desconhecidos",
-    "overview": "Visão geral",
     "usersMustKnock": "Usuários devem bater na porta",
     "noOneCanJoin": "Ninguém pode entrar",
     "knocking": "Batendo na porta",
@@ -2476,7 +2421,6 @@
     "changelog": "Registro de mudanças",
     "sendCanceled": "Envio cancelado",
     "unableToJoinChat": "Não foi possível entrar na conversa. Talvez a outra pessoa já fechou a conversa.",
-    "prepareSendingAttachment": "Preparando o envio do anexo...",
     "sendingAttachment": "Enviando o anexo...",
     "noticeChatBackupDeviceVerification": "Observação: Quando você conecta todos os seus dispositivos ao backup de conversas, eles são verificados automaticamente.",
     "continueText": "Continuar",
@@ -2554,17 +2498,7 @@
     "loginWithMatrixId": "Conectar com ID Matrix",
     "calculatingFileSize": "Calculando o tamanho do arquivo...",
     "compressVideo": "Comprimindo o vídeo...",
-    "generatingVideoThumbnail": "Gerando a miniatura do vídeo...",
     "oneOfYourDevicesIsNotVerified": "Um dos seus dispositivos não está verificado",
-    "serverLimitReached": "Limite do servidor alcançado! Esperando {seconds} segundos...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "manageAccount": "Gerenciar conta",
     "newChatRequest": "📩 Nova solicitação de conversa",
     "userLevel": "{level} - Usuário",
@@ -2585,18 +2519,6 @@
     "waitingForServer": "Aguardando o servidor...",
     "notificationRuleEncryptedDescription": "Notifica o usuário de mensagens em salas criptografadas.",
     "sendRoomNotifications": "Enviar notificações de @room",
-    "sendingAttachmentCountOfCount": "Enviando o {index}° anexo de {length}...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
     "welcomeText": "Olá! 👋 Este é o FluffyChat. Você pode se conectar com qualquer servidor que é compatível com o https://matrix.org. E então conversar com qualquer um. É uma rede gigante e descentralizada de conversa!",
     "notificationRuleRoomServerAclDescription": "Omite notificações de listas de controle de acesso de servidor de uma sala (ACL).",
     "notificationRuleIsUserMentionDescription": "Notifica o usuário quando é mencionado diretamente em uma mensagem.",
@@ -2739,8 +2661,6 @@
     "attribution": "Créditos",
     "skipChatBackup": "Pular backup de conversas",
     "skipChatBackupWarning": "Tem certeza? Se não ativar o backup de conversas, você pode perder o acesso às suas mensagens se trocar de dispositivo.",
-    "loadingMessages": "Carregando mensagens",
-    "setupChatBackup": "Configurar backup de conversas",
     "changedTheChatDescription": "{username} alterou a descrição da conversa",
     "changedTheChatName": "{username} alterou o nome da conversa",
     "versionWithNumber": "Versão: {version}",
@@ -2753,5 +2673,51 @@
         }
     },
     "advancedConfigs": "",
-    "theProcessWasCanceled": ""
+    "theProcessWasCanceled": "",
+    "logs": "",
+    "signIn": "",
+    "reset": "",
+    "createNewTag": "",
+    "join": "",
+    "advancedConfigurations": "",
+    "signUpGreeting": "",
+    "baseUrl": "",
+    "createNewChat": "",
+    "makeModerator": "",
+    "tagName": "",
+    "clientWellKnownInformation": "",
+    "federationBaseUrl": "",
+    "setPowerLevelDescription": "",
+    "matrixId": "",
+    "identityServer": "",
+    "support": "",
+    "createNewAccount": "",
+    "setPowerLevel": "",
+    "mute": "",
+    "@mute": {
+        "description": "This should be a very short string because there is not much space in the button!"
+    },
+    "noMoreResultsFound": "",
+    "removeModeratorRights": "",
+    "addTag": "",
+    "removeAdminRights": "",
+    "owner": "",
+    "powerLevel": "",
+    "playSoundOnNotification": "",
+    "makeAdmin": "",
+    "searchOrEnterHomeserverAddress": "",
+    "unsetLowPriority": "",
+    "setLowPriority": "",
+    "chatSearchedUntil": "",
+    "@chatSearchedUntil": {
+        "type": "String",
+        "placeholders": {
+            "time": {
+                "type": "String"
+            }
+        }
+    },
+    "signInGreeting": "",
+    "removeTag": "",
+    "supportFluffyChat": ""
 }

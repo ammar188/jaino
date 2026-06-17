@@ -1,7 +1,7 @@
 {
     "@@locale": "de",
     "@@last_modified": "2021-08-14 12:41:10.119255",
-    "alwaysUse24HourFormat": "true",
+    "alwaysUse24HourFormat": "falsch",
     "@alwaysUse24HourFormat": {
         "description": "Set to true to always display time of day in 24 hour format."
     },
@@ -360,11 +360,6 @@
     },
     "chatBackup": "Chat-Backup",
     "@chatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "chatBackupDescription": "Deine Nachrichten sind mit einem Wiederherstellungsschlüssel gesichert. Bitte stelle sicher, dass du ihn nicht verlierst.",
-    "@chatBackupDescription": {
         "type": "String",
         "placeholders": {}
     },
@@ -735,16 +730,6 @@
             }
         }
     },
-    "everythingReady": "Alles fertig!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Extrem beleidigend",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "Dateiname",
     "@fileName": {
         "type": "String",
@@ -836,11 +821,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "Wie beleidigend ist dieser Inhalt?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -863,11 +843,6 @@
     },
     "incorrectPassphraseOrKey": "Falsches Passwort oder Wiederherstellungsschlüssel",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Harmlos",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1145,11 +1120,6 @@
     },
     "obtainingLocation": "Standort wird ermittelt …",
     "@obtainingLocation": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "offensive": "Beleidigend",
-    "@offensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1626,11 +1596,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "Von anderem Gerät übertragen",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "Noch mal versuchen zu senden",
     "@tryToSendAgain": {
         "type": "String",
@@ -1836,11 +1801,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Den Chat-Backup löschen, um einen neuen Wiederherstellungsschlüssel zu erstellen?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "Mit diesen Adressen kannst du dein Passwort wiederherstellen, wenn du es vergessen hast.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -1896,7 +1856,6 @@
     },
     "addToSpace": "Zum Space hinzufügen",
     "serverRequiresEmail": "Dieser Server muss deine E-Mail-Adresse für die Registrierung überprüfen.",
-    "enableMultiAccounts": "(BETA) Aktiviere Multi-Accounts für dieses Gerät",
     "bundleName": "Name des Bundles",
     "removeFromBundle": "Von diesem Bundle entfernen",
     "addToBundle": "Zu einem Bundle hinzufügen",
@@ -1906,7 +1865,6 @@
     "homeserver": "Homeserver",
     "sendOnEnter": "Senden mit Enter",
     "link": "Link",
-    "yourChatBackupHasBeenSetUp": "Dein Chat-Backup wurde eingerichtet.",
     "unverified": "Unverifiziert",
     "messageInfo": "Nachrichten-Info",
     "time": "Zeit",
@@ -1958,7 +1916,6 @@
     },
     "markAsRead": "Als gelesen markiert",
     "reportUser": "Benutzer melden",
-    "openChat": "Chat öffnen",
     "confirmEventUnpin": "Möchtest du das Ereignis wirklich dauerhaft lösen?",
     "dismiss": "Verwerfen",
     "youKicked": "👞 Du hast {user} rausgeworfen",
@@ -2021,7 +1978,6 @@
         }
     },
     "recoveryKey": "Wiederherstellungs-Schlüssel",
-    "recoveryKeyLost": "Wiederherstellungsschlüssel verloren?",
     "user": "Benutzer",
     "custom": "Benutzerdefiniert",
     "storeInAndroidKeystore": "Im Android KeyStore speichern",
@@ -2029,9 +1985,6 @@
     "dehydrate": "Sitzung exportieren und Gerät löschen",
     "dehydrateWarning": "Diese Aktion kann nicht rückgängig gemacht werden. Stelle sicher, dass du die Sicherungsdatei sicher aufbewahrst.",
     "hydrate": "Aus Sicherungsdatei wiederherstellen",
-    "unlockOldMessages": "Entsperre alte Nachrichten",
-    "pleaseEnterRecoveryKeyDescription": "Um deine alten Nachrichten zu entsperren, gib bitte den Wiederherstellungsschlüssel ein, der in einer früheren Sitzung generiert wurde. Dein Wiederherstellungsschlüssel ist NICHT dein Passwort.",
-    "saveKeyManuallyDescription": "Speicher diesen Schlüssel manuell, indem du den Systemfreigabedialog oder die Zwischenablage auslöst.",
     "countFiles": "{count} Dateien",
     "@countFiles": {
         "placeholders": {
@@ -2041,7 +1994,6 @@
         }
     },
     "users": "Benutzer",
-    "storeInSecureStorageDescription": "Speicher den Wiederherstellungsschlüssel im sicheren Speicher dieses Geräts.",
     "storeInAppleKeyChain": "Im Apple KeyChain speichern",
     "confirmMatrixId": "Bitte bestätigen deine Matrix-ID, um dein Konto zu löschen.",
     "supposedMxid": "das sollte sein {mxid}",
@@ -2327,16 +2279,10 @@
         }
     },
     "verifyOtherDeviceDescription": "Wenn du ein anderes Gerät verifizierst, können diese Geräte Schlüssel austauschen, was die Sicherheit insgesamt erhöht. 💪Sobald du eine Verifizierung startest, erscheint ein Pop-up in der App auf beiden Geräten. Dort siehst du dann eine Reihe von Emojis oder Zahlen, die du miteinander vergleichen musst. Am besten hältst du beide Geräte bereit, bevor du die Verifizierung startest. 🤳",
-    "presencesToggle": "Status-Nachrichten anderer Benutzer anzeigen",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "incomingMessages": "Eingehende Nachrichten",
     "commandHint_unignore": "Angegebene Matrix-ID nicht mehr ignorieren",
     "commandHint_ignore": "Angegebene Matrix-ID ignorieren",
     "noDatabaseEncryption": "Datenbankverschlüsselung wird auf dieser Plattform nicht unterstützt",
-    "hidePresences": "Status-Liste verbergen?",
     "stickers": "Sticker",
     "discover": "Entdecken",
     "unreadChatsInApp": "{appname}: {unread} ungelesene Chats",
@@ -2370,7 +2316,6 @@
     "hideRedactedMessages": "Geschwärzte Nachrichten verstecken",
     "hideRedactedMessagesBody": "Wenn jemand eine Nachricht schwärzt/löscht, dann wird diese Nachricht im Chat nicht mehr sichtbar sein.",
     "hideInvalidOrUnknownMessageFormats": "Ungültige und unbekannte Nachrichten-Formate ausblenden",
-    "overview": "Übersicht",
     "passwordRecoverySettings": "Passwort-Wiederherstellungs-Einstellungen",
     "knock": "Anklopfen",
     "knocking": "Klopft",
@@ -2466,31 +2411,8 @@
     "doesNotSeemToBeAValidHomeserver": "Scheint kein kompatibler Homeserver zu sein. Falsche URL?",
     "loginWithMatrixId": "Mit Matrix-ID anmelden",
     "sendingAttachment": "Anhang wird gesendet ...",
-    "generatingVideoThumbnail": "Generiere Video-Vorschaubild ...",
-    "serverLimitReached": "Server-Limit erreicht! Warte {seconds} Sekunden ...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "calculatingFileSize": "Dateigröße wird berechnet ...",
-    "prepareSendingAttachment": "Anhang zum Senden vorbereiten ...",
     "compressVideo": "Video wird komprimiert ...",
-    "sendingAttachmentCountOfCount": "Sende Anhang {index} von {length} ...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
     "fileIsTooBigForServer": "Kann nicht gesendet werden! Der Server unterstützt nur Anhänge bis höchstens {max}.",
     "@fileIsTooBigForServer": {
         "type": "String",
@@ -2565,7 +2487,7 @@
         }
     },
     "appWantsToUseForLoginDescription": "Hiermit erlaubst du der App und der Website, Informationen über dich weiterzugeben.",
-    "open": "Offen",
+    "open": "Öffnen",
     "notificationRuleContainsUserName": "Enthält Benutzernamen",
     "notificationRuleContainsUserNameDescription": "Benachrichtigt den Benutzer, wenn eine Nachricht seinen Benutzernamen enthält.",
     "notificationRuleMaster": "Alle Benachrichtigungen stummschalten",
@@ -2743,8 +2665,6 @@
     "saveChanges": "Änderungen speichern",
     "skipChatBackup": "Chatsicherung überspringen",
     "skipChatBackupWarning": "Bist du sicher? Ohne die Chatsicherung zu aktivieren, kannst du den Zugriff auf deine Nachrichten verlieren, wenn du dein Gerät wechselst.",
-    "loadingMessages": "Nachrichten werden geladen",
-    "setupChatBackup": "Chatsicherung einrichten",
     "createSticker": "Sticker oder Emoji erstellen",
     "useAsSticker": "Als Sticker verwenden",
     "useAsEmoji": "Als Emoji verwenden",
@@ -2780,7 +2700,6 @@
     "createNewAccount": "Neues Konto erstellen",
     "signUpGreeting": "FluffyChat ist dezentral! Wähle einen Server, auf dem du dein Konto erstellen möchtest, und los geht's!",
     "signInGreeting": "Du hast bereits ein Konto bei Matrix? Willkommen zurück! Wähle deinen Homeserver aus und melde dich an.",
-    "appIntro": "Mit FluffyChat kannst du mit deinen Freunden chatten. Es ist ein sicherer, dezentralisierter [Matrix]-Messenger! Erfahre mehr auf https://matrix.org wenn du möchtest, oder melde dich einfach an.",
     "theProcessWasCanceled": "Der Vorgang wurde abgebrochen.",
     "federationBaseUrl": "Basis-URL der Föderation",
     "clientWellKnownInformation": "Bekannte Informationen zum Client:",
@@ -2803,8 +2722,194 @@
     "createNewChat": "Neuen Chat erstellen",
     "supportFluffyChat": "FluffyChat unterstützen",
     "support": "Unterstützen",
-    "fluffyChatSupportBannerMessage": "FluffyChat braucht DEINE Hilfe!\n❤️❤️❤️\nFluffyChat wird immer kostenlos bleiben, aber Entwicklung und Hosting kosten Geld.\nDie Zukunft des Projekts hängt von deiner Unterstützung ab.",
-    "skipSupportingFluffyChat": "FluffyChat unterstützen überspringen",
-    "iDoNotWantToSupport": "Ich möchte nicht unterstützen",
-    "iAlreadySupportFluffyChat": "I unterstütze FluffyChat bereits"
+    "createNewTag": "Neuen tag erstellen",
+    "tagName": "Tag-Name",
+    "addTag": "Tag hinzufügen",
+    "playSoundOnNotification": "Ton bei Benachrichtigung abspielen",
+    "unsetLowPriority": "Niedrige Priorität aufheben",
+    "setLowPriority": "Niedrige Priorität festlegen",
+    "removeTag": "Tag entfernen",
+    "appDescription": "Kommuniziere verschlüsselt über das dezentrale [matrix]-Netzwerk, so dass es einfach und zugänglich für jeden ist.",
+    "discardEdits": "Du hast ungespeicherte Änderungen. Möchtest du deine Änderungen verwerfen?",
+    "@discardEdits": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "hideRoomsInSpaces": "Räume ausblenden, die sich in einem space befinden",
+    "possibleByYou": "Diese Veröffentlichung war nur dank eurer Unterstützung möglich. FluffyChat bleibt kostenlos, Open-Source und vollständig von der Community getragen.",
+    "showThumbnailsInTimeline": "Thumbnails von Bildern und Videos anzeigen",
+    "appSubtitle": "Sichere [matrix]-Kommunikation",
+    "interactiveVerification": "Interaktive Verifikation",
+    "interactiveVerificationDescription": "Wenn ihr euch nebeneinander befindet oder über einen sicheren Kanal kommuniziert, könnt ihr alle Geräte gleichzeitig verifizieren, indem ihr eine Sicherheitsnummer oder Emojis vergleicht.",
+    "countUnverifiedDevices": "{count} unbestätigte Geräte im Chat.",
+    "@countUnverifiedDevices": {
+        "type": "int",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "check": "Überprüfen",
+    "encryptedMessage": "Verschlüsselte Nachricht",
+    "unencryptedMessage": "Unverschlüsselte Nachricht",
+    "allow": "Erlauben",
+    "publicKey": "Öffentlicher Schlüssel: {key}",
+    "@publicKey": {
+        "type": "String",
+        "placeholders": {
+            "key": {
+                "type": "String"
+            }
+        }
+    },
+    "deviceIdentityKey": "Geräteidentitätsschlüssel",
+    "messageCanOnlyBeReadByUser": "Deine Nachricht ist Ende-zu-Ende-verschlüsselt und kann nur von diesem Nutzer gelesen werden:",
+    "messageCanOnlyBeReadByUsers": "Deine Nachricht ist Ende-zu-Ende-verschlüsselt und kann nur von diesen Nutzern gelesen werden:",
+    "restoreBootstrapEmptyDevicesDescription": "Bitte gib deine Passphrase oder deinen Wiederherstellungsschlüssel ein, um dieses Gerät zu verifizieren und Zugriff auf dein verschlüsseltes Nachrichten-Backup zu erhalten.",
+    "@restoreBootstrapEmptyDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreBootstrapDevicesDescription": "Bitte wähle eines deiner anderen Geräte aus, um diese Sitzung zu bestätigen:",
+    "@restoreBootstrapDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccount": "Konto zurücksetzen",
+    "@resetAccount": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreCryptoIdentity": "Krypto-Identität wiederherstellen",
+    "@restoreCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetCryptoIdentity": "Krypto-Identität zurücksetzen",
+    "@resetCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "setUpCryptoIdentity": "Krypto-Identität einrichten",
+    "@setUpCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "waitingForKeys": "Warten auf Schlüssel... Bitte lass das andere Gerät aktiv.",
+    "@waitingForKeys": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "noKeysTransmitted": "Keine Schlüssel übertragen. Bitte versuche es erneut.",
+    "@noKeysTransmitted": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "unlock": "Entsperren",
+    "@unlock": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "openFile": "Datei öffnen",
+    "@openFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccountWarning": "Wenn du dein Konto zurücksetzt, verlierst du dauerhaft den Zugriff auf deine alten Nachrichten. Alle deine aktuellen Geräte müssen erneut verifiziert werden. Führe diesen Schritt bitte nur aus, wenn du über keine anderen Geräte mehr zur Verifizierung deiner Sitzung verfügst und zudem deinen Wiederherstellungsschlüssel sowie deine Passphrase verloren hast!",
+    "@resetAccountWarning": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphraseDescription": "FluffyChat verwendet Ende-zu-Ende-Verschlüsselung. Um deine Nachrichten nicht zu verlieren, wähle bitte eine starke Passphrase, um deine Krypto-Identität und dein verschlüsseltes Nachrichten-Backup zu sichern.",
+    "@newPassphraseDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphrase": "Neue Passphrase",
+    "@newPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "repeatPassphrase": "Passphrase wiederholen",
+    "@repeatPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphrasesMatch": "Passphrasen stimmen überein",
+    "@passphrasesMatch": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseLengthRequirement": "Mindestens 12 Zeichen lang.",
+    "@passphraseLengthRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseUpperAndLowerCaseRequirement": "Enthält Groß- und Kleinbuchstaben.",
+    "@passphraseUpperAndLowerCaseRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseSpecialCharactersRequirement": "Enthält Sonderzeichen.",
+    "@passphraseSpecialCharactersRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseNumberRequirement": "Enthält eine Zahl.",
+    "@passphraseNumberRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "storeRecoveryKeyDescription": "Bitte notiere deinen Wiederherstellungsschlüssel, um deine verschlüsselten Nachrichten und deine Krypto-Identität wiederherstellen zu können.",
+    "@storeRecoveryKeyDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "saveAsFile": "Als Datei speichern",
+    "@saveAsFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "youAreReadyToStart": "Du bist bereit loszulegen!",
+    "noUserKeyFound": "Kein Benutzerschlüssel gefunden",
+    "@noUserKeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "knownSince": "Bekannt seit: {date}",
+    "@knownSince": {
+        "type": "String",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "unsignedDevice": "Nicht signiertes Gerät",
+    "@unsignedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "signedDevice": "Signiertes Gerät",
+    "@signedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "noCurve25519KeyFound": "Kein curve25519-Schlüssel gefunden",
+    "@noCurve25519KeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "messageNotDecryptable": "Nachricht nicht entschlüsselbar",
+    "today": "Heute",
+    "sending": "Wird gesendet",
+    "generatingThumbnail": "Thumbnail wird erstellt",
+    "encrypting": "Verschlüsselung",
+    "uploading": "Hochladen",
+    "edited": "(bearbeitet)",
+    "couldNotBeSent": "Konnte nicht gesendet werden",
+    "yesterday": "Gestern"
 }

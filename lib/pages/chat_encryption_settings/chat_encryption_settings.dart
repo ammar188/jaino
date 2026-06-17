@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/pages/chat_encryption_settings/chat_encryption_settings_view.dart';
 import 'package:fluffychat/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
@@ -27,6 +32,18 @@ class ChatEncryptionSettingsController extends State<ChatEncryptionSettings> {
     if (key.blocked) {
       await key.setBlocked(false);
     }
+  }
+
+  String? uncollapsedUserId;
+
+  void uncollapse(String? userId) {
+    setState(() {
+      if (uncollapsedUserId == userId) {
+        uncollapsedUserId = null;
+      } else {
+        uncollapsedUserId = userId;
+      }
+    });
   }
 
   Future<void> enableEncryption(_) async {
@@ -92,8 +109,9 @@ class ChatEncryptionSettingsController extends State<ChatEncryptionSettings> {
     await KeyVerificationDialog(request: req).show(context);
   }
 
-  void toggleDeviceKey(DeviceKeys key) {
+  void toggleBlocked(DeviceKeys key) {
     setState(() {
+      if (!key.blocked && key.verified) key.setVerified(false);
       key.setBlocked(!key.blocked);
     });
   }

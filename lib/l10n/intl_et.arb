@@ -364,11 +364,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "chatBackupDescription": "Sinu vestluste varukoopia on krüptitud taastamiseks mõeldud turvavõtmega. Palun vaata, et sa seda ei kaota.",
-    "@chatBackupDescription": {
-        "type": "String",
-        "placeholders": {}
-    },
     "chatDetails": "Vestluse teave",
     "@chatDetails": {
         "type": "String",
@@ -425,12 +420,12 @@
         "type": "String",
         "description": "Usage hint for the command /me"
     },
-    "commandHint_myroomavatar": "Määra selles jututoas oma tunnuspilt (mxc-uri vahendusel)",
+    "commandHint_myroomavatar": "Seadista selles jututoas oma tunnuspilt (mxc-uri vahendusel)",
     "@commandHint_myroomavatar": {
         "type": "String",
         "description": "Usage hint for the command /myroomavatar"
     },
-    "commandHint_myroomnick": "Määra selles jututoas oma kuvatav nimi",
+    "commandHint_myroomnick": "Seadista selles jututoas oma kuvatav nimi",
     "@commandHint_myroomnick": {
         "type": "String",
         "description": "Usage hint for the command /myroomnick"
@@ -450,7 +445,7 @@
         "type": "String",
         "description": "Usage hint for the command /react"
     },
-    "commandHint_send": "Saada sõnum",
+    "commandHint_send": "Saada tekst",
     "@commandHint_send": {
         "type": "String",
         "description": "Usage hint for the command /send"
@@ -464,7 +459,7 @@
     "@commandInvalid": {
         "type": "String"
     },
-    "commandMissing": "{command} ei ole käsk.",
+    "commandMissing": "„{command}“ ei ole käsk.",
     "@commandMissing": {
         "type": "String",
         "placeholders": {
@@ -474,7 +469,7 @@
         },
         "description": "State that {command} is not a valid /command."
     },
-    "compareEmojiMatch": "Palun võrdle emotikone",
+    "compareEmojiMatch": "Palun võrdle emojisid",
     "@compareEmojiMatch": {
         "type": "String",
         "placeholders": {}
@@ -556,7 +551,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "darkTheme": "Tume",
+    "darkTheme": "Tume kujundus",
     "@darkTheme": {
         "type": "String",
         "placeholders": {}
@@ -643,7 +638,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "editRoomAliases": "Muuda jututoa aliast",
+    "editRoomAliases": "Muuda jututoa aliasi",
     "@editRoomAliases": {
         "type": "String",
         "placeholders": {}
@@ -736,17 +731,7 @@
             }
         }
     },
-    "everythingReady": "Kõik on valmis!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Äärmiselt solvav",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "fileName": "Faili nimi",
+    "fileName": "Failinimi",
     "@fileName": {
         "type": "String",
         "placeholders": {}
@@ -756,7 +741,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "fontSize": "Fondi suurus",
+    "fontSize": "Kirjatüübi suurus",
     "@fontSize": {
         "type": "String",
         "placeholders": {}
@@ -810,7 +795,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "hasWithdrawnTheInvitationFor": "{username} on võtnud tagasi {targetName} kutse",
+    "hasWithdrawnTheInvitationFor": "{username} on võtnud tagasi kutse kasutajale {targetName}",
     "@hasWithdrawnTheInvitationFor": {
         "type": "String",
         "placeholders": {
@@ -837,12 +822,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "Kui solvav see sisu on?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "id": "ID",
+    "id": "Tunnus",
     "@id": {
         "type": "String",
         "placeholders": {}
@@ -864,11 +844,6 @@
     },
     "incorrectPassphraseOrKey": "Vigane salafraas või taastevõti",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Kahjutu",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -987,7 +962,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "lightTheme": "Hele",
+    "lightTheme": "Hele kujundus",
     "@lightTheme": {
         "type": "String",
         "placeholders": {}
@@ -1040,7 +1015,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "mention": "Märgi ära",
+    "mention": "Maini",
     "@mention": {
         "type": "String",
         "placeholders": {}
@@ -1070,7 +1045,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "newMessageInFluffyChat": "💬 Uus sõnum FluffyChat'i vahendusel",
+    "newMessageInFluffyChat": "💬 Uus sõnum FluffyChati vahendusel",
     "@newMessageInFluffyChat": {
         "type": "String",
         "placeholders": {}
@@ -1137,7 +1112,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "noRoomsFound": "Jututubasid ei leidunud…",
+    "noRoomsFound": "Jututube ei leidu…",
     "@noRoomsFound": {
         "type": "String",
         "placeholders": {}
@@ -1161,12 +1136,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "offensive": "Solvav",
-    "@offensive": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "offline": "Väljas",
+    "offline": "Pole võrgus",
     "@offline": {
         "type": "String",
         "placeholders": {}
@@ -1176,7 +1146,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "online": "Saadaval",
+    "online": "Võrgus",
     "@online": {
         "type": "String",
         "placeholders": {}
@@ -1186,12 +1156,12 @@
         "type": "String",
         "placeholders": {}
     },
-    "oopsPushError": "Hopsti! Kahjuks tekkis tõuketeavituste seadistamisel viga.",
+    "oopsPushError": "Vaat kus lops! Kahjuks tekkis tõuketeavituste seadistamisel viga.",
     "@oopsPushError": {
         "type": "String",
         "placeholders": {}
     },
-    "oopsSomethingWentWrong": "Hopsti! Midagi läks nüüd viltu…",
+    "oopsSomethingWentWrong": "Vaat kus lops! Midagi läks nüüd viltu…",
     "@oopsSomethingWentWrong": {
         "type": "String",
         "placeholders": {}
@@ -1310,7 +1280,7 @@
         "type": "String",
         "placeholders": {}
     },
-    "pushRules": "Tõukereeglid",
+    "pushRules": "Tõuketeenuse reeglid",
     "@pushRules": {
         "type": "String",
         "placeholders": {}
@@ -1639,11 +1609,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "Tõsta teisest seadmest",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "Proovi uuesti saata",
     "@tryToSendAgain": {
         "type": "String",
@@ -1690,7 +1655,7 @@
             }
         }
     },
-    "unmuteChat": "Lõpeta vestluse vaigistamine",
+    "unmuteChat": "Lõpeta vestluse summutamine",
     "@unmuteChat": {
         "type": "String",
         "placeholders": {}
@@ -1849,11 +1814,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Kas kustutame sinu vestluste varukoopia ja loome uue taastamiseks mõeldud krüptovõtme?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "Nende e-posti aadresside abil saad taastada oma salasõna.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -1894,15 +1854,13 @@
     "sendOnEnter": "Saada sõnum sisestusklahvi vajutusel",
     "homeserver": "Koduserver",
     "serverRequiresEmail": "See koduserver eeldab registreerimisel kasutatava e-postiaadressi kinnitamist.",
-    "enableMultiAccounts": "(KATSELINE) Pruugi selles seadmes mitut Matrix'i kasutajakontot",
     "bundleName": "Köite nimi",
     "removeFromBundle": "Eemalda sellest köitest",
     "addToBundle": "Lisa köitesse",
     "editBundlesForAccount": "Muuda selle kasutajakonto köiteid",
     "addAccount": "Lisa kasutajakonto",
-    "oneClientLoggedOut": "Üks sinu klientrakendustest on Matrix'i võrgust välja loginud",
+    "oneClientLoggedOut": "Üks sinu klientrakendustest on Matrixi võrgust välja loginud",
     "link": "Link",
-    "yourChatBackupHasBeenSetUp": "Sinu vestluste varundus on seadistatud.",
     "unverified": "Verifitseerimata",
     "repeatPassword": "Korda salasõna",
     "messageInfo": "Sõnumi teave",
@@ -1934,7 +1892,6 @@
     },
     "markAsRead": "Märgi loetuks",
     "reportUser": "Teata kasutajast",
-    "openChat": "Ava vestlus",
     "dismiss": "Loobu",
     "reactedWith": "{sender} reageeris nii {reaction}",
     "@reactedWith": {
@@ -2018,14 +1975,9 @@
     },
     "recoveryKey": "Taastevõti",
     "users": "Kasutajad",
-    "storeInSecureStorageDescription": "Salvesta taastevõti selle seadme turvahoidlas.",
-    "saveKeyManuallyDescription": "Salvesta see krüptovõti kasutades selle süsteemi jagamisvalikuid või lõikelauda.",
     "storeInAndroidKeystore": "Vali salvestuskohaks Android KeyStore",
     "storeInAppleKeyChain": "Vali salvestuskohaks Apple KeyChain",
-    "recoveryKeyLost": "Kas taasetvõti on kadunud?",
-    "pleaseEnterRecoveryKeyDescription": "Vanade sõnumite lugemiseks palun siseta oma varasemas sessioonis loodud taastevõti. Taastamiseks mõeldud krüptovõti EI OLE sinu salasõna.",
     "storeSecurlyOnThisDevice": "Salvesta turvaliselt selles seadmes",
-    "unlockOldMessages": "Muuda vanad sõnumid loetavaks",
     "countFiles": "{count} faili",
     "@countFiles": {
         "placeholders": {
@@ -2036,7 +1988,7 @@
     },
     "dehydrate": "Ekspordi sessiooni teave ja kustuta nutiseadmest rakenduse andmed",
     "dehydrateWarning": "Seda tegevust ei saa tagasi pöörata. Palun kontrolli, et sa oled varukoopia turvaliselt salvestanud.",
-    "hydrate": "Taasta varundatud failist",
+    "hydrate": "Taasta varundusfailist",
     "user": "Kasutaja",
     "custom": "Kohandatud",
     "confirmMatrixId": "Konto kustutamiseks palun kinnita oma Matrix'i kasutajatunnus (Matrix ID).",
@@ -2050,7 +2002,7 @@
         }
     },
     "commandHint_markasgroup": "Märgi jututoaks",
-    "commandHint_markasdm": "Märgi otsevestusluseks antud Matrixi ID jaoks",
+    "commandHint_markasdm": "Märgi otsevestluseks antud Matrixi ID jaoks",
     "whyIsThisMessageEncrypted": "Miks see sõnum pole loetav?",
     "noKeyForThisMessage": "See võib juhtuda, kui sõnum oli saadetud enne, kui siin seadmes oma kontoga sisse logisid.\n\nSamuti võib juhtuda siis, kui saatja on lugemises selles seadmes blokeerinud või on tekkinud tõrkeid veebiühenduses.\n\nAga mõnes teises seadmes saad seda sõnumit lugeda? Siis sa võid sõnumi sealt üle tõsta. Ava Seadistused -> Seadmed ning kontrolli, et kõik sinu seadmed on omavahel verifitseeritud. Kui avad selle vestluse või jututoa ning mõlemad sessioonid on avatud, siis vajalikud krüptovõtmed saadetakse automaatset.\n\nKas sa soovid vältida krüptovõtmete kadumist väljalogimisel ja seadmete vahetusel? Siis palun kontrolli, et seadistuses on krüptovõtmete varundus sisse lülitatud.",
     "newGroup": "Uus jututuba",
@@ -2324,13 +2276,7 @@
             }
         }
     },
-    "presencesToggle": "Näita teiste kasutajate olekuteateid",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "incomingMessages": "Saabuvad sõnumid",
-    "hidePresences": "Peida olekute loend?",
     "stickers": "Kleepsud",
     "discover": "Otsi ja leia",
     "commandHint_ignore": "Eira seda Matrixi kasutajatunnust",
@@ -2372,7 +2318,6 @@
     "customEmojisAndStickersBody": "Lisa või jaga kohandatud emotikone või kleepsupakke, mida võiks kasutada igas vestluses.",
     "hideRedactedMessages": "Peida muudetud sõnumid",
     "hideInvalidOrUnknownMessageFormats": "Peida vigase või tundmatu vorminguga sõnumid",
-    "overview": "Ülevaade",
     "passwordRecoverySettings": "Salasõna taastamise seadistused",
     "createNewAddress": "Loo uus aadress",
     "thereAreCountUsersBlocked": "Hetkel on {count} blokeeritud kasutajat.",
@@ -2466,30 +2411,7 @@
     "noChatsFoundHere": "Siin ei leidu veel ühtegi vestlust. Alusta uut vestlust klõpsides allpool asuvat nuppu. ⤵️",
     "loginWithMatrixId": "Logi sisse Matrix-ID alusel",
     "doesNotSeemToBeAValidHomeserver": "Ei tundu olema ühilduv koduserver. Kas võrguaadress on ikka õige?",
-    "prepareSendingAttachment": "Valmistume manuse saatmiseks...",
-    "generatingVideoThumbnail": "Loome video pisipilti...",
     "compressVideo": "Pakime videot väiksemaks...",
-    "sendingAttachmentCountOfCount": "Saadame manust: {index} pikkusega {length}...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
-    "serverLimitReached": "Serveri poolt lubatud ülempiir on käes. Ootame {seconds} sekundit...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "sendingAttachment": "Saadame manust...",
     "calculatingFileSize": "Arvutame faili suurust...",
     "oneOfYourDevicesIsNotVerified": "Üks sinu seadmetest pole verifitseeritud",
@@ -2740,8 +2662,6 @@
     "attribution": "Autoriõigused",
     "skipChatBackup": "Jäta vestluse varundamine vahele",
     "skipChatBackupWarning": "Kas oled kindel? Kui sa pole lülitanud sisse vestluste krüptovõtmete varundust, siis võid oma seadme vahetamisel kaotada ligipääsu oma senistele sõnumitele.",
-    "loadingMessages": "Laadin sõnumeid",
-    "setupChatBackup": "Võta kasutusele vestluste varundus",
     "changedTheChatDescription": "{username} muutis vestluse kirjeldust",
     "changedTheChatName": "{username} muutis vestluse nime",
     "noMoreResultsFound": "Rohkem tulemusi ei leidu",
@@ -2774,7 +2694,6 @@
     "createNewAccount": "Loo uus kasutajakonto",
     "signUpGreeting": "FluffyChat kasutab hajutatud võrku! Vali server, kuhu tahad oma kasutajakonto lisada ning alustame!",
     "signInGreeting": "Sul juba on Matrixi kasutajakonto olemas? Tere tulemast tagasi! Vali oma koduserver ja logi sisse.",
-    "appIntro": "FluffyChati abil saad suhelda oma sõpradega. See on turvaline ja hajutatud sõnumiklient [matrix]-i võrgus! Lisateavet leiad https://matrix.org saidist või lihtsalt liitu.",
     "theProcessWasCanceled": "Protsess on katkestatud.",
     "join": "Liitu",
     "searchOrEnterHomeserverAddress": "Otsi koduserveri aadressi või sisesta see",
@@ -2795,23 +2714,194 @@
     "reset": "Lähtesta",
     "supportFluffyChat": "Toeta FluffyChati",
     "support": "Toeta meid",
-    "iAlreadySupportFluffyChat": "Ma juba toetan FluffyChati arendust",
-    "fluffyChatSupportBannerMessage": "FluffyChat vajab SINU abi!\n❤️❤️❤️\nFluffyChat jääb alati vabaks ja vabalt saadavaks, aga arendus ja serveriteenused vajavad ikkagi rahastamist.\nMeie projekti tulevik sõltub sinust ja teistest kasutajatest, nagu sina.",
-    "skipSupportingFluffyChat": "Jäta FluffyChati toetamine vahele",
-    "iDoNotWantToSupport": "Ma ei soovi toetada",
     "setLowPriority": "Märgi vähetähtsaks",
     "unsetLowPriority": "Eemalda märkimine vähetähtsaks",
-    "removeCallFromChat": "Eemalda kõne vestlusest",
-    "removeCallFromChatDescription": "Kas sa soovid antud kõne selle vestluse kõikidelt kasutajatelt eemaldada?",
-    "removeCallForEveryone": "Eemalda kõne kõigilt",
-    "startVoiceCall": "Algata häälkõne",
-    "startVideoCall": "Algata videokõne",
-    "joinVoiceCall": "Liitu häälkõnega",
-    "joinVideoCall": "Liitu videokõnega",
-    "live": "Reaalajas",
     "playSoundOnNotification": "Lisa teavitusele helimärguanne",
     "addTag": "Lisa silt",
     "removeTag": "Eemalda silt",
     "tagName": "Sildi nimi",
-    "createNewTag": "Lisa uus silt"
+    "createNewTag": "Lisa uus silt",
+    "discardEdits": "Sul on salvestamata muudatusi. Kas loobud neist?",
+    "@discardEdits": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "hideRoomsInSpaces": "Peida jututoad, mis on osa kogukonnast",
+    "possibleByYou": "Selle versiooni väljaandmine oli võimalik vaid sinu toetusele. FluffyChat jääb vabaks, avatud lähtekoodi põhiseks ja kogukonnakeskseks.",
+    "showThumbnailsInTimeline": "Näita piltide ja videote pisipilte",
+    "appSubtitle": "Turvaline suhtlus [matrix]'i võrgus",
+    "appDescription": "Suhtle krüptitult hajutatud [matrix] võrgustikus viisil, mis on lihtne ja kõigile kättesaadav.",
+    "interactiveVerification": "Interaktiivne verifitseerimine",
+    "interactiveVerificationDescription": "Kui asute üksteise kõrval või kasutate turvalist suhtluskanalit, siis võite kohe verifitseerida üksteise seadmed võrreldes numbreid või emojisid.",
+    "countUnverifiedDevices": "Selles vestluses on {count} verifitseerimata seadet.",
+    "@countUnverifiedDevices": {
+        "type": "int",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "check": "Kontrolli",
+    "encryptedMessage": "Krüptitud sõnum",
+    "unencryptedMessage": "Krüptimata sõnum",
+    "allow": "Luba",
+    "publicKey": "Avalik võti: {key}",
+    "@publicKey": {
+        "type": "String",
+        "placeholders": {
+            "key": {
+                "type": "String"
+            }
+        }
+    },
+    "deviceIdentityKey": "Seadme identiteedi võti",
+    "showMore": "Näita veel",
+    "showLess": "Näita vähem",
+    "messageCanOnlyBeReadByUser": "Sinu sõnum on läbivalt krüptitud ja seda saab lugeda vaid see kasutaja:",
+    "messageCanOnlyBeReadByUsers": "Sinu sõnum on läbivalt krüptitud ja seda saavad lugeda vaid need kasutajad:",
+    "messageNotDecryptable": "Sõnum pole dekrüptitav",
+    "noCurve25519KeyFound": "Ühtegi curve25519 võtit ei leidu",
+    "@noCurve25519KeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "signedDevice": "Allkirjastatud seade",
+    "@signedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "unsignedDevice": "Allkirjastamata seade",
+    "@unsignedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreBootstrapEmptyDevicesDescription": "Selle seadme verifitseerimiseks ja krüptitud sõnumite varunduse kasutamiseks palun sisesta oma kasutajakonto salafraas või taastevõti.",
+    "@restoreBootstrapEmptyDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreBootstrapDevicesDescription": "Selle sessiooni verifitseerimiseks palun vali üks oma muudets seadmetest:",
+    "@restoreBootstrapDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccount": "Lähtesta kasutajakonto",
+    "@resetAccount": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreCryptoIdentity": "Taasta krüptoidentiteet",
+    "@restoreCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetCryptoIdentity": "Lähtesta krüptoidentiteet",
+    "@resetCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "setUpCryptoIdentity": "Seadista krüptoidentiteet",
+    "@setUpCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "waitingForKeys": "Ootan võtmete laadimist… Palun hoia teine seade aktiivsena.",
+    "@waitingForKeys": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "noKeysTransmitted": "Mitte mingeid krüptovõtmeid ei edastatud. Palun proovi uuesti.",
+    "@noKeysTransmitted": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "unlock": "Ava lukustus",
+    "@unlock": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "openFile": "Ava fail",
+    "@openFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccountWarning": "Kui sa lähtestad oma kasutajakonto, siis kaotad igaveseks ligipääsu oma vanadele sõnumitele. Lisaks vajavad kõik sinu praegused seadmed uuesti verifitseerimist. Palun võta selline toiming ette vaid siis, kui sul pole jäänud alles enam mitte ühtegi teist seadet oma sessiooni verifitseerimiseks ning sa oled kaotanud oma taastevõtme ja salafraasi!",
+    "@resetAccountWarning": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphraseDescription": "FluffyChat kasutab läbivat krüptimist. Et sa ei kaotaks oma sõnumeid, turvaks oma krüptidentitedi ja krüptiks sõnumite varunduse, siis palun sisesta korralik ja tugev salafraas.",
+    "@newPassphraseDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphrase": "Uus salafraas",
+    "@newPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "repeatPassphrase": "Korda salafraasi",
+    "@repeatPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphrasesMatch": "Salafraasid klapivad",
+    "@passphrasesMatch": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseLengthRequirement": "Vähemalt 12 tähemärki pikk.",
+    "@passphraseLengthRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseUpperAndLowerCaseRequirement": "Sisaldab suur- ja väiketähti.",
+    "@passphraseUpperAndLowerCaseRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseSpecialCharactersRequirement": "Sisaldab erimärke.",
+    "@passphraseSpecialCharactersRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseNumberRequirement": "Sisaldab vähemat ühte numbrit.",
+    "@passphraseNumberRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "storeRecoveryKeyDescription": "Selleks, et saaksid hiljem oma krüptitud sõnumeid ja krüptoidentiteeti taastada, palun tähenda taastevõti turvaliselt üles ja talleta kas moodsas digitaalses salasõnalaekas või vana kooli seifis.",
+    "@storeRecoveryKeyDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "saveAsFile": "Salvesta failina",
+    "@saveAsFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "youAreReadyToStart": "Sa oled valmis alustama!",
+    "noUserKeyFound": "Kasutaja võtit ei leidu",
+    "@noUserKeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "knownSince": "Teada alates: {date}",
+    "@knownSince": {
+        "type": "String",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "today": "Täna",
+    "sending": "Saadan",
+    "generatingThumbnail": "Koostan pisipilti",
+    "encrypting": "Krüptin",
+    "uploading": "Laadin üles",
+    "edited": "(muudetud)",
+    "couldNotBeSent": "Saatmine ei õnnestunud",
+    "yesterday": "Eile"
 }

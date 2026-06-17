@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'dart:io';
 
 import 'package:fluffychat/config/setting_keys.dart';
@@ -38,7 +43,7 @@ abstract class PlatformInfos {
   /// Web could also record in theory but currently creates broken opus
   static bool get platformCanRecord => (isMobile || isMacOS);
 
-  static String get clientName =>
+  static String get appDisplayName =>
       '${AppSettings.applicationName.value} ${isWeb ? 'web' : Platform.operatingSystem}${kReleaseMode ? '' : 'Debug'}';
 
   static Future<String> getVersion() async {
@@ -87,11 +92,13 @@ abstract class PlatformInfos {
           },
         ),
       ],
-      applicationIcon: Image.asset(
-        'assets/logo.png',
-        width: 64,
-        height: 64,
-        filterQuality: FilterQuality.medium,
+      applicationIcon: ClipRRect(
+        borderRadius: BorderRadius.circular(64),
+        child: Image.asset(
+          './assets/logo/mini/logo_mini.png',
+          width: 64,
+          height: 64,
+        ),
       ),
       applicationName: AppSettings.applicationName.value,
     );

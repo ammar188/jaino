@@ -364,11 +364,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "chatBackupDescription": "Vaše zprávy jsou zabezpečeny bezpečnostním klíčem. Ujistěte se, prosím, že klíč neztratíte.",
-    "@chatBackupDescription": {
-        "type": "String",
-        "placeholders": {}
-    },
     "chatDetails": "Bližší údaje o chatu",
     "@chatDetails": {
         "type": "String",
@@ -736,16 +731,6 @@
             }
         }
     },
-    "everythingReady": "Vše připraveno!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Extrémně urážlivé",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "Název souboru",
     "@fileName": {
         "type": "String",
@@ -837,11 +822,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "Jak urážlivý je tento obsah?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -864,11 +844,6 @@
     },
     "incorrectPassphraseOrKey": "Nesprávné přístupové heslo anebo klíč pro obnovu",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Neškodný",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1158,11 +1133,6 @@
     },
     "obtainingLocation": "Získávání polohy…",
     "@obtainingLocation": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "offensive": "Urážlivé",
-    "@offensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1639,11 +1609,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "Přenos z jiného zařízení",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "Zkuste odeslat znovu",
     "@tryToSendAgain": {
         "type": "String",
@@ -1849,11 +1814,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Chcete vymazat zálohu chatu a vytvořit nový bezpečnostní klíč?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "S těmito adresami můžete obnovit své heslo.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -1898,9 +1858,7 @@
     "addAccount": "Přidat účet",
     "bundleName": "Název balíčku",
     "link": "Odkaz",
-    "yourChatBackupHasBeenSetUp": "Vaše záloha chatu byla nastavena.",
     "editBundlesForAccount": "Upravit balíčky pro tento účet",
-    "enableMultiAccounts": "(BETA) Na tomto zařízení povolte více účtů",
     "oneClientLoggedOut": "Jeden z vašich klientů byl odhlášen",
     "removeFromBundle": "Odstranit z tohoto balíčku",
     "unverified": "Neověřeno",
@@ -1934,7 +1892,6 @@
     },
     "markAsRead": "Označit jako přečtené",
     "reportUser": "Nahlásit uživatele",
-    "openChat": "Otevřete chat",
     "dismiss": "Zavrhnout",
     "reactedWith": "{sender} reagoval s {reaction}",
     "@reactedWith": {
@@ -2071,7 +2028,6 @@
     "hydrate": "Obnovit ze souboru zálohy",
     "createGroup": "Vytvořit skupinu",
     "shareInviteLink": "Sdílet pozvánku",
-    "pleaseEnterRecoveryKeyDescription": "K odemknutí vašich starých zpráv prosím vložte váš klíč k obnovení vygenerovaný v předchozím sezení. Váš klíč k obnovení NENÍ vaše heslo.",
     "setColorTheme": "Nastavit barvy:",
     "importEmojis": "Importovat emodži",
     "importFromZipFile": "Importovat ze .zip souboru",
@@ -2115,8 +2071,6 @@
     "newSpaceDescription": "Prostory umožňují organizovat Vaše konverzace a vytvářet soukromé nebo veřejné komunity.",
     "sendTypingNotifications": "Posílat oznámení o psaní",
     "commandHint_markasgroup": "Označit jako skupinu",
-    "recoveryKeyLost": "Ztracený klíč k obnovení?",
-    "unlockOldMessages": "Odemknout staré zprávy",
     "foregroundServiceRunning": "Toto oznámení se zobrazuje když běží služba na pozadí.",
     "screenSharingDetail": "Sdílíte svou obrazovku přes FluffyChat",
     "encryptThisChat": "Zašifrovat tuto konverzaci",
@@ -2149,8 +2103,6 @@
     },
     "custom": "Vlastní",
     "dehydrateWarning": "Tuto akci nelze vzít zpět. Ujistěte se, že máte bezpečně uložený soubor zálohy.",
-    "storeInSecureStorageDescription": "Klíč k obnovení uložte v zabezpečeném úložišti tohoto zařízení.",
-    "saveKeyManuallyDescription": "Uložte tento klíč manuálně pomocí systémového dialogu sdílení nebo zkopírováním do schránky.",
     "storeSecurlyOnThisDevice": "Uložit bezpečně na tomto zařízení",
     "countFiles": "{count} souborů",
     "@countFiles": {
@@ -2178,7 +2130,6 @@
     "hideRedactedMessagesBody": "Pokud někdo zprávu zrediguje, nebude tato zpráva v chatu již viditelná.",
     "hideInvalidOrUnknownMessageFormats": "Skrýt nesprávné nebo neznámé formáty zpráv",
     "blockUsername": "Ignorovat uživatelské jméno",
-    "overview": "Přehled",
     "passwordRecoverySettings": "Nastavení obnovení hesla",
     "block": "Zablokovat",
     "blockListDescription": "Můžete blokovat uživatele, kteří vás obtěžují. Od uživatelů na vašem osobním seznamu blokovaných uživatelů nebudete moci přijímat žádné zprávy ani pozvánky do místnosti.",
@@ -2191,11 +2142,6 @@
     "unread": "Nepřečtené",
     "space": "Prostor",
     "spaces": "Prostory",
-    "presencesToggle": "Zobrazení stavových zpráv od jiných uživatelů",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "aboutHomeserver": "O {homeserver}",
     "@aboutHomeserver": {
         "type": "String",
@@ -2236,7 +2182,6 @@
     "changedTheChatName": "{username} změnil/a název konverzace",
     "checkList": "Kontrolní seznam",
     "knock": "Zaklepat",
-    "hidePresences": "Skrýt seznam událostí?",
     "noBackupWarning": "Pozor! Bez povolení zálohování konverzací ztratíte přístup k zašifrovaným zprávám. Důrazně doporučujeme zálohování konverzací před odhlášením povolit.",
     "readUpToHere": "Čtěte až sem",
     "reportErrorDescription": "😭 Ale ne, něco se porouchalo. Pokud chcete, můžete tento bug nahlásit vývojářům.",
@@ -2406,31 +2351,8 @@
             }
         }
     },
-    "prepareSendingAttachment": "Připravuji odeslání přílohy...",
     "sendingAttachment": "Posílám přílohu...",
-    "generatingVideoThumbnail": "Vytvářím náhledový obrázek videa...",
     "compressVideo": "Komprimuji video...",
-    "sendingAttachmentCountOfCount": "Odesílám přílohu {index} z {length}...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
-    "serverLimitReached": "Dosažen limit serveru! Čekám {seconds} sekund...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "oneOfYourDevicesIsNotVerified": "Jedno z vašich zařízení není ověřeno",
     "continueText": "Pokračovat",
     "welcomeText": "Ahoj, ahoj 👋 Tohle je FluffyChat. Můžete se přihlásit k jakémukoliv domácímu serveru, který je kompatibilní s https://matrix.org, a začít s kýmkoliv chatovat. Je to obří decentralizovaná chatovací síť!",
@@ -2592,8 +2514,6 @@
     "attribution": "Zdroj",
     "skipChatBackup": "Přeskočit zálohu konverzací",
     "skipChatBackupWarning": "Jste si jistí? Pokud nepovolíte zálohu konverzací, můžete ztratit přístup ke svým zprávám v případě změny zařízení.",
-    "loadingMessages": "Načítám zprávy",
-    "setupChatBackup": "Nastavit zálohování konverzací",
     "noMoreResultsFound": "Žádné další výsledky nenalezeny",
     "chatSearchedUntil": "Konverzace prohledána do {time}",
     "@chatSearchedUntil": {
@@ -2621,7 +2541,6 @@
     "createNewAccount": "Vytvořit nový účet",
     "signUpGreeting": "FluffyChat je decentralizovaný! Vyberte server, kde si chcete vytvořit účet, a jdeme na věc!",
     "signInGreeting": "Již máte účet na Matrixu? Vítejte zpět! Vyberte svůj domácí server a přihlaste se.",
-    "appIntro": "S FluffyChatem můžeme chatovat s přáteli. Je to decentralizovaná chatovací aplikace pro [matrix]! Zjistěte více na https://matrix.org nebo se zaregistrujte.",
     "theProcessWasCanceled": "Proces byl zrušen.",
     "sendImages": "Poslat {count} obrazků",
     "@sendImages": {
@@ -2632,5 +2551,174 @@
             }
         }
     },
-    "commandHint_roomupgrade": "Aktualizovat místnost na danou verzi"
+    "commandHint_roomupgrade": "Aktualizovat místnost na danou verzi",
+    "commandHint_ignore": "",
+    "doesNotSeemToBeAValidHomeserver": "",
+    "notificationRuleEncryptedRoomOneToOneDescription": "",
+    "enterNewChat": "",
+    "reset": "",
+    "sendCanceled": "",
+    "changeTheCanonicalRoomAlias": "",
+    "notificationRuleRoomOneToOneDescription": "",
+    "blur": "",
+    "goToSpace": "",
+    "@goToSpace": {
+        "type": "String",
+        "space": {}
+    },
+    "restricted": "",
+    "noDatabaseEncryption": "",
+    "createNewTag": "",
+    "knockRestricted": "",
+    "notificationRuleRoomServerAcl": "",
+    "countReplies": "",
+    "@countReplies": {
+        "type": "int",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "join": "",
+    "takeAPhoto": "",
+    "notificationRuleServerAcl": "",
+    "userLevel": "",
+    "@userLevel": {
+        "type": "String",
+        "placeholders": {
+            "level": {
+                "type": "int"
+            }
+        }
+    },
+    "changelog": "",
+    "advancedConfigurations": "",
+    "opacity": "",
+    "updateInstalled": "",
+    "@updateInstalled": {
+        "type": "String",
+        "placeholders": {
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "createNewChat": "",
+    "makeModerator": "",
+    "notificationRuleEncryptedDescription": "",
+    "commandHint_unignore": "",
+    "notificationRuleRoomOneToOne": "",
+    "discover": "",
+    "notificationRuleEncryptedRoomOneToOne": "",
+    "tagName": "",
+    "clientWellKnownInformation": "",
+    "inviteOtherUsers": "",
+    "setPowerLevelDescription": "",
+    "changeTheVisibilityOfChatHistory": "",
+    "adminLevel": "",
+    "@adminLevel": {
+        "type": "String",
+        "placeholders": {
+            "level": {
+                "type": "int"
+            }
+        }
+    },
+    "matrixId": "",
+    "identityServer": "",
+    "support": "",
+    "notificationRuleMessageDescription": "",
+    "setPowerLevel": "",
+    "notificationRuleServerAclDescription": "",
+    "mute": "",
+    "@mute": {
+        "description": "This should be a very short string because there is not much space in the button!"
+    },
+    "sendRoomNotifications": "",
+    "notificationRuleMessage": "",
+    "removeModeratorRights": "",
+    "chatPermissionsDescription": "",
+    "contentNotificationSettings": "",
+    "addTag": "",
+    "notificationRuleRoomServerAclDescription": "",
+    "removeAdminRights": "",
+    "owner": "",
+    "powerLevel": "",
+    "playSoundOnNotification": "",
+    "changeGeneralChatSettings": "",
+    "stickers": "",
+    "makeAdmin": "",
+    "searchOrEnterHomeserverAddress": "",
+    "markAsUnread": "",
+    "transparent": "",
+    "notificationRuleJitsi": "",
+    "unsetLowPriority": "",
+    "setLowPriority": "",
+    "changeTheDescriptionOfTheGroup": "",
+    "thereAreCountUsersBlocked": "",
+    "@thereAreCountUsersBlocked": {
+        "type": "String",
+        "count": {}
+    },
+    "calculatingFileSize": "",
+    "addChatOrSubSpace": "",
+    "changeTheChatPermissions": "",
+    "unknownPushRule": "",
+    "@unknownPushRule": {
+        "type": "String",
+        "placeholders": {
+            "rule": {
+                "type": "String"
+            }
+        }
+    },
+    "noticeChatBackupDeviceVerification": "",
+    "contactServerSecurity": "",
+    "loginWithMatrixId": "",
+    "searchMore": "",
+    "unreadChatsInApp": "",
+    "@unreadChatsInApp": {
+        "type": "String",
+        "placeholders": {
+            "appname": {
+                "type": "String"
+            },
+            "unread": {
+                "type": "String"
+            }
+        }
+    },
+    "removeTag": "",
+    "countVotes": "",
+    "@countVotes": {
+        "type": "int",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "moderatorLevel": "",
+    "@moderatorLevel": {
+        "type": "String",
+        "placeholders": {
+            "level": {
+                "type": "int"
+            }
+        }
+    },
+    "notificationRuleJitsiDescription": "",
+    "incomingMessages": "",
+    "supportFluffyChat": "",
+    "notificationRuleEncrypted": "",
+    "searchIn": "",
+    "@searchIn": {
+        "type": "String",
+        "placeholders": {
+            "chat": {
+                "type": "String"
+            }
+        }
+    }
 }

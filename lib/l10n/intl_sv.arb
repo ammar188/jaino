@@ -565,11 +565,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "extremeOffensive": "Extremt stötande",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "Filnamn",
     "@fileName": {
         "type": "String",
@@ -656,11 +651,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "Hur stötande är detta innehåll?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -683,11 +673,6 @@
     },
     "incorrectPassphraseOrKey": "Felaktig lösenordsfras eller åsterställningsnyckel",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Oförargligt",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -947,11 +932,6 @@
                 "type": "int"
             }
         }
-    },
-    "offensive": "Stötande",
-    "@offensive": {
-        "type": "String",
-        "placeholders": {}
     },
     "offline": "Offline",
     "@offline": {
@@ -1700,11 +1680,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "everythingReady": "Allt är klart!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
     "errorObtainingLocation": "Fel vid erhållande av plats: {error}",
     "@errorObtainingLocation": {
         "type": "String",
@@ -1869,23 +1844,8 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Radera din chatt-backup för att skapa en ny återställningsnyckel?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "verified": "Verifierad",
     "@verified": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "transferFromAnotherDevice": "Överför till annan enhet",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "chatBackupDescription": "Dina meddelanden är skyddad av en säkerhetsnyckel. Se till att du inte förlorar den.",
-    "@chatBackupDescription": {
         "type": "String",
         "placeholders": {}
     },
@@ -1928,12 +1888,9 @@
     },
     "link": "Länk",
     "reportUser": "Rapportera användare",
-    "openChat": "Öppna Chatt",
     "sendOnEnter": "Skicka med Enter",
     "scanQrCode": "Skanna QR-kod",
-    "yourChatBackupHasBeenSetUp": "Din chatt-backup har konfigurerats.",
     "removeFromBundle": "Ta bort från paket",
-    "enableMultiAccounts": "(BETA) Aktivera multi-konton på denna enhet",
     "emojis": "Uttryckssymboler",
     "placeCall": "Ring",
     "voiceCall": "Röstsamtal",
@@ -1977,7 +1934,6 @@
         }
     },
     "commandHint_markasgroup": "Märk som grupp",
-    "recoveryKeyLost": "Borttappad återställningsnyckel?",
     "youHaveWithdrawnTheInvitationFor": "Du har återkallat inbjudan till {user}",
     "@youHaveWithdrawnTheInvitationFor": {
         "placeholders": {
@@ -1994,7 +1950,6 @@
             }
         }
     },
-    "unlockOldMessages": "Lås upp äldre meddelanden",
     "newSpace": "Nytt utrymme",
     "googlyEyesContent": "{senderName} skickar dig googly ögon",
     "@googlyEyesContent": {
@@ -2008,7 +1963,6 @@
     "dehydrate": "Exportera sessionen och rensa enheten",
     "dehydrateWarning": "Denna åtgärd kan inte ångras. Försäkra dig om att backupen är i säkert förvar.",
     "recoveryKey": "Återställningsnyckel",
-    "pleaseEnterRecoveryKeyDescription": "Ange din återställningsnyckel från en tidigare session för att låsa upp äldre meddelanden. Din återställningsnyckel är INTE ditt lösenord.",
     "encryptThisChat": "Kryptera denna chatt",
     "noBackupWarning": "Varning! Om du inte aktiverar säkerhetskopiering av chattar så tappar du åtkomst till krypterade meddelanden. Det är rekommenderat att du aktiverar säkerhetskopiering innan du loggar ut.",
     "noOtherDevicesFound": "Inga andra enheter hittades",
@@ -2026,7 +1980,6 @@
     },
     "commandHint_markasdm": "Märk som rum för direktmeddelanden för det givante Matrix ID",
     "user": "Användare",
-    "storeInSecureStorageDescription": "Lagra återställningsnyckeln på säker plats på denna enhet.",
     "storeInAppleKeyChain": "Lagra i Apples nyckelkedja (KeyChain)",
     "foregroundServiceRunning": "Denna avisering visas när förgrundstjänsten körs.",
     "custom": "Anpassad",
@@ -2090,7 +2043,6 @@
             }
         }
     },
-    "saveKeyManuallyDescription": "Spara nyckeln manuellt genom att aktivera dela-funktionen eller urklippshanteraren på enheten.",
     "storeInAndroidKeystore": "Lagra i Androids nyckellagring (KeyStore)",
     "whyIsThisMessageEncrypted": "Varför kan inte detta meddelande läsas?",
     "newGroup": "Ny grupp",
@@ -2300,12 +2252,6 @@
             }
         }
     },
-    "presencesToggle": "Visa statusmeddelanden från andra användare",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "hidePresences": "Dölj statuslista?",
     "sendReadReceipts": "Skicka läskvitton",
     "verifyOtherDevice": "🔐 Verifiera enhet",
     "acceptedKeyVerification": "{sender} accepterade nyckelverifieringen",
@@ -2375,7 +2321,6 @@
     "hideRedactedMessages": "Dölj tillbakatagna meddelanden",
     "hideRedactedMessagesBody": "Om någon tar tillbaka ett meddelande, kommer meddelandet inte längre vara synligt i chatten.",
     "hideInvalidOrUnknownMessageFormats": "Dölj ogiltiga eller okända meddelande-format",
-    "overview": "Översikt",
     "passwordRecoverySettings": "Lösenordsåterställnings-inställningar",
     "sendImages": "Skicka {count} bild",
     "@sendImages": {
@@ -2507,31 +2452,8 @@
     "loginWithMatrixId": "Logga in med Matrix-ID",
     "doesNotSeemToBeAValidHomeserver": "Verkar inte vara en kompatibel hemserver. Fel URL?",
     "calculatingFileSize": "Beräknar filstorlek...",
-    "prepareSendingAttachment": "Förbered skickar bilaga...",
     "sendingAttachment": "Skickar bilaga...",
-    "generatingVideoThumbnail": "Genererar förhandsvisning...",
     "compressVideo": "Komprimerar video...",
-    "sendingAttachmentCountOfCount": "Skickar bilaga {index} om {length}...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
-    "serverLimitReached": "Servergräns nådd! Väntar {seconds} sekunder...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "oneOfYourDevicesIsNotVerified": "En av dina enheter är inte verifierade",
     "noticeChatBackupDeviceVerification": "Notis: När du ansluter alla dina enheter till chatt-backupen, är de automatiskt verifierade.",
     "continueText": "Fortsätt",
@@ -2630,7 +2552,6 @@
         }
     },
     "saveChanges": "Spara ändringar",
-    "loadingMessages": "Läser in meddelanden",
     "noMoreResultsFound": "Inga fler resultat hittades",
     "versionWithNumber": "Version: {version}",
     "@versionWithNumber": {
@@ -2643,5 +2564,160 @@
     },
     "logs": "Loggar",
     "signIn": "Logga in",
-    "createNewAccount": "Skapa nytt konto"
+    "createNewAccount": "Skapa nytt konto",
+    "answersVisible": "",
+    "notificationRuleInviteForMeDescription": "",
+    "notificationRuleMemberEventDescription": "",
+    "shareKeysWithDescription": "",
+    "notificationRuleEncryptedRoomOneToOneDescription": "",
+    "pollQuestion": "",
+    "reset": "",
+    "notificationRuleRoomOneToOneDescription": "",
+    "poll": "",
+    "stickerPackName": "",
+    "notificationRuleIsRoomMentionDescription": "",
+    "deletePushRuleCanNotBeUndone": "",
+    "youHaveKnocked": "",
+    "verifiedDevicesOnly": "",
+    "notificationRuleSuppressNoticesDescription": "",
+    "createNewTag": "",
+    "notificationRuleRoomServerAcl": "",
+    "notificationRuleIsUserMention": "",
+    "useAsEmoji": "",
+    "join": "",
+    "shareKeysWith": "",
+    "notificationRuleIsUserMentionDescription": "",
+    "notificationRuleServerAcl": "",
+    "advancedConfigurations": "",
+    "signUpGreeting": "",
+    "baseUrl": "",
+    "answersWillBeVisibleWhenPollHasEnded": "",
+    "notificationRuleContainsDisplayNameDescription": "",
+    "createNewChat": "",
+    "backToMainChat": "",
+    "makeModerator": "",
+    "skipChatBackup": "",
+    "notificationRuleEncryptedDescription": "",
+    "notificationRuleRoomOneToOne": "",
+    "sentVoiceMessage": "",
+    "@sentVoiceMessage": {
+        "type": "String",
+        "placeholders": {
+            "sender": {
+                "type": "String"
+            },
+            "duration": {
+                "type": "String"
+            }
+        }
+    },
+    "notificationRuleEncryptedRoomOneToOne": "",
+    "displayNavigationRail": "",
+    "tagName": "",
+    "commandHint_logoutall": "",
+    "clientWellKnownInformation": "",
+    "notificationRuleIsRoomMention": "",
+    "federationBaseUrl": "",
+    "notSupportedOnThisDevice": "",
+    "setPowerLevelDescription": "",
+    "notificationRuleRoomnotif": "",
+    "stickerPackNameAlreadyExists": "",
+    "matrixId": "",
+    "identityServer": "",
+    "support": "",
+    "notificationRuleMessageDescription": "",
+    "setPowerLevel": "",
+    "notificationRuleServerAclDescription": "",
+    "pollHasBeenEnded": "",
+    "mute": "",
+    "@mute": {
+        "description": "This should be a very short string because there is not much space in the button!"
+    },
+    "notificationRuleSuppressEdits": "",
+    "pleaseWaitUntilInvited": "",
+    "useAsSticker": "",
+    "longPressToRecordVoiceMessage": "",
+    "createSticker": "",
+    "notificationRuleMessage": "",
+    "notificationRuleTombstone": "",
+    "removeModeratorRights": "",
+    "addTag": "",
+    "startPoll": "",
+    "notificationRuleRoomServerAclDescription": "",
+    "notificationRuleInviteForMe": "",
+    "spaceMemberOfCanKnock": "",
+    "@spaceMemberOfCanKnock": {
+        "type": "String",
+        "placeholders": {
+            "spaces": {
+                "type": "String"
+            }
+        }
+    },
+    "removeAdminRights": "",
+    "removeFromSpaceDescription": "",
+    "owner": "",
+    "powerLevel": "",
+    "playSoundOnNotification": "",
+    "skipChatBackupWarning": "",
+    "makeAdmin": "",
+    "searchOrEnterHomeserverAddress": "",
+    "notificationRuleSuppressEditsDescription": "",
+    "unsetLowPriority": "",
+    "setLowPriority": "",
+    "notificationRuleSuppressNotices": "",
+    "chatSearchedUntil": "",
+    "@chatSearchedUntil": {
+        "type": "String",
+        "placeholders": {
+            "time": {
+                "type": "String"
+            }
+        }
+    },
+    "notificationRuleTombstoneDescription": "",
+    "endPoll": "",
+    "theProcessWasCanceled": "",
+    "unknownPushRule": "",
+    "@unknownPushRule": {
+        "type": "String",
+        "placeholders": {
+            "rule": {
+                "type": "String"
+            }
+        }
+    },
+    "crossVerifiedDevices": "",
+    "commandHint_logout": "",
+    "newStickerPack": "",
+    "signInGreeting": "",
+    "advancedConfigs": "",
+    "crossVerifiedDevicesIfEnabled": "",
+    "declineInvitation": "",
+    "notificationRuleReactionDescription": "",
+    "notificationRuleCallDescription": "",
+    "removeTag": "",
+    "notificationRuleJitsiDescription": "",
+    "attribution": "",
+    "notificationRuleRoomnotifDescription": "",
+    "supportFluffyChat": "",
+    "startedAPoll": "",
+    "@startedAPoll": {
+        "type": "String",
+        "placeholders": {
+            "username": {
+                "type": "String"
+            }
+        }
+    },
+    "notificationRuleEncrypted": "",
+    "spaceMemberOf": "",
+    "@spaceMemberOf": {
+        "type": "String",
+        "placeholders": {
+            "spaces": {
+                "type": "String"
+            }
+        }
+    }
 }

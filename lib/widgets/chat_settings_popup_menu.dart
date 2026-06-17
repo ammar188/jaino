@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'dart:async';
 
 import 'package:fluffychat/l10n/l10n.dart';
@@ -9,7 +14,15 @@ import 'package:matrix/matrix.dart';
 
 import 'matrix.dart';
 
-enum ChatPopupMenuActions { details, mute, unmute, emote, leave, search }
+enum ChatPopupMenuActions {
+  details,
+  mute,
+  unmute,
+  encryption,
+  emote,
+  leave,
+  search,
+}
 
 class ChatSettingsPopupMenu extends StatefulWidget {
   final Room room;
@@ -96,6 +109,9 @@ class ChatSettingsPopupMenuState extends State<ChatSettingsPopupMenu> {
                 break;
               case ChatPopupMenuActions.emote:
                 goToEmoteSettings();
+              case ChatPopupMenuActions.encryption:
+                context.go('/rooms/${widget.room.id}/encryption');
+                break;
             }
           },
           itemBuilder: (BuildContext context) => [
@@ -139,6 +155,16 @@ class ChatSettingsPopupMenuState extends State<ChatSettingsPopupMenu> {
                   const Icon(Icons.search_outlined),
                   const SizedBox(width: 12),
                   Text(L10n.of(context).search),
+                ],
+              ),
+            ),
+            PopupMenuItem<ChatPopupMenuActions>(
+              value: ChatPopupMenuActions.encryption,
+              child: Row(
+                children: [
+                  const Icon(Icons.lock_outlined),
+                  const SizedBox(width: 12),
+                  Text(L10n.of(context).encryption),
                 ],
               ),
             ),

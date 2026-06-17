@@ -421,14 +421,8 @@
         "type": "String",
         "placeholders": {}
     },
-    "yourChatBackupHasBeenSetUp": "Suhbat zaxirangiz sozlandi.",
     "chatBackup": "Suhbat zaxirasi",
     "@chatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "chatBackupDescription": "Eski xabarlaringiz tiklash kaliti bilan himoyalangan. Uni yo‘qotib qo‘ymasligingizga ishonch hosil qiling.",
-    "@chatBackupDescription": {
         "type": "String",
         "placeholders": {}
     },
@@ -860,11 +854,6 @@
     "hideRedactedMessages": "Oʻchirilgan xabarlarni yashirish",
     "hideRedactedMessagesBody": "Agar kimdir xabarni oʻchirsa, bu xabar endi suhbatda koʻrinmaydi.",
     "hideInvalidOrUnknownMessageFormats": "Notoʻgʻri yoki nomaʼlum xabar formatlarini yashirish",
-    "howOffensiveIsThisContent": "Bu kontent qanchalik haqoratli?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -881,11 +870,6 @@
     },
     "incorrectPassphraseOrKey": "Notoʻgʻri parol yoki tiklash kaliti",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Zararsiz",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1026,16 +1010,6 @@
                 "type": "String"
             }
         }
-    },
-    "everythingReady": "Hammasi tayyor!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "O‘ta haqoratomuz",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
     },
     "fileName": "Fayl nomi",
     "@fileName": {
@@ -1284,11 +1258,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "offensive": "Haqoratomuz",
-    "@offensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "offline": "Oflayn",
     "@offline": {
         "type": "String",
@@ -1335,7 +1304,6 @@
     "addToBundle": "Toʻplamga qoʻshish",
     "removeFromBundle": "Bu toʻplamdan oʻchirish",
     "bundleName": "Toʻplam nomi",
-    "enableMultiAccounts": "(BETA) Ushbu qurilmada bir nechta hisoblarni yoqish",
     "openInMaps": "Xaritalarda ochish",
     "@openInMaps": {
         "type": "String",
@@ -1373,7 +1341,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "overview": "Umumiy ma'lumot",
     "passwordRecoverySettings": "Parolni qayta tiklash sozlamalari",
     "passwordRecovery": "Parolni qayta tiklash",
     "@passwordRecovery": {
@@ -1584,7 +1551,6 @@
         "placeholders": {}
     },
     "recoveryKey": "Tiklash kaliti",
-    "recoveryKeyLost": "Tiklash kaliti yo‘qolib qoldimi?",
     "send": "Yuborish",
     "@send": {
         "type": "String",
@@ -1727,11 +1693,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "presencesToggle": "Boshqa foydalanuvchilarning holat xabarlarini ko‘rsatish",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
     "skip": "Tashlab ketish",
     "@skip": {
         "type": "String",
@@ -1813,11 +1774,6 @@
     },
     "tooManyRequestsWarning": "Talablar soni oshib ketdi. Keyinroq qayta urining!",
     "@tooManyRequestsWarning": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "transferFromAnotherDevice": "Boshqa qurilmadan uzatish",
-    "@transferFromAnotherDevice": {
         "type": "String",
         "placeholders": {}
     },
@@ -2027,11 +1983,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Yangi tiklash kalitini yaratish uchun suhbat zaxirasi tozalansinmi?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "Ushbu manzillar yordamida parolingizni tiklashingiz mumkin.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -2078,9 +2029,6 @@
     "noOneCanJoin": "Hech kim qoʻshila olmaydi",
     "knock": "Taqillating",
     "users": "Foydalanuvchilar",
-    "unlockOldMessages": "Eski xabarlarni qulfdan chiqaring",
-    "storeInSecureStorageDescription": "Qayta tiklash kalitini ushbu qurilmaning xavfsiz xotirasida saqlang.",
-    "saveKeyManuallyDescription": "Tizim ulashish dialog oynasi yoki buferni ishga tushirish orqali ushbu kalitni qoʻlda saqlang.",
     "storeInAndroidKeystore": "Android KeyStoreʼda saqlang",
     "storeInAppleKeyChain": "Apple KeyChainʼda saqlang",
     "storeSecurlyOnThisDevice": "Ushbu qurilmada xavfsiz saqlang",
@@ -2102,7 +2050,6 @@
     "newGroup": "Yangi guruh",
     "newSpace": "Yangi maydon",
     "allSpaces": "Barcha maydonlar",
-    "hidePresences": "Holat roʻyxati yashirilsinmi?",
     "doNotShowAgain": "Qaytib koʻrsatilmasin",
     "wasDirectChatDisplayName": "Boʻsh suhbat ({oldDisplayName} edi)",
     "@wasDirectChatDisplayName": {
@@ -2114,7 +2061,6 @@
         }
     },
     "newSpaceDescription": "Maydonlar sizga suhbatlaringizni birlashtirish va shaxsiy yoki ommaviy hamjamiyatlarni yaratish imkonini beradi.",
-    "openChat": "Suhbatni ochish",
     "youJoinedTheChat": "Siz suhbatga qoʻshildingiz",
     "encryptThisChat": "Bu suhbatni shifrlash",
     "disableEncryptionWarning": "Xavfsizlik nuqtai nazaridan, agar u ilgari yoqilgan boʻlsa, suhbatda shifrlashni oʻchirib qoʻyolmaysiz.",
@@ -2185,7 +2131,6 @@
         }
     },
     "backToMainChat": "Asosiy suhbatga qaytish",
-    "pleaseEnterRecoveryKeyDescription": "Eski xabarlaringizni qulfdan chiqarish uchun, iltimos, avvalgi seansdan yaratilgan tiklash kalitingizni kiriting. Sizning tiklash kalitingiz parolingiz EMAS.",
     "markAsRead": "Oʻqilgan sifatida belgilash",
     "reportUser": "Foydalanuvchi haqida xabar berish",
     "dismiss": "Rad qilmoq",
@@ -2456,31 +2401,8 @@
     "loginWithMatrixId": "Matriks-ID bilan kirish",
     "doesNotSeemToBeAValidHomeserver": "Uy serveri mos emasga o‘xshaydi. URL xato kiritilganmi?",
     "calculatingFileSize": "Fayl hajmi hisoblanmoqda...",
-    "prepareSendingAttachment": "Yuborish uchun biriktirmani tayyorlang...",
     "sendingAttachment": "Biriktirish yuborilmoqda...",
-    "generatingVideoThumbnail": "Video eskizi yaratilmoqda...",
     "compressVideo": "Video siqilmoqda...",
-    "sendingAttachmentCountOfCount": "Biriktirma yuborilmoqda: {index} of {length}...",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
-    "serverLimitReached": "Server limiti tugadi! {seconds} soniya kutilmoqda...",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "oneOfYourDevicesIsNotVerified": "Qurilmalaringizdan biri tasdiqlanmagan",
     "continueText": "Davom etish",
     "blur": "Xiralashtirish:",
@@ -2729,8 +2651,6 @@
     "attribution": "Atributsiya",
     "skipChatBackup": "Chat zaxirasini tashlab ketish",
     "skipChatBackupWarning": "Ishonchingiz komilmi? Chat zaxirasini yoqmasdan qurilmangizni almashtirsangiz, xabarlaringizga kira olmay qolishingiz mumkin.",
-    "loadingMessages": "Xabarlar yuklanmoqda",
-    "setupChatBackup": "Chat zaxirasini sozlash",
     "noMoreResultsFound": "Boshqa natijalar topilmadi",
     "chatSearchedUntil": "Chat {time} gacha qidirildi",
     "@chatSearchedUntil": {
@@ -2756,5 +2676,36 @@
     },
     "logs": "Jurnallar",
     "advancedConfigs": "Kengaytirilgan konfiguratsiyalar",
-    "advancedConfigurations": "Kengaytirilgan sozlamalar"
+    "advancedConfigurations": "Kengaytirilgan sozlamalar",
+    "signIn": "",
+    "reset": "",
+    "createNewTag": "",
+    "join": "",
+    "signUpGreeting": "",
+    "createNewChat": "",
+    "makeModerator": "",
+    "tagName": "",
+    "setPowerLevelDescription": "",
+    "matrixId": "",
+    "support": "",
+    "createNewAccount": "",
+    "setPowerLevel": "",
+    "mute": "",
+    "@mute": {
+        "description": "This should be a very short string because there is not much space in the button!"
+    },
+    "removeModeratorRights": "",
+    "addTag": "",
+    "removeAdminRights": "",
+    "owner": "",
+    "powerLevel": "",
+    "playSoundOnNotification": "",
+    "makeAdmin": "",
+    "searchOrEnterHomeserverAddress": "",
+    "unsetLowPriority": "",
+    "setLowPriority": "",
+    "theProcessWasCanceled": "",
+    "signInGreeting": "",
+    "removeTag": "",
+    "supportFluffyChat": ""
 }

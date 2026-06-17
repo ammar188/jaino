@@ -345,11 +345,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "chatBackupDescription": "你的消息受恢复密钥保护。请确保你不会丢失它。",
-    "@chatBackupDescription": {
-        "type": "String",
-        "placeholders": {}
-    },
     "chatDetails": "聊天详情",
     "@chatDetails": {
         "type": "String",
@@ -703,16 +698,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "everythingReady": "一切就绪！",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "令人极度反感",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "文件名",
     "@fileName": {
         "type": "String",
@@ -804,11 +789,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "这些内容有多令人反感？",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -831,11 +811,6 @@
     },
     "incorrectPassphraseOrKey": "不正确的密码短语或恢复密钥",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "不令人反感",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1100,11 +1075,6 @@
                 "type": "int"
             }
         }
-    },
-    "offensive": "令人反感",
-    "@offensive": {
-        "type": "String",
-        "placeholders": {}
     },
     "offline": "离线",
     "@offline": {
@@ -1559,11 +1529,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "从其它设备传输",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "尝试重新发送",
     "@tryToSendAgain": {
         "type": "String",
@@ -1769,11 +1734,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "确定要清除你的聊天记录备份以创建新的恢复密钥吗？",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "通过这些地址，你可以恢复密码。",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -1891,7 +1851,6 @@
         "placeholders": {}
     },
     "sendOnEnter": "按 Enter 键发送",
-    "yourChatBackupHasBeenSetUp": "你的聊天记录备份已设置。",
     "scanQrCode": "扫描二维码",
     "homeserver": "服务器",
     "oneClientLoggedOut": "你的一个客户端已登出",
@@ -1900,7 +1859,6 @@
     "repeatPassword": "重复输入密码",
     "addAccount": "添加账户",
     "editBundlesForAccount": "编辑此账户的集合",
-    "enableMultiAccounts": "（测试功能）在此设备上添加多个账户",
     "addToBundle": "添加到集合",
     "bundleName": "集合名称",
     "link": "链接",
@@ -1935,7 +1893,6 @@
     "dismiss": "忽略",
     "markAsRead": "标为已读",
     "reportUser": "举报用户",
-    "openChat": "打开聊天",
     "reactedWith": "{sender} 回应了 {reaction}",
     "@reactedWith": {
         "type": "String",
@@ -2016,13 +1973,8 @@
             }
         }
     },
-    "storeInSecureStorageDescription": "将恢复密钥存储在此设备的安全存储中。",
     "storeInAppleKeyChain": "存储在 Apple KeyChain 中",
-    "unlockOldMessages": "解锁旧消息",
     "recoveryKey": "恢复密钥",
-    "recoveryKeyLost": "丢失了恢复密钥？",
-    "pleaseEnterRecoveryKeyDescription": "要解锁你的旧邮件，请输入你在之前会话中生成的恢复密钥。 你的恢复密钥不是你的密码。",
-    "saveKeyManuallyDescription": "通过触发系统共享对话框或剪贴板手动保存此密钥。",
     "storeInAndroidKeystore": "存储在 Android KeyStore 中",
     "storeSecurlyOnThisDevice": "安全地存储在此设备上",
     "users": "用户",
@@ -2324,12 +2276,6 @@
         }
     },
     "transparent": "透明",
-    "presencesToggle": "显示其他用户的状态消息",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "hidePresences": "隐藏状态列表？",
     "incomingMessages": "传入消息",
     "stickers": "贴纸",
     "discover": "发现",
@@ -2354,7 +2300,6 @@
     "calls": "通话",
     "customEmojisAndStickers": "自定义表情符号和贴纸",
     "hideRedactedMessages": "隐藏被涂黑的消息",
-    "overview": "概览",
     "passwordRecoverySettings": "密码发现设置",
     "knock": "请求",
     "noOneCanJoin": "无人可以加入",
@@ -2466,32 +2411,9 @@
     "noChatsFoundHere": "此处尚未找到聊天。使用下方按钮 ⤵️ 开始和某人的新聊天",
     "loginWithMatrixId": "使用 Matrix-ID 登录",
     "doesNotSeemToBeAValidHomeserver": "似乎不是兼容的主服务器。URL 不正确？",
-    "prepareSendingAttachment": "准备发送附件…",
     "sendingAttachment": "发送附件中…",
     "calculatingFileSize": "计算文件尺寸中…",
-    "generatingVideoThumbnail": "生成视频缩略图中…",
     "compressVideo": "压缩视频中…",
-    "sendingAttachmentCountOfCount": "正在发送附件 {index}，共 {length} 个附件…",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
-    "serverLimitReached": "达到了服务器限制！等待 {seconds} 秒…",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "oneOfYourDevicesIsNotVerified": "您设备中的一台未验证",
     "noticeChatBackupDeviceVerification": "注意：当你连接所有设备到聊天备份时，这些设备将被自动验证。",
     "welcomeText": "你好呀 👋 欢迎来到 FluffyChat。你可以登录任意兼容 https://matrix.org 的 homeserver，然后和任何人聊天。这是个巨大的去中心化消息网络！",
@@ -2740,8 +2662,6 @@
     "attribution": "作者",
     "skipChatBackup": "跳过聊天备份",
     "skipChatBackupWarning": "确定吗？不开启聊天备份，如果切换设备可能无法访问消息。",
-    "loadingMessages": "加载消息中",
-    "setupChatBackup": "设置聊天备份",
     "changedTheChatDescription": "{username} 更改了聊天描述",
     "changedTheChatName": "{username} 更改了聊天名",
     "noMoreResultsFound": "未找到更多结果",
@@ -2774,7 +2694,6 @@
     "createNewAccount": "创建新账户",
     "signUpGreeting": "FluffyChat 是去中心化的！选择您希望创建账户的服务器！",
     "signInGreeting": "已经有 Matrix 账户了？欢迎回来！选择 homeserver 登录。",
-    "appIntro": "借助 FluffyChat，您可以和好友聊天。它是安全的去中心化 [matrix] 消息收发应用！如果愿意，可以在 https://matrix.org 了解更多信息，也可直接注册账户。",
     "theProcessWasCanceled": "过程被取消。",
     "join": "加入",
     "searchOrEnterHomeserverAddress": "搜索或输入 homeserver 地址",
@@ -2795,23 +2714,194 @@
     "reset": "重置",
     "supportFluffyChat": "支持 FluffyChat",
     "support": "支持",
-    "fluffyChatSupportBannerMessage": "FluffyChat 需要您的帮助！\n❤️❤️❤️\nFluffyChat 将始终免费，但开发和托管仍然要花钱。\n项目的未来仰赖像您这样的人的支持。",
-    "skipSupportingFluffyChat": "跳过支持 FluffyChar",
-    "iDoNotWantToSupport": "我不想支持",
-    "iAlreadySupportFluffyChat": "我已支持 FluffyChat",
     "setLowPriority": "设置低优先级",
     "unsetLowPriority": "取消设置低优先级",
-    "removeCallFromChat": "从聊天中删除通话",
-    "removeCallFromChatDescription": "要为所有成员从聊天中删除通话吗？",
-    "removeCallForEveryone": "为所有人删除通话",
-    "startVoiceCall": "开始语音通话",
-    "startVideoCall": "开始视频通话",
-    "joinVoiceCall": "加入语音通话",
-    "joinVideoCall": "加入视频通话",
-    "live": "实时",
     "playSoundOnNotification": "播放通知声音",
     "addTag": "添加标签",
     "removeTag": "删除标签",
     "tagName": "标签名",
-    "createNewTag": "创建新标签"
+    "createNewTag": "创建新标签",
+    "discardEdits": "有未保存的更改。放弃编辑吗？",
+    "@discardEdits": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "hideRoomsInSpaces": "隐藏位于空间中的聊天室",
+    "possibleByYou": "没有您的支持不会有这个版本。FluffyChat 依旧免费、开源、完全由社区驱动。",
+    "showThumbnailsInTimeline": "显示图片和视频的缩略图",
+    "appSubtitle": "安全的 [matrix] 通信",
+    "appDescription": "以对所有人简单易得的方式通过去中心化 [matrix] 网络加密通信。",
+    "interactiveVerification": "互动式验证",
+    "interactiveVerificationDescription": "如果你和联系人就在一起或通过安全渠道通信，你们可以通过比较安全号码或绘文字同时验证所有设备。",
+    "countUnverifiedDevices": "该聊天中有 {count} 台未验证设备。",
+    "@countUnverifiedDevices": {
+        "type": "int",
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "check": "检查",
+    "encryptedMessage": "加密的消息",
+    "unencryptedMessage": "未加密的消息",
+    "allow": "允许",
+    "publicKey": "公钥：{key}",
+    "@publicKey": {
+        "type": "String",
+        "placeholders": {
+            "key": {
+                "type": "String"
+            }
+        }
+    },
+    "deviceIdentityKey": "设备身份密钥",
+    "showMore": "显示更多",
+    "showLess": "显示较少",
+    "restoreBootstrapEmptyDevicesDescription": "请输入密码短语或恢复密钥来验证此设备并获得访问加密消息备份的权限。",
+    "@restoreBootstrapEmptyDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreBootstrapDevicesDescription": "请选择其他设备中的一台来验证此会话：",
+    "@restoreBootstrapDevicesDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccount": "重置账户",
+    "@resetAccount": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "restoreCryptoIdentity": "恢复加密身份",
+    "@restoreCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetCryptoIdentity": "重置加密身份",
+    "@resetCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "setUpCryptoIdentity": "设置加密身份",
+    "@setUpCryptoIdentity": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "waitingForKeys": "正在等待密钥… 请保持另一台设备活跃。",
+    "@waitingForKeys": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "noKeysTransmitted": "未传输密钥。请重试。",
+    "@noKeysTransmitted": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "unlock": "解锁",
+    "@unlock": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "openFile": "打开文件",
+    "@openFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "resetAccountWarning": "重置账户会造成永远无法访问旧消息。需要再次验证所有当前设备。请在没有其他设备来验证会话且丢失恢复密钥和密码短语时才执行此操作！",
+    "@resetAccountWarning": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphraseDescription": "FluffyChat 使用端到端加密。为了不丢失消息，请选择强密码短语来保护加密身份和加密的消息备份。",
+    "@newPassphraseDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "newPassphrase": "新密码短语",
+    "@newPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "repeatPassphrase": "重复密码短语",
+    "@repeatPassphrase": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphrasesMatch": "密码短语匹配",
+    "@passphrasesMatch": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseLengthRequirement": "长度至少 12 个字符。",
+    "@passphraseLengthRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseUpperAndLowerCaseRequirement": "包含大小写字符。",
+    "@passphraseUpperAndLowerCaseRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseSpecialCharactersRequirement": "包含特殊字符。",
+    "@passphraseSpecialCharactersRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "passphraseNumberRequirement": "包含一个数字。",
+    "@passphraseNumberRequirement": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "storeRecoveryKeyDescription": "请写下恢复密钥以便恢复加密消息和加密身份。",
+    "@storeRecoveryKeyDescription": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "saveAsFile": "保存为文件",
+    "@saveAsFile": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "youAreReadyToStart": "可以开始了！",
+    "noUserKeyFound": "未找到用户密钥",
+    "@noUserKeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "unsignedDevice": "未签名设备",
+    "@unsignedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "signedDevice": "已签名设备",
+    "@signedDevice": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "noCurve25519KeyFound": "未找到 curve25519 key",
+    "@noCurve25519KeyFound": {
+        "type": "String",
+        "placeholders": {}
+    },
+    "messageNotDecryptable": "消息不可解密",
+    "knownSince": "初始知晓日期：{date}",
+    "@knownSince": {
+        "type": "String",
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "messageCanOnlyBeReadByUser": "你的消息是端到端加密的，只能由该用户读取：",
+    "messageCanOnlyBeReadByUsers": "你的消息是端到端加密的，只能由这些用户读取：",
+    "today": "今日",
+    "sending": "发送中",
+    "generatingThumbnail": "正在生成缩略图",
+    "encrypting": "加密中",
+    "uploading": "上传中",
+    "edited": "(已编辑)",
+    "couldNotBeSent": "无法发送",
+    "yesterday": "昨天"
 }

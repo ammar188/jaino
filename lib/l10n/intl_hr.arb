@@ -354,11 +354,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "chatBackupDescription": "Tvoje poruke su osigurane s ključem za obnavljanje. Pazi da ga ne izgubiš.",
-    "@chatBackupDescription": {
-        "type": "String",
-        "placeholders": {}
-    },
     "chatDetails": "Detalji chata",
     "@chatDetails": {
         "type": "String",
@@ -717,16 +712,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "everythingReady": "Sve je spremno!",
-    "@everythingReady": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "extremeOffensive": "Izrazito uvredljiv",
-    "@extremeOffensive": {
-        "type": "String",
-        "placeholders": {}
-    },
     "fileName": "Ime datoteke",
     "@fileName": {
         "type": "String",
@@ -818,11 +803,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "howOffensiveIsThisContent": "Koliko je ovaj sadržaj uvredljiv?",
-    "@howOffensiveIsThisContent": {
-        "type": "String",
-        "placeholders": {}
-    },
     "id": "ID",
     "@id": {
         "type": "String",
@@ -845,11 +825,6 @@
     },
     "incorrectPassphraseOrKey": "Neispravna lozinka ili ključ za obnavljanje",
     "@incorrectPassphraseOrKey": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "inoffensive": "Neuvredljiv",
-    "@inoffensive": {
         "type": "String",
         "placeholders": {}
     },
@@ -1109,11 +1084,6 @@
                 "type": "int"
             }
         }
-    },
-    "offensive": "Uvredljiv",
-    "@offensive": {
-        "type": "String",
-        "placeholders": {}
     },
     "offline": "Nepovezano s internetom",
     "@offline": {
@@ -1578,11 +1548,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "transferFromAnotherDevice": "Prenesi s jednog drugog uređaja",
-    "@transferFromAnotherDevice": {
-        "type": "String",
-        "placeholders": {}
-    },
     "tryToSendAgain": "Pokušaj ponovo poslati",
     "@tryToSendAgain": {
         "type": "String",
@@ -1788,11 +1753,6 @@
         "type": "String",
         "placeholders": {}
     },
-    "wipeChatBackup": "Izbrisati sigurnosnu kopiju chata za stvaranje novog sigurnosnog ključa za obnavljanje?",
-    "@wipeChatBackup": {
-        "type": "String",
-        "placeholders": {}
-    },
     "withTheseAddressesRecoveryDescription": "Lozinku možeš obnoviti pomoću ovih adresa.",
     "@withTheseAddressesRecoveryDescription": {
         "type": "String",
@@ -1890,7 +1850,6 @@
     "homeserver": "Homeserver",
     "sendOnEnter": "Pošalji pritiskom tipke enter",
     "link": "Poveznica",
-    "enableMultiAccounts": "(BETA) Omogući korištenje više računa na ovom uređaju",
     "bundleName": "Ime paketa",
     "removeFromBundle": "Ukloni iz ovog paketa",
     "addToBundle": "Dodaj u paket",
@@ -1898,7 +1857,6 @@
     "addAccount": "Dodaj račun",
     "oneClientLoggedOut": "Jedan od tvojih klijenata je odjavljen",
     "unverified": "Nepotvrđeno",
-    "yourChatBackupHasBeenSetUp": "Sigurnosna kopija tvog chata je postavljena.",
     "repeatPassword": "Ponovi lozinku",
     "messageInfo": "Informacija poruke",
     "messageType": "Vrsta poruke",
@@ -1929,12 +1887,10 @@
     },
     "markAsRead": "Označi kao pročitano",
     "reportUser": "Prijavi korisnika",
-    "openChat": "Otvori chat",
     "dismiss": "Odbaci",
     "unsupportedAndroidVersion": "Nepodržana Android verzija",
     "unsupportedAndroidVersionLong": "Ova funkcija zahtijeva noviju verziju Androida. Provjeri, postoje li nove verzije ili podrška za Lineage OS.",
     "recoveryKey": "Ključ za obnavljanje",
-    "recoveryKeyLost": "Izgubio/la si ključ za obnavljanje?",
     "youKickedAndBanned": "🙅 Izbacio/la i isključio/la si korisnika {user}",
     "@youKickedAndBanned": {
         "placeholders": {
@@ -2016,13 +1972,9 @@
         }
     },
     "dehydrate": "Izvezi sesiju i izbriši uređaj",
-    "unlockOldMessages": "Otključaj stare poruke",
-    "storeInSecureStorageDescription": "Ključ za obnavljanje spremi u sigurno spremište na ovom uređaju.",
-    "saveKeyManuallyDescription": "Spremi ovaj ključ ručno pokretanjem dijaloga za dijeljenje sustava ili međuspremnika.",
     "storeInAndroidKeystore": "Spremi u Android KeyStore",
     "hydrate": "Obnovi pomoću sigurnosne kopije",
     "users": "Korisnici",
-    "pleaseEnterRecoveryKeyDescription": "Za otključavanje starih poruka upiši ključ za obnavljanje koji je generiran u prethodnoj sesiji. Tvoj ključ za obnavljanje NIJE tvoja lozinka.",
     "youBannedUser": "Isključio/la si korisnika {user}",
     "@youBannedUser": {
         "placeholders": {
@@ -2218,12 +2170,6 @@
     "unbanUserDescription": "Korisnik će se ponovo moći pridružiti chatu ako pokuša.",
     "publicSpaces": "Javni prostori",
     "thisDevice": "Ovaj uređaj:",
-    "presencesToggle": "Prikaži poruke stanja od drugih korisnika",
-    "@presencesToggle": {
-        "type": "String",
-        "placeholders": {}
-    },
-    "hidePresences": "Sakriti popis stanja?",
     "pleaseEnterYourCurrentPassword": "Upiši svoju trenutačnu lozinku",
     "passwordIsWrong": "Tvoja upisana lozinka je kriva",
     "initAppError": "Dogodila se greška prilikom inicijaliziranja aplikacije",
@@ -2234,7 +2180,6 @@
     "globalChatId": "Globalni ID chata",
     "hideRedactedMessages": "Sakrij redigirane poruke",
     "hideInvalidOrUnknownMessageFormats": "Sakrij nevažeće ili nepoznate formate poruka",
-    "overview": "Pregled",
     "passwordRecoverySettings": "Postavke za obnavljanje lozinke",
     "usersMustKnock": "Korisnici moraju pokucati",
     "noOneCanJoin": "Nitko se ne može pridružiti",
@@ -2399,20 +2344,7 @@
     "@alwaysUse24HourFormat": {
         "description": "Set to true to always display time of day in 24 hour format."
     },
-    "prepareSendingAttachment": "Pripremi slanje priloga …",
     "sendingAttachment": "Slanje priloga …",
-    "sendingAttachmentCountOfCount": "Slanje priloga {index} od {length} …",
-    "@sendingAttachmentCountOfCount": {
-        "type": "integer",
-        "placeholders": {
-            "index": {
-                "type": "int"
-            },
-            "length": {
-                "type": "int"
-            }
-        }
-    },
     "ignoreUser": "Zanemari korisnika",
     "aboutHomeserver": "Informacije o {homeserver}",
     "@aboutHomeserver": {
@@ -2522,17 +2454,7 @@
     "loginWithMatrixId": "Prijava pomoću Matrix-ID-a",
     "doesNotSeemToBeAValidHomeserver": "Čini se da nije kompatibilan homeserver. Pogrešan URL?",
     "calculatingFileSize": "Izračunavanje veličine datoteke …",
-    "generatingVideoThumbnail": "Generiranje minijatura videa …",
     "compressVideo": "Komprimiranje videa …",
-    "serverLimitReached": "Granica servera je dosegnuta! Čeka {seconds} s …",
-    "@serverLimitReached": {
-        "type": "integer",
-        "placeholders": {
-            "seconds": {
-                "type": "int"
-            }
-        }
-    },
     "oneOfYourDevicesIsNotVerified": "Jedan od tvojih uređaja nije potvrđen",
     "noticeChatBackupDeviceVerification": "Napomena: Kada spojiš sve svoje uređaje na sigurnosnu kopiju chata, oni se automatski potvrđuju.",
     "continueText": "Nastavi",
@@ -2742,8 +2664,6 @@
     "attribution": "Atribucija",
     "skipChatBackup": "Preskoči sigurnosno kopiranje chata",
     "skipChatBackupWarning": "Sigurno? Bez aktiviranja sigurnosne kopije chata možeš izgubiti pristup svojim porukama ako promijeniš uređaj.",
-    "loadingMessages": "Učitavanje poruka",
-    "setupChatBackup": "Postavi sigurnosno kopiranje chata",
     "noMoreResultsFound": "Nema više rezultata",
     "chatSearchedUntil": "Chat je pretražen do {time}",
     "@chatSearchedUntil": {
@@ -2769,5 +2689,36 @@
     },
     "logs": "Zapisi",
     "advancedConfigs": "Napredne konfiguracije",
-    "advancedConfigurations": "Napredne konfiguracije"
+    "advancedConfigurations": "Napredne konfiguracije",
+    "signIn": "",
+    "reset": "",
+    "createNewTag": "",
+    "join": "",
+    "signUpGreeting": "",
+    "createNewChat": "",
+    "makeModerator": "",
+    "tagName": "",
+    "setPowerLevelDescription": "",
+    "matrixId": "",
+    "support": "",
+    "createNewAccount": "",
+    "setPowerLevel": "",
+    "mute": "",
+    "@mute": {
+        "description": "This should be a very short string because there is not much space in the button!"
+    },
+    "removeModeratorRights": "",
+    "addTag": "",
+    "removeAdminRights": "",
+    "owner": "",
+    "powerLevel": "",
+    "playSoundOnNotification": "",
+    "makeAdmin": "",
+    "searchOrEnterHomeserverAddress": "",
+    "unsetLowPriority": "",
+    "setLowPriority": "",
+    "theProcessWasCanceled": "",
+    "signInGreeting": "",
+    "removeTag": "",
+    "supportFluffyChat": ""
 }

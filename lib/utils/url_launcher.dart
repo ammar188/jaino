@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:fluffychat/config/app_config.dart';
 import 'package:fluffychat/l10n/l10n.dart';
@@ -184,6 +189,7 @@ class UrlLauncher {
         if (!context.mounted) return;
         await showAdaptiveDialog(
           context: context,
+          barrierDismissible: true,
           builder: (c) =>
               PublicRoomDialog(roomAlias: identityParts.primaryIdentifier),
         );

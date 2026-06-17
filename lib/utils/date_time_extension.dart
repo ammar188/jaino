@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2019-Present Christian Kußowski
+// SPDX-FileCopyrightText: 2019-Present Contributors to FluffyChat
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import 'package:fluffychat/l10n/l10n.dart';
 import 'package:fluffychat/utils/platform_infos.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +29,11 @@ extension DateTimeExtension on DateTime {
   /// Checks if two DateTimes are close enough to belong to the same
   /// environment.
   bool sameEnvironment(DateTime prevTime) =>
-      difference(prevTime) < const Duration(hours: 1);
+      difference(prevTime).abs() < const Duration(minutes: 3) &&
+      sameDay(prevTime);
+
+  bool sameDay(DateTime prevTime) =>
+      prevTime.year == year && prevTime.month == month && prevTime.day == day;
 
   /// Returns a simple time String.
   String localizedTimeOfDay(BuildContext context) => use24HourFormat(context)
@@ -60,6 +69,40 @@ extension DateTimeExtension on DateTime {
     return DateFormat.yMMMd(
       Localizations.localeOf(context).languageCode,
     ).format(this);
+  }
+
+  DateTime get dateOnly => DateTime(year, month, day);
+
+  String localizedDate(BuildContext context) {
+    final date = dateOnly;
+    final now = DateTime.now().dateOnly;
+
+    final sameYear = now.year == date.year;
+
+    final sameDay = now == date;
+
+    final sameWeek =
+        sameYear &&
+        !sameDay &&
+        now.millisecondsSinceEpoch - millisecondsSinceEpoch <
+            1000 * 60 * 60 * 24 * 7;
+
+    if (sameDay) {
+      return L10n.of(context).today;
+    } else if (now.difference(date).inDays == 1) {
+      return L10n.of(context).yesterday;
+    } else if (sameWeek) {
+      return DateFormat.EEEE(
+        Localizations.localeOf(context).languageCode,
+      ).format(date);
+    } else if (sameYear) {
+      return DateFormat.MMMMd(
+        Localizations.localeOf(context).languageCode,
+      ).format(date);
+    }
+    return DateFormat.yMMMMd(
+      Localizations.localeOf(context).languageCode,
+    ).format(date);
   }
 
   /// If the DateTime is today, this returns [localizedTimeOfDay()], if not it also
